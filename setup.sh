@@ -6,4 +6,10 @@ sudo apt install git \
 	         neovim \
 		 dconf-cli \
                  uuid-runtime \
-		 stow
+		 stow \
+		 tmux \
+		 fonts-powerline
+
+
+# Remap caps-lock -> ctrl
+setxkbmap -layout us -option ctrl:nocaps

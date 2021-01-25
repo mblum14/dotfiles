@@ -1,3 +1,6 @@
 [submodule "home/.tmux/plugins/tpm"]
 	path = home/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "src/bash-git-prompt"]
+	path = src/bash-git-prompt
+	url = https://github.com/magicmonty/bash-git-prompt

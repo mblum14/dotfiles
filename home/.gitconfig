@@ -96,7 +96,7 @@
 [core]
   audotcrlf = input
   all = auto[core "auto"]
-  editor = vim --nofork
+  editor = nvim
   whitespace=fix,-index-with-non-tab,trailing-space,cr-at-eol
   safecrlf = true
 [diff]
