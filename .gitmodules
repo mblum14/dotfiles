@@ -1,0 +1,3 @@
+[submodule "Bash-Git-Prompt"]
+	path = Bash-Git-Prompt
+	url = https://github.com/mblum14/Bash-Git-Prompt.git

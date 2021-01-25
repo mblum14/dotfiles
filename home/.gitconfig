@@ -1,0 +1,103 @@
+[color]
+  ui=auto
+  pager=true
+  interactive=auto
+  branch=auto
+  diff=auto
+  status=auto
+[color "branch"]
+  current = green
+  local = green
+  remote = red
+[color "diff"]
+  meta = yellow
+  fratg = magenta
+  old = red
+  new = green
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = magenta
+  deleted = red
+  branch = yellow
+[alias]
+  # add
+  a = add
+  chunkeyadd = add --patch
+
+  # branch
+  br = branch
+
+  # commit
+  c = commit -m
+  ca = commit -am
+  ci = commit
+  amend = commit --amend
+  ammend = commit --amend
+
+  # checkout
+  co = checkout
+  oc = checkout
+  nb = checkout -b
+
+  # cherry-pick
+  cp = cherry-pick -x
+
+  # diff
+  d = diff
+  dc = diff --cached
+  last = diff HEAD^
+
+  # log
+  hist = log --pretty=format:\"%C(yellow)%h %C(white)%ad %C(red)|%C(yellow)%d%C(white) %s [%C(green)%an%C(white)]\" --graph --date=short
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  changelog = log --pretty=format:\" * %s\"
+  review = log -p -b
+  
+  # remote
+  r = remote -v
+  prune = remote update origin --prune
+
+  # rebase
+  rc = rebase --continue
+  rs = rebase --skip
+  ra = rebase --abort
+
+  # reset
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+  filelog = log -u
+  mt = mergetool
+
+  # stash
+  ss = stash
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+
+  # status
+  st = status
+
+  # tag
+  t = tag -n
+
+  type = cat-file -t
+  dump = cat-file -p
+[merge]
+  summary = true
+  verbosity = 1
+[apply]
+  whitespace = fix
+[push]
+  default = tracking
+[user]
+  name = Michael Blumberg
+  email = mblum14@gmail.com
+[core]
+  audotcrlf = input
+  all = auto[core "auto"]
+  editor = vim --nofork
+  whitespace=fix,-index-with-non-tab,trailing-space,cr-at-eol
+  safecrlf = true
+[diff]
+  mnemonicprefix = true
