@@ -1,5 +1,6 @@
 set exrc " open project .nvimrc
 
+let g:polyglot_disabled = ['typescript', 'typescriptreact', 'python']
 call plug#begin('~/.config/nvim/plugged')
 " look and feel
 Plug 'gruvbox-community/gruvbox'
@@ -27,10 +28,13 @@ Plug 'elzr/vim-json'
 Plug 'tpope/vim-markdown'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'sheerun/vim-polyglot'
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'chrisbra/NrrwRgn'
 Plug 'mattn/emmet-vim'
+Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'

@@ -10,5 +10,14 @@
       "path": "/usr/lib/jvm/java-11-openjdk-amd64",
       "default": true
     }
-  ]
+  ],
+  "diagnostic-languageserver.filetypes": {
+    "vim": "vint",
+    "markdown": ["markdownlint"],
+    "sh": "shellcheck"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "python": ["black"],
+    "sh": "shfmt"
+  }
 }
