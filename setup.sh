@@ -3,10 +3,10 @@
 # TODO - install
 sudo add-apt-repository ppa:regolith-linux/release -y
 sudo apt install -y git \
-	            vim \
-	            neovim \
+	      vim \
+	      neovim \
 		    dconf-cli \
-                    uuid-runtime \
+        uuid-runtime \
 		    stow \
 		    tmux \
 		    fonts-powerline \
@@ -20,8 +20,9 @@ sudo apt install -y git \
 		    bat \
 		    silversearcher-ag \
 		    ripgrep \
-                    nodejs \
+        nodejs \
 		    golang \
+        npm \
 		    elixir
 
 wget -q https://github.com/dandavison/delta/releases/download/0.5.1/git-delta_0.5.1_amd64.deb

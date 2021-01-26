@@ -1,6 +1,6 @@
 set exrc " open project .nvimrc
 
-call plug#begin(stdpath('data') . '/plugged')
+call plug#begin('~/.config/nvim/plugged')
 " look and feel
 Plug 'gruvbox-community/gruvbox'
 Plug 'godlygeek/tabular'
@@ -35,27 +35,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 
-
 call plug#end()
-
-
-colorscheme gruvbox
-
-let mapleader = " "
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
-  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-
-nnoremap <c-p> :GGrep<CR>
-nnoremap <leader>p :GGrep<CR>
-
-" airline
-set guifont=PowerlineSymbols
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#coc#enabled = 1
-let g:airline_theme = 'gruvbox'
-let g:airline_powerline_fonts = 1
 
 " ================ Autoreload vimrc ================= "
 augroup reload_vimrc
