@@ -94,6 +94,7 @@
   name = Michael Blumberg
   email = mblum14@gmail.com
 [core]
+  pager = delta
   audotcrlf = input
   all = auto[core "auto"]
   editor = nvim
@@ -101,3 +102,10 @@
   safecrlf = true
 [diff]
   mnemonicprefix = true
+[delta]
+  plus-color = "#98971a"
+  minus-color = "cc241d"
+  syntax-theme = gruvbox
+  line-numbers = true
+[interactive]
+  diffFilter = delta --color-only
