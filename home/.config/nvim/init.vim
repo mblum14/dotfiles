@@ -18,6 +18,7 @@ Plug 'stsewd/fzf-checkout.vim'
 
 " lsp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
 
 " syntax highlighting
 Plug 'm-kat/aws-vim'

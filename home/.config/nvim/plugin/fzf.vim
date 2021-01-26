@@ -3,5 +3,5 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number -- '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
+nnoremap <space>p :GGrep<CR>
 nnoremap <c-p> :GGrep<CR>
-nnoremap <leader>p :GGrep<CR>

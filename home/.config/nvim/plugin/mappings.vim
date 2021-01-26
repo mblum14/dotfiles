@@ -1,5 +1,5 @@
 " ================ Mappings =========================
-let mapleader = " "
+let mapleader = ","
 :imap <C-t> <Esc>:tabnew<CR>
 :imap <C-space> <C-n>
 :imap jj <Esc>

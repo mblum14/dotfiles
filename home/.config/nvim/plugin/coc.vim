@@ -92,16 +92,6 @@ command! -nargs=0 Format :call CocAction('format')
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -109,4 +99,28 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-call coc#add_extension(['coc-angular', 'coc-browser', 'coc-cal', 'coc-cfn-lint', 'cfn-python-lint', 'coc-cmake', 'coc-css', 'coc-cssmodules', 'coc-diagnostic', 'coc-elixer', 'coc-emmet', 'coc-erlang_ls', 'coc-explorer', 'coc-floaterm', 'coc-fzf-preview', 'coc-gist', 'coc-git', 'coc-go', 'coc-graphql', 'coc-highlight', 'coc-html', 'coc-java', 'coc-jedi', 'coc-json', 'coc-lists', 'coc-markdownlint', 'coc-prettier', 'coc-rls', 'coc-sh', 'coc-spell-checker', 'coc-sql', 'coc-svelt', 'coc-svg', 'coc-swagger', 'coc-tabnine', 'coc-todolist', 'coc-toml', 'coc-tsserver', 'coc-xml', 'coc-yaml', 'coc-yank'])
+call coc#add_extension('coc-angular', 'coc-browser', 'coc-calc', 'coc-cfn-lint')
+call coc#add_extension('coc-cmake', 'coc-css', 'coc-cssmodules', 'coc-diagnostic')
+call coc#add_extension('coc-emmet', 'coc-erlang_ls', 'coc-explorer', 'coc-floaterm', 'coc-fzf-preview')
+call coc#add_extension('coc-git', 'coc-go', 'coc-graphql', 'coc-highlight')
+call coc#add_extension('coc-html', 'coc-java', 'coc-jedi', 'coc-json', 'coc-lists')
+call coc#add_extension('coc-markdownlint', 'coc-prettier', 'coc-rls', 'coc-sh', 'coc-spell-checker')
+call coc#add_extension('coc-sql', 'coc-svelte', 'coc-svg', 'coc-swagger', 'coc-tabnine')
+call coc#add_extension('coc-toml', 'coc-tsserver', 'coc-xml', 'coc-yaml')
+call coc#add_extension('coc-yank')
+
+" coc-explorer
+let g:coc_explorer_global_presets = {
+\   'tab': {
+\     'position': 'tab',
+\     'open-action-strategy': 'sourceWindow',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\ }
+nmap <space>e :CocCommand explorer --preset floating<CR>
+nmap <space>- :CocCommand explorer --preset tab<CR>
