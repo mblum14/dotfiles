@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # TODO - install
+sudo add-apt-repository ppa:regolith-linux/release
 sudo apt install git \
 	         vim \
 	         neovim \
@@ -8,8 +9,8 @@ sudo apt install git \
                  uuid-runtime \
 		 stow \
 		 tmux \
-		 fonts-powerline
-
-
-# Remap caps-lock -> ctrl
-setxkbmap -layout us -option ctrl:nocaps
+		 fonts-powerline \
+		 regolith-desktop \
+		 i3xrocks-net-traffic \
+		 i3xrocks-cpu-usage \
+		 i3xrocks-time
