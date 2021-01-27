@@ -22,6 +22,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 
 " syntax highlighting
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'm-kat/aws-vim'
 Plug 'chr4/nginx.vim'
 Plug 'elzr/vim-json'
@@ -39,6 +40,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
