@@ -102,7 +102,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 call coc#add_extension('coc-angular', 'coc-browser', 'coc-calc', 'coc-cfn-lint')
 call coc#add_extension('coc-cmake', 'coc-css', 'coc-cssmodules', 'coc-diagnostic')
 call coc#add_extension('coc-emmet', 'coc-erlang_ls', 'coc-explorer', 'coc-floaterm', 'coc-fzf-preview')
-call coc#add_extension('coc-git', 'coc-go', 'coc-graphql', 'coc-highlight')
+call coc#add_extension('coc-git', 'coc-go', 'coc-highlight')
 call coc#add_extension('coc-html', 'coc-java', 'coc-jedi', 'coc-json', 'coc-lists')
 call coc#add_extension('coc-markdownlint', 'coc-prettier', 'coc-rls', 'coc-sh', 'coc-spell-checker')
 call coc#add_extension('coc-sql', 'coc-svelte', 'coc-svg', 'coc-swagger', 'coc-tabnine')
