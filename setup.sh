@@ -12,7 +12,7 @@ sudo apt install -y git \
 		    stow \
 		    tmux \
 		    fonts-powerline \
-		    regolith-desktop \
+		    regolith-desktop-complete \
 		    i3xrocks-net-traffic \
 		    i3xrocks-cpu-usage \
 		    i3xrocks-time \
