@@ -69,3 +69,5 @@ make
 sudo make install
 popd > /dev/null 2>&1
 
+# use local timezone
+sudo timedatectl set-local-rtc 1 --adjust-system-clock
