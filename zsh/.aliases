@@ -1,0 +1,35 @@
+# ALIASES
+
+# fd was taken by another package, but we don't care
+alias fd='fdfind'
+
+# interactive
+alias cp='cp -vi'
+alias mv='mv -vi'
+
+# Directory navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+ 
+# listings
+alias ls='ls --color=auto'
+alias ll='ls -lAFh'
+alias lc='ls -aCF'
+alias lm='ls -lAFh | more'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# kubernetes
+alias kctl=kubectl
+alias k=kubectl
+
+# configuration shortcuts
+alias zshrc='nvim ~/.dotfiles/home/.zshrc && source ~/.dotfiles/home/.zshrc'
+alias aliases='nvim ~/.dotfiles/zsh/.aliases && source ~/.dotfiles/home/.zshrc'
+alias env='nvim ~/.dotfiles/zsh/.env && source ~/.dotfiles/home/.zshrc'
+alias nvimrc='nvim ~/.dotfiles/home/.config/nvim/init.vim'
+

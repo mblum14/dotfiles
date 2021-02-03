@@ -39,6 +39,8 @@ sudo apt install -y git \
         libgtk-3-dev \
         libpolkit-gobject-1-dev \
         jq \
+				fzf \
+				fd-find \
         python3-pip \
         python3-setuptools
 
@@ -76,3 +78,4 @@ sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s $(which zsh)
