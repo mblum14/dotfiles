@@ -6,6 +6,7 @@ dconf write /org/gnome/nautilus/preferences/show-image-thumbnails '"always"'
 sudo add-apt-repository ppa:regolith-linux/release -y
 sudo apt install -y git \
 				zsh \
+				fish \
 	      vim \
 	      neovim \
 		    dconf-cli \
@@ -78,4 +79,14 @@ sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-chsh -s $(which zsh)
+
+# starship prompt
+curl -fsSL https://starship.rs/install.sh | bash
+
+# oh-my-fish
+curl -L https://get.oh-my.fish | fish
+omf install bobthefish
+omf theme bobthefish
+
+# default shell
+chsh -s $(which fish)
