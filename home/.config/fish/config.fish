@@ -8,6 +8,13 @@ set -g theme_display_git_default_branch yes
 set -g theme_color_scheme gruvbox
 set -g theme_show_exit_status yes
 
+set --universal FZF_DEFAULT_OPTS "--height 40"
+set --universal FZF_ENABLE_OPEN_PREVIEW 1
+set --universal FZF_FIND_FILE_COMMAND "fdfind --type f --hidden --follow --exclude .git --exclude node_modules"
+set --universal FZF_CD_COMMAND "fdfind --type f --hidden --follow --exclude .git --exclude node_modules"
+set --universal FZF_CD_WITH_HIDDEN_COMMAND "fdfind --type f --hidden --follow --exclude .git --exclude node_modules"
+set --universal FZF_PREVIEW_FILE_CMD "bat"
+
 if status is-interactive
 and not set -q TMUX
   exec tmux

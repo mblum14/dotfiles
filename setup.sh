@@ -88,5 +88,9 @@ curl -L https://get.oh-my.fish | fish
 omf install bobthefish
 omf theme bobthefish
 
+# fisher
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install PatrickF1/fzf.fish
+
 # default shell
 chsh -s $(which fish)
