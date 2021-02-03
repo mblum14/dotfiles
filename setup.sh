@@ -5,6 +5,7 @@ dconf write /org/gnome/nautilus/preferences/show-image-thumbnails '"always"'
 
 sudo add-apt-repository ppa:regolith-linux/release -y
 sudo apt install -y git \
+				zsh \
 	      vim \
 	      neovim \
 		    dconf-cli \
@@ -17,6 +18,7 @@ sudo apt install -y git \
 		    i3xrocks-cpu-usage \
 		    i3xrocks-time \
 		    ctags \
+				neofetch \
 		    curl \
 		    wget \
 		    bat \
@@ -71,3 +73,6 @@ popd > /dev/null 2>&1
 
 # use local timezone
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
