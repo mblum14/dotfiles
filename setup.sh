@@ -78,19 +78,12 @@ popd > /dev/null 2>&1
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 # oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# starship prompt
-curl -fsSL https://starship.rs/install.sh | bash
-
-# oh-my-fish
-curl -L https://get.oh-my.fish | fish
-omf install bobthefish
-omf theme bobthefish
+# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install PatrickF1/fzf.fish
+fisher install oh-my-fish/theme-bobthefish
 
 # default shell
 chsh -s $(which fish)
