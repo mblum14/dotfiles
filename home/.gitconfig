@@ -83,6 +83,8 @@
 
   type = cat-file -t
   dump = cat-file -p
+
+  update-cache = remote update origin --prune
 [merge]
   summary = true
   verbosity = 1
