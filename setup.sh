@@ -53,6 +53,9 @@ wget -q https://github.com/dandavison/delta/releases/download/0.5.1/git-delta_0.
 sudo dpkg -i git-delta_0.5.1_amd64.deb
 rm git-delta_0.5.1_amd64.deb
 
+# TPM
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # NPM
 sudo npm i -g neovim yarn markdown-preview eslint catj figlet-cli neovim typescript diagnostic-languageserver terminal-image-cli nb.sh
 
