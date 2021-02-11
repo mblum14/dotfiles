@@ -66,13 +66,13 @@ sudo pip3 install jedi rich commonmark virtualenv poetry neovim pynvim rope blac
 
 # Fonts
 mkdir -p ~/.local/src/
-git clone https://github.com/ryanoasis/nerd-fonts .local/src/nerd-fonts --depth 1 
-./.local/src/nerd-fonts/install.sh
+git clone https://github.com/ryanoasis/nerd-fonts ~/.local/src/nerd-fonts --depth 1 
+~/.local/src/nerd-fonts/install.sh
 
 # login image customizer
 mkdir -p ~/.local/src/
-git clone https://github.com/thiggy01/gdm-background .local/src/gdm-background
-pushd .local/src/gdm-background > /dev/null 2>&1
+git clone https://github.com/thiggy01/gdm-background ~/.local/src/gdm-background
+pushd ~/.local/src/gdm-background > /dev/null 2>&1
 make
 sudo make install
 popd > /dev/null 2>&1
