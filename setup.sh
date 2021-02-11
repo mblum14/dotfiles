@@ -4,46 +4,46 @@
 dconf write /org/gnome/nautilus/preferences/show-image-thumbnails '"always"'
 
 sudo add-apt-repository ppa:regolith-linux/release -y
-sudo apt install -y git \
-				zsh \
-				fish \
-	      vim \
-	      neovim \
-		    dconf-cli \
-        uuid-runtime \
-		    stow \
-		    tmux \
-		    fonts-powerline \
-		    regolith-desktop-complete \
-		    i3xrocks-net-traffic \
-		    i3xrocks-cpu-usage \
-		    i3xrocks-time \
-		    ctags \
-				neofetch \
-		    curl \
-		    wget \
-		    bat \
-		    silversearcher-ag \
-		    ripgrep \
-        nodejs \
-		    golang \
-        npm \
-		    elixir \
-        ruby \
-        ruby-dev \
-        gem \
-        python3-venv \
-        openjdk-11-jre \
-        libglib2.0-dev-bin \
-        make \
-        gcc \
-        libgtk-3-dev \
-        libpolkit-gobject-1-dev \
-        jq \
-				fzf \
-				fd-find \
-        python3-pip \
-        python3-setuptools
+sudo apt-get install -y git \
+												make \
+												gcc \
+												libgtk-3-dev \
+												libpolkit-gobject-1-dev \
+												vim \
+												nodejs \
+												golang \
+												npm \
+												elixir \
+												ruby \
+												ruby-dev \
+												gem \
+												python3-venv \
+												openjdk-11-jre \
+												libglib2.0-dev-bin \
+												python3-pip \
+												python3-setuptools \
+												neovim \
+												dconf-cli \
+												uuid-runtime \
+												universal-ctags \
+												curl \
+												wget \
+												stow \
+												tmux \
+												fonts-powerline \
+												regolith-desktop-complete \
+												i3xrocks-net-traffic \
+												i3xrocks-cpu-usage \
+												i3xrocks-time \
+												neofetch \
+												bat \
+												silversearcher-ag \
+												ripgrep \
+												zsh \
+												fish \
+												jq \
+												fzf \
+												fd-find
 
 # snap
 sudo snap install shfmt
