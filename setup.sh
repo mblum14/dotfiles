@@ -3,6 +3,9 @@
 # Show thumbnails
 dconf write /org/gnome/nautilus/preferences/show-image-thumbnails '"always"'
 
+# remap capslock to control
+dconf write /org/gnome/desktop/input-sources/xkb-options "['ctrl:nocaps']"
+
 sudo add-apt-repository ppa:regolith-linux/release -y
 sudo apt-get install -y git \
 												make \
