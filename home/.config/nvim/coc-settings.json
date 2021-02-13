@@ -22,6 +22,25 @@
     "restructuredtext",
     "text"
   ],
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {}
+    }
+  },
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "markdown": ["markdownlint"],

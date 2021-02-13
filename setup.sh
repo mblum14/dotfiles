@@ -48,6 +48,10 @@ sudo apt-get install -y git \
 												fzf \
 												fd-find
 
+mkdir -p ~/.local/bin/
+mkdir -p ~/.local/share/
+mkdir -p ~/.local/src/
+
 # snap
 sudo snap install shfmt
 
@@ -60,20 +64,22 @@ rm git-delta_0.5.1_amd64.deb
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # NPM
-sudo npm i -g neovim yarn markdown-preview eslint catj figlet-cli neovim typescript diagnostic-languageserver terminal-image-cli nb.sh
+sudo npm i -g neovim yarn markdown-preview eslint catj figlet-cli neovim typescript diagnostic-languageserver terminal-image-cli nb.sh bash-language-server dockerfile-language-server-nodejs
 
 # TODO - create wrappers around markdown-preview, figlet-cli, and terminal-image-cli, nb.sh
+
+# terraform lsp
+wget -q https://releases.hashicorp.com/terraform-ls/0.13.0/terraform-ls_0.13.0_linux_amd64.zip -o ~/local/bin/terraform-ls
+chmod +x ~/local/bin/terraform-ls
 
 # pip
 sudo pip3 install jedi rich commonmark virtualenv poetry neovim pynvim rope black autopep8 yapf vim-vint markdownlint-cli2
 
 # Fonts
-mkdir -p ~/.local/src/
 git clone https://github.com/ryanoasis/nerd-fonts ~/.local/src/nerd-fonts --depth 1
 ~/.local/src/nerd-fonts/install.sh
 
 # login image customizer
-mkdir -p ~/.local/src/
 git clone https://github.com/thiggy01/gdm-background ~/.local/src/gdm-background
 pushd ~/.local/src/gdm-background > /dev/null 2>&1
 make
