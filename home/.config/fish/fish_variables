@@ -6,6 +6,8 @@ SETUVAR FZF_DEFAULT_OPTS:\x2d\x2dheight\x2040
 SETUVAR FZF_ENABLE_OPEN_PREVIEW:1
 SETUVAR FZF_FIND_FILE_COMMAND:fdfind\x20\x2d\x2dtype\x20f\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2d\x2dexclude\x20\x2egit\x20\x2d\x2dexclude\x20node_modules
 SETUVAR FZF_PREVIEW_FILE_CMD:bat
+SETUVAR JAVA_HOME:/usr/lib/jvm/default\x2djava
+SETUVAR JDK_HOME:/usr/lib/jvm/default\x2djava
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/home/blumbmc/\x2econfig/fish/functions/__fzf_extract_var_info\x2efish\x1e/home/blumbmc/\x2econfig/fish/functions/__fzf_preview_file\x2efish\x1e/home/blumbmc/\x2econfig/fish/functions/__fzf_report_file_type\x2efish\x1e/home/blumbmc/\x2econfig/fish/functions/__fzf_search_current_dir\x2efish\x1e/home/blumbmc/\x2econfig/fish/functions/__fzf_search_git_log\x2efish\x1e/home/blumbmc/\x2econfig/fish/functions/__fzf_search_git_status\x2efish\x1e/home/blumbmc/\x2econfig/fish/functions/__fzf_search_history\x2efish\x1e/home/blumbmc/\x2econfig/fish/functions/__fzf_search_shell_variables\x2efish\x1e/home/blumbmc/\x2econfig/fish/conf\x2ed/fzf\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/blumbmc/\x2econfig/fish/functions/fisher\x2efish\x1e/home/blumbmc/\x2econfig/fish/completions/fisher\x2efish

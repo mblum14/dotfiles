@@ -15,6 +15,9 @@ set --universal FZF_CD_COMMAND "fdfind --type f --hidden --follow --exclude .git
 set --universal FZF_CD_WITH_HIDDEN_COMMAND "fdfind --type f --hidden --follow --exclude .git --exclude node_modules"
 set --universal FZF_PREVIEW_FILE_CMD "bat"
 
+set --universal JAVA_HOME "/usr/lib/jvm/default-java"
+set --universal JDK_HOME "/usr/lib/jvm/default-java"
+
 if status is-interactive
 and not set -q TMUX
   exec tmux
