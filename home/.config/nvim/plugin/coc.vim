@@ -100,7 +100,7 @@ call coc#add_extension('coc-emmet', 'coc-erlang_ls', 'coc-explorer', 'coc-floate
 call coc#add_extension('coc-git', 'coc-go', 'coc-highlight')
 call coc#add_extension('coc-html', 'coc-java', 'coc-jedi', 'coc-json', 'coc-lists')
 call coc#add_extension('coc-markdownlint', 'coc-prettier', 'coc-rls', 'coc-sh', 'coc-spell-checker')
-call coc#add_extension('coc-sql', 'coc-svelte', 'coc-svg', 'coc-swagger', 'coc-tabnine')
+call coc#add_extension('coc-sql', 'coc-svelte', 'coc-svg', 'coc-swagger')
 call coc#add_extension('coc-toml', 'coc-tsserver', 'coc-xml', 'coc-yaml')
 call coc#add_extension('coc-yank')
 
