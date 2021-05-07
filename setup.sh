@@ -25,6 +25,7 @@ sudo apt-get install -y git \
 												libglib2.0-dev-bin \
 												python3-pip \
 												python3-setuptools \
+												default-jdk
 												neovim \
 												dconf-cli \
 												uuid-runtime \
