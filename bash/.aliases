@@ -12,7 +12,7 @@ alias .....='cd ../../../..'
  
 # listings
 alias ls='ls --color=auto'
-alias ll='ls -lAFh'
+alias ll='exa -lAFh'
 alias lc='ls -aCF'
 alias lm='ls -lAFh | more'
 

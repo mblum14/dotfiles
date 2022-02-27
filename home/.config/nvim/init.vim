@@ -3,7 +3,7 @@ set exrc " open project .nvimrc
 let g:polyglot_disabled = ['typescript', 'typescriptreact', 'python']
 call plug#begin('~/.config/nvim/plugged')
 " look and feel
-Plug 'gruvbox-community/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'godlygeek/tabular'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -23,15 +23,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 
 " syntax highlighting
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'm-kat/aws-vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'chr4/nginx.vim'
-Plug 'elzr/vim-json'
-Plug 'tpope/vim-markdown'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'othree/yajs.vim'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'sheerun/vim-polyglot'
+"Plug 'elzr/vim-json'
+"Plug 'tpope/vim-markdown'
+"Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'othree/yajs.vim'
+"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+"Plug 'sheerun/vim-polyglot'
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'chrisbra/NrrwRgn'

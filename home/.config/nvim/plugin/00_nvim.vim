@@ -98,6 +98,7 @@ set wildignore+=*.swp
 set wildignore+=*.zip
 
 " ================ Colors ===========================
+set termguicolors
 set background=dark
 colorscheme gruvbox
 let colorcolumn="120"
