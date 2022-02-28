@@ -7,51 +7,60 @@ dconf write /org/gnome/nautilus/preferences/show-image-thumbnails '"always"'
 dconf write /org/gnome/desktop/input-sources/xkb-options "['ctrl:nocaps']"
 
 sudo add-apt-repository ppa:regolith-linux/release -y
-sudo apt-get install -y git \
-												make \
-												gcc \
-												libgtk-3-dev \
-												libpolkit-gobject-1-dev \
-												vim \
-												nodejs \
-												golang \
-												npm \
-												elixir \
-												ruby \
-												ruby-dev \
-												gem \
-												python3-venv \
-												openjdk-11-jre \
-												libglib2.0-dev-bin \
-												python3-pip \
-												python3-setuptools \
-												default-jdk
-												neovim \
-												dconf-cli \
-												uuid-runtime \
-												universal-ctags \
-												curl \
-												wget \
-												stow \
-												tmux \
-												fonts-powerline \
-												regolith-desktop-complete \
-												i3xrocks-net-traffic \
-												i3xrocks-cpu-usage \
-												i3xrocks-time \
-												neofetch \
-												bat \
-												silversearcher-ag \
-												ripgrep \
-												zsh \
-												fish \
-												jq \
-												fzf \
-												fd-find
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt-get update
+
+sudo apt-get install -y git
+sudo apt-get install -y make 
+sudo apt-get install -y curl 
+sudo apt-get install -y gcc 
+sudo apt-get install -y libgtk-3-dev 
+sudo apt-get install -y libpolkit-gobject-1-dev 
+sudo apt-get install -y vim 
+sudo apt-get install -y nodejs 
+sudo apt-get install -y golang 
+sudo apt-get install -y npm 
+sudo apt-get install -y elixir 
+sudo apt-get install -y ruby 
+sudo apt-get install -y ruby-dev 
+sudo apt-get install -y gem 
+sudo apt-get install -y python3-venv 
+sudo apt-get install -y openjdk-11-jre 
+sudo apt-get install -y libglib2.0-dev-bin 
+sudo apt-get install -y python3-pip 
+sudo apt-get install -y python3-setuptools 
+sudo apt-get install -y default-jd
+sudo apt-get install -y neovim 
+sudo apt-get install -y dconf-cli 
+sudo apt-get install -y uuid-runtime 
+sudo apt-get install -y universal-ctags 
+sudo apt-get install -y curl 
+sudo apt-get install -y wget 
+sudo apt-get install -y stow 
+sudo apt-get install -y tmux 
+sudo apt-get install -y fonts-powerline 
+sudo apt-get install -y regolith-desktop 
+sudo apt-get install -y i3xrocks-net-traffic 
+sudo apt-get install -y i3xrocks-cpu-usage 
+sudo apt-get install -y i3xrocks-time 
+sudo apt-get install -y i3xrocks-memory 
+sudo apt-get install -y i3xrocks-weather 
+sudo apt-get install -y neofetch 
+sudo apt-get install -y bat 
+sudo apt-get install -y silversearcher-ag 
+sudo apt-get install -y ripgrep 
+sudo apt-get install -y zsh 
+sudo apt-get install -y fish 
+sudo apt-get install -y jq 
+sudo apt-get install -y fzf 
+sudo apt-get install -y fd-find
+
+exit 0
 
 mkdir -p ~/.local/bin/
 mkdir -p ~/.local/share/
 mkdir -p ~/.local/src/
+mv ~/.bashrc ~/.bashrc.orig
 
 # snap
 sudo snap install shfmt
@@ -88,15 +97,10 @@ sudo make install
 popd > /dev/null 2>&1
 
 # use local timezone
-sudo timedatectl set-local-rtc 1 --adjust-system-clock
+udo timedatectl set-local-rtc 1 --adjust-system-clock
 
-# oh-my-zsh
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# fisher
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install PatrickF1/fzf.fish
-fisher install oh-my-fish/theme-bobthefish
+ oh-my-zsh
+ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # default shell
 chsh -s $(which fish)
