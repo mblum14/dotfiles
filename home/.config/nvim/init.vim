@@ -12,6 +12,7 @@ Plug 'kyazdani42/nvim-web-devicons' "icons
 Plug 'feline-nvim/feline.nvim' "statusbar
 Plug 'akinsho/bufferline.nvim' "bufferline
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " git
 Plug 'lewis6991/gitsigns.nvim'
@@ -48,12 +49,13 @@ set background=dark
 colorscheme gruvbox
 
 lua <<EOF
-require('colorizer').setup()
 require('colors').init()
 require('devicons').setup()
 require('gitsigns').setup()
 require('tabbar').setup()
+require('indent')
 require('statusline').setup()
+require('others').setup()
 EOF
 
 " ================ Autoreload vimrc ================= "
