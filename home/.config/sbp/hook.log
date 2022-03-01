@@ -1,0 +1,9 @@
+
+[22.02.28 21:16:42] [rescuetime.bash - segments::rescuetime_refresh]: [31mNo cache folder[0m
+
+[22.02.28 21:16:42] [rescuetime.bash - segments::rescuetime_refresh]: [31mRESCUETIME_API_KEY not set[0m
+
+[22.02.28 21:16:42] [wttr.bash - segments::wttr_refresh]: [31mNo cache folder[0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    21  100    21    0     0     59      0 --:--:-- --:--:-- --:--:--    59
