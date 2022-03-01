@@ -1,11 +1,8 @@
 local present, bufferline = pcall(require, "bufferline")
-if not present then
-   return
-end
-
 local default = {
    colors = require("colors").get(),
 }
+
 default = {
    options = {
       offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
@@ -137,4 +134,9 @@ default = {
    },
 }
 
-bufferline.setup(default)
+local M = {}
+M.setup = function()
+  bufferline.setup(default)
+end
+
+return M

@@ -53,7 +53,7 @@ require('colorizer').setup()
 require('colors').init()
 require('devicons').setup()
 require('gitsigns').setup()
-require('bufferline')
+require('tabbar').setup()
 require('statusline').setup()
 EOF
 
