@@ -16,7 +16,6 @@ Plug 'norcalli/nvim-colorizer.lua'
 " git
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
-"Plug 'mhinz/vim-signify'
 
 " fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
