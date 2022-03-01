@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+set -e
+
+SBP_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
+export SBP_PATH
+
+bats "${SBP_PATH}/test/"

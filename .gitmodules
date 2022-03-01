@@ -4,3 +4,6 @@
 [submodule "src/bash-git-prompt"]
 	path = src/bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt
+[submodule "home/.local/src/sbp"]
+	path = home/.local/src/sbp
+	url = git@github.com:brujoand/sbp

@@ -49,8 +49,6 @@ sudo apt-get install -y neofetch
 sudo apt-get install -y bat 
 sudo apt-get install -y silversearcher-ag 
 sudo apt-get install -y ripgrep 
-sudo apt-get install -y zsh 
-sudo apt-get install -y fish 
 sudo apt-get install -y jq 
 sudo apt-get install -y fzf 
 sudo apt-get install -y fd-find
@@ -97,10 +95,4 @@ sudo make install
 popd > /dev/null 2>&1
 
 # use local timezone
-udo timedatectl set-local-rtc 1 --adjust-system-clock
-
- oh-my-zsh
- sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# default shell
-chsh -s $(which fish)
+sudo timedatectl set-local-rtc 1 --adjust-system-clock

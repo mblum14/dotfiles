@@ -1,4 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
+
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -8,11 +9,11 @@ case $- in
       *) return;;
 esac
 
-. ~/.dotfiles/bash/.env
-. ~/.dotfiles/bash/.config
-. ~/.dotfiles/bash/.colors
-. ~/.dotfiles/bash/.prompt
-. ~/.dotfiles/bash/.aliases
+. ~/.local/src/bash/.env
+. ~/.local/src/bash/.config
+. ~/.local/src/bash/.colors
+. ~/.local/src/bash/.prompt
+. ~/.local/src/bash/.aliases
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
