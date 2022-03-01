@@ -37,7 +37,8 @@ sudo apt-get install -y universal-ctags
 sudo apt-get install -y curl 
 sudo apt-get install -y wget 
 sudo apt-get install -y stow 
-sudo apt-get install -y tmux 
+sudo apt-get install -y tmux
+sudo apt-get install -y cargo
 sudo apt-get install -y fonts-powerline 
 sudo apt-get install -y regolith-desktop 
 sudo apt-get install -y i3xrocks-net-traffic 
@@ -62,6 +63,7 @@ mv ~/.bashrc ~/.bashrc.orig
 
 # snap
 sudo snap install shfmt
+sudo snap install rustup --classic
 
 # DPK
 wget -q https://github.com/dandavison/delta/releases/download/0.5.1/git-delta_0.5.1_amd64.deb
@@ -72,7 +74,21 @@ rm git-delta_0.5.1_amd64.deb
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # NPM
-sudo npm i -g neovim yarn markdown-preview eslint catj figlet-cli neovim typescript diagnostic-languageserver terminal-image-cli nb.sh bash-language-server dockerfile-language-server-nodejs
+sudo npm i -g \
+  neovim \
+  yarn \
+  markdown-preview \
+  eslint \
+  catj \
+  figlet-cli \
+  neovim \
+  typescript \
+  diagnostic-languageserver \
+  terminal-image-cli \
+  nb.sh \
+  bash-language-server \
+  dockerfile-language-server-nodejs \
+  tsserver
 
 # TODO - create wrappers around markdown-preview, figlet-cli, and terminal-image-cli, nb.sh
 
@@ -81,7 +97,23 @@ wget -q https://releases.hashicorp.com/terraform-ls/0.13.0/terraform-ls_0.13.0_l
 chmod +x ~/local/bin/terraform-ls
 
 # pip
-sudo pip3 install jedi rich commonmark virtualenv poetry neovim pynvim rope black autopep8 yapf vim-vint markdownlint-cli2
+sudo pip3 install jedi \
+  rich \
+  commonmark \
+  virtualenv \
+  poetry \
+  neovim \
+  pynvim \
+  rope \
+  black \
+  autopep8 \
+  yapf \
+  vim-vint \
+  markdownlint-cli2 \
+  pyright
+
+# rust
+rustup +nightly component add rust-analyzer-preview
 
 # Fonts
 git clone https://github.com/ryanoasis/nerd-fonts ~/.local/src/nerd-fonts --depth 1
