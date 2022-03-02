@@ -26,7 +26,7 @@ Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc', 'do': ':UpdateRemo
 " TODO
 
 " syntax highlighting
-" TODO
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " tools
 Plug 'norcalli/nvim-colorizer.lua'
