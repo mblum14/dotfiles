@@ -24,6 +24,17 @@ Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc', 'do': ':UpdateRemo
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
+Plug 'onsails/lspkind-nvim'
+Plug 'andymass/vim-matchup'
 
 " syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -45,6 +56,7 @@ call plug#end()
 set termguicolors
 set background=dark
 colorscheme gruvbox
+let g:loaded_matchit = 1
 
 lua <<EOF
 require('plugin')

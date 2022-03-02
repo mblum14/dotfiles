@@ -50,6 +50,10 @@ treesitter.setup {
     "vim",
     "vue",
     "yaml",
+  },
+  matchup = {
+    enable = true,
+    disable = { },
   }
 }
 

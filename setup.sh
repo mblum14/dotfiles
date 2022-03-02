@@ -13,6 +13,7 @@ sudo apt-get update
 sudo apt-get install -y git
 sudo apt-get install -y make 
 sudo apt-get install -y curl 
+sudo apt-get install -y exa 
 sudo apt-get install -y gcc 
 sudo apt-get install -y libgtk-3-dev 
 sudo apt-get install -y libpolkit-gobject-1-dev 
@@ -105,8 +106,7 @@ sudo pip3 install jedi \
   autopep8 \
   yapf \
   vim-vint \
-  markdownlint-cli2 \
-  pyright
+  markdownlint-cli2
 
 # rust
 rustup +nightly component add rust-analyzer-preview
@@ -123,12 +123,37 @@ sudo make install
 popd > /dev/null 2>&1
 
 # language servers (LSP)
-npm i -g \
-  typescript-language-server \
-  diagnostic-languageserver \
+sudo npm i -g \
+  awk-language-server \
   bash-language-server \
+  cssmodules-language-server \
+  diagnostic-languageserver \
   dockerfile-language-server-nodejs \
-  tsserver
+  emmet-ls \
+  eslint_d \
+  graphql-language-service-cli \
+  prettier \
+  typescript-language-server  \
+  vscode-langservers-extracted \
+  vim-language-server \
+  yaml-language-server
+
+sudo pip3 install jedi-language-server pyright
+
+go install golang.org/x/tools/gopls@latest
+
+gem install --user-install solargraph
+
+curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
+unzip elixir-ls.zip -d "$HOME/.local/src/elixir-ls"
+chmod +x "$HOME/.local/src/elixir-ls/language-server.sh"
+ln -s "$HOME/.local/src/elixir-ls/language-server.sh" "$HOME/.local/bin/elixir-ls"
+rm elixir-ls.zip
+
+curl -fLO https://releases.hashicorp.com/terraform-ls/0.25.2/terraform-ls_0.25.2_linux_amd64.zip
+unzip terraform-ls_0.25.2_linux_amd64.zip -d "$HOME/.local/src/terraform-ls"
+ln -s "$HOME/.local/src/terraform-ls/terraform-ls" "$HOME/.local/bin/"
+rm terraform-ls_0.25.2_linux_amd64.zip
 
 # use local timezone
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
