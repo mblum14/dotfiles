@@ -134,9 +134,4 @@ default = {
    },
 }
 
-local M = {}
-M.setup = function()
-  bufferline.setup(default)
-end
-
-return M
+bufferline.setup(default)

@@ -1,5 +1,6 @@
 local M = {}
 local cmd = vim.cmd
+
 local colors = {
   white = "#c7b89c",
   darker_black = "#1e2122",
@@ -185,7 +186,9 @@ M.init = function()
      vim.cmd("highlight CheatsheetTitle" .. i .. " guibg = " .. color .. " guifg=" .. black)
   end
 end
+
 M.get = function()
   return colors
 end
+
 return M

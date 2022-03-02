@@ -147,9 +147,4 @@ default = {
    },
 }
 
-local M = {}
-M.setup = function()
-   icons.setup(default)
-end
-
-return M
+icons.setup(default)

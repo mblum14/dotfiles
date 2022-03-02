@@ -1,0 +1,6 @@
+require('colors').init()
+require('plugin/bufferline')
+require('plugin/colorizer')
+require('plugin/devicons')
+require('plugin/indent_blankline')
+require('plugin/statusline')

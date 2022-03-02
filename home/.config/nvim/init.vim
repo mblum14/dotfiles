@@ -11,8 +11,6 @@ Plug 'ellisonleao/gruvbox.nvim' " theme
 Plug 'kyazdani42/nvim-web-devicons' "icons
 Plug 'feline-nvim/feline.nvim' "statusbar
 Plug 'akinsho/bufferline.nvim' "bufferline
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'lukas-reineke/indent-blankline.nvim'
 
 " git
 Plug 'lewis6991/gitsigns.nvim'
@@ -31,16 +29,16 @@ Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc', 'do': ':UpdateRemo
 " TODO
 
 " tools
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'godlygeek/tabular'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'chrisbra/NrrwRgn'
 Plug 'mattn/emmet-vim'
-Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -49,13 +47,7 @@ set background=dark
 colorscheme gruvbox
 
 lua <<EOF
-require('colors').init()
-require('devicons').setup()
-require('gitsigns').setup()
-require('tabbar').setup()
-require('indent')
-require('statusline').setup()
-require('others').setup()
+require('plugin')
 EOF
 
 " ================ Autoreload vimrc ================= "
