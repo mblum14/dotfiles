@@ -23,7 +23,7 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc', 'do': ':UpdateRemotePlugins' }
 
 " lsp
-" TODO
+Plug 'neovim/nvim-lspconfig'
 
 " syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

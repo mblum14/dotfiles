@@ -1,4 +1,6 @@
 local present, bufferline = pcall(require, "bufferline")
+require("utils")
+
 local default = {
    colors = require("colors").get(),
 }
@@ -133,5 +135,8 @@ default = {
       },
    },
 }
+
+map("n", '<TAB>', ":BufferLineCycleNext<CR>")
+map("n", '<S-TAB>', ":BufferLineCyclePrev<CR>")
 
 bufferline.setup(default)

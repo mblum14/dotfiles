@@ -83,12 +83,8 @@ sudo npm i -g \
   figlet-cli \
   neovim \
   typescript \
-  diagnostic-languageserver \
   terminal-image-cli \
   nb.sh \
-  bash-language-server \
-  dockerfile-language-server-nodejs \
-  tsserver
 
 # TODO - create wrappers around markdown-preview, figlet-cli, and terminal-image-cli, nb.sh
 
@@ -125,6 +121,14 @@ pushd ~/.local/src/gdm-background > /dev/null 2>&1
 make
 sudo make install
 popd > /dev/null 2>&1
+
+# language servers (LSP)
+npm i -g \
+  typescript-language-server \
+  diagnostic-languageserver \
+  bash-language-server \
+  dockerfile-language-server-nodejs \
+  tsserver
 
 # use local timezone
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
