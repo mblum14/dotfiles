@@ -270,31 +270,25 @@ default.lsp_icon = {
 }
 
 default.mode_colors = {
-   ["n"] = { "NORMAL", default.colors.red },
-   ["no"] = { "N-PENDING", default.colors.red },
-   ["i"] = { "INSERT", default.colors.dark_purple },
-   ["ic"] = { "INSERT", default.colors.dark_purple },
-   ["t"] = { "TERMINAL", default.colors.green },
-   ["v"] = { "VISUAL", default.colors.cyan },
-   ["V"] = { "V-LINE", default.colors.cyan },
-   [""] = { "V-BLOCK", default.colors.cyan },
-   ["R"] = { "REPLACE", default.colors.orange },
-   ["Rv"] = { "V-REPLACE", default.colors.orange },
-   ["s"] = { "SELECT", default.colors.nord_blue },
-   ["S"] = { "S-LINE", default.colors.nord_blue },
-   [""] = { "S-BLOCK", default.colors.nord_blue },
-   ["c"] = { "COMMAND", default.colors.pink },
-   ["cv"] = { "COMMAND", default.colors.pink },
-   ["ce"] = { "COMMAND", default.colors.pink },
-   ["r"] = { "PROMPT", default.colors.teal },
-   ["rm"] = { "MORE", default.colors.teal },
-   ["r?"] = { "CONFIRM", default.colors.teal },
-   ["!"] = { "SHELL", default.colors.green },
+   [110] = { "NORMAL", default.colors.red},
+   [105] = { "INSERT", default.colors.dark_purple },
+   [99] = { "COMAND", default.colors.pink },
+   [116] = { "TERMINAL", default.colors.green },
+   [118] = { "VISUAL", default.colors.cyan },
+   [22] = { "V-BLOCK", default.colors.cyan },
+   [86] = { "V_LINE", default.colors.cyan },
+   [82] = { "REPLACE", default.colors.orange },
+   [115] = { "SELECT", default.colors.nord_blue },
+   [83] = { "S-LINE", default.colors.nord_blue },
 }
+
+local mode = function(n)
+  return default.mode_colors[vim.fn.mode():byte()][n]
+end
 
 default.chad_mode_hl = function()
    return {
-      fg = default.mode_colors[vim.fn.mode()][2],
+      fg = mode(2),
       bg = default.colors.one_bg,
    }
 end
@@ -312,7 +306,7 @@ default.empty_spaceColored = {
    provider = default.statusline_style.left,
    hl = function()
       return {
-         fg = default.mode_colors[vim.fn.mode()][2],
+         fg = mode(2),
          bg = default.colors.one_bg2,
       }
    end,
@@ -323,14 +317,14 @@ default.mode_icon = {
    hl = function()
       return {
          fg = default.colors.statusline_bg,
-         bg = default.mode_colors[vim.fn.mode()][2],
+         bg = mode(2),
       }
    end,
 }
 
 default.empty_space2 = {
    provider = function()
-      return " " .. default.mode_colors[vim.fn.mode()][1] .. " "
+      return " " .. mode(1) .. " "
    end,
    hl = default.chad_mode_hl,
 }
