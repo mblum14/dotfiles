@@ -1,10 +1,7 @@
 # ALIASES
 
-# interactive
-alias cp='cp -vi'
-alias mv='mv -vi'
-
 # Directory navigation
+alias cdd="cd -"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -12,9 +9,7 @@ alias .....='cd ../../../..'
  
 # listings
 alias ls='ls --color=auto'
-alias ll='exa -lAFh'
-alias lc='ls -aCF'
-alias lm='ls -lAFh | more'
+alias ll='exa --all --classify --icons --group-directores-first --sort=extension --long --group -heard -git'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -31,3 +26,5 @@ alias aliases='nvim ~/.dotfiles/bash/.aliases && source ~/.dotfiles/home/.bashrc
 alias config='nvim ~/.dotfiles/bash/.config && source ~/.dotfiles/home/.bashrc'
 alias env='nvim ~/.dotfiles/bash/.env && source ~/.dotfiles/home/.bashrc'
 alias nvimrc='nvim ~/.dotfiles/home/.config/nvim/init.vim'
+
+alias serve='npx http-static -p 8000'
