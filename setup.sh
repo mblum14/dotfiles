@@ -48,7 +48,6 @@ sudo apt-get install -y i3xrocks-time
 sudo apt-get install -y i3xrocks-memory 
 sudo apt-get install -y i3xrocks-weather 
 sudo apt-get install -y neofetch 
-sudo apt-get install -y bat 
 sudo apt-get install -y silversearcher-ag 
 sudo apt-get install -y ripgrep 
 sudo apt-get install -y jq 
@@ -89,10 +88,6 @@ sudo npm i -g \
 
 # TODO - create wrappers around markdown-preview, figlet-cli, and terminal-image-cli, nb.sh
 
-# terraform lsp
-wget -q https://releases.hashicorp.com/terraform-ls/0.13.0/terraform-ls_0.13.0_linux_amd64.zip -o ~/local/bin/terraform-ls
-chmod +x ~/local/bin/terraform-ls
-
 # pip
 sudo pip3 install jedi \
   rich \
@@ -110,6 +105,7 @@ sudo pip3 install jedi \
 
 # rust
 rustup +nightly component add rust-analyzer-preview
+cargo install bat
 
 # Fonts
 git clone https://github.com/ryanoasis/nerd-fonts ~/.local/src/nerd-fonts --depth 1
@@ -155,6 +151,10 @@ curl -fLO https://releases.hashicorp.com/terraform-ls/0.25.2/terraform-ls_0.25.2
 unzip terraform-ls_0.25.2_linux_amd64.zip -d "$HOME/.local/src/terraform-ls"
 ln -s "$HOME/.local/src/terraform-ls/terraform-ls" "$HOME/.local/bin/"
 rm terraform-ls_0.25.2_linux_amd64.zip
+
+# terraform lsp
+wget -q https://releases.hashicorp.com/terraform-ls/0.13.0/terraform-ls_0.13.0_linux_amd64.zip -o ~/local/bin/terraform-ls
+chmod +x ~/local/bin/terraform-ls
 
 # use local timezone
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
