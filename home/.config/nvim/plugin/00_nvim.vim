@@ -86,6 +86,7 @@ set nostartofline                     " don't jump to col1 on switch buffer
 " ================ Completion =======================
 
 set completeopt=menu,menuone,noselect
+set spelllang=en_us
 
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
