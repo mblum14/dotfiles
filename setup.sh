@@ -131,6 +131,7 @@ sudo npm i -g \
   dockerfile-language-server-nodejs \
   emmet-ls \
   eslint_d \
+  flow-bin \
   graphql-language-service-cli \
   prettier \
   typescript-language-server  \

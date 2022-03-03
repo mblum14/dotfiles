@@ -7,9 +7,43 @@ local function config(_config)
   }, _config or {})
 end
 
+local source_mapping = {
+  buffer = "[Buffer]",
+  nvim_lsp = "[LSP]",
+  nvim_lua = "[Lua]",
+  path = "[Path]",
+}
+
 lspkind.init({
   mode = 'symbol_text',
   preset = 'codicons',
+  symbol_map = {
+    Text = "",
+    Function = "",
+    Field = "ﰠ",
+    Class = "ﴯ",
+    Module = "",
+    Unit = "塞",
+    Enum = "",
+    Snippet = "",
+    File = "",
+    Folder = "",
+    Constant = "",
+    Event = "",
+    Method = "",
+    Constructor = "",
+    Variable = "",
+    Interface = "",
+    Property = "ﰠ",
+    Value = "",
+    Keyword = "",
+    Color = "",
+    Reference = "",
+    EnumMember = "",
+    Struct = "פּ",
+    Operator = "",
+    TypeParameter = "",
+  }
 })
 
 cmp.setup({
@@ -35,13 +69,18 @@ cmp.setup({
     { name = 'buffer' },
   }),
   formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol',
-      maxwidth = 50,
-      before = function (entry, vim_item)
-        return vim_item
-      end
-    })
+    format = function(entry, vim_item)
+			vim_item.kind = lspkind.presets.default[vim_item.kind]
+			local menu = source_mapping[entry.source.name]
+			if entry.source.name == "cmp_tabnine" then
+				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+					menu = entry.completion_item.data.detail .. " " .. menu
+				end
+				vim_item.kind = ""
+			end
+			vim_item.menu = menu
+			return vim_item
+		end,
   }
 })
 
@@ -89,6 +128,7 @@ require('lspconfig').elixirls.setup(config({
 }))
 require('lspconfig').emmet_ls.setup(config({}))
 require('lspconfig').eslint.setup(config({}))
+require('lspconfig').flow.setup(config({}))
 require('lspconfig').gopls.setup(config({}))
 require('lspconfig').graphql.setup(config({}))
 require('lspconfig').html.setup(config(snippet_support))
