@@ -135,6 +135,7 @@ sudo npm i -g \
   graphql-language-service-cli \
   stylelint \
   prettier \
+  prettier_d_slim \
   typescript-language-server  \
   vscode-langservers-extracted \
   vim-language-server \
