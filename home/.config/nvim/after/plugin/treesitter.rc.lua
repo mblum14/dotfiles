@@ -1,8 +1,5 @@
 local present, treesitter = pcall(require, "nvim-treesitter.configs")
-
-if not present then
-   return
-end
+if (not present) then return end
 
 treesitter.setup {
   highlight = {
@@ -10,7 +7,7 @@ treesitter.setup {
     disable = {}
   },
   indent = {
-    enable = false,
+    enable = true,
     disable = {}
   },
   ensure_installed = {
@@ -50,6 +47,9 @@ treesitter.setup {
     "vim",
     "vue",
     "yaml",
+  },
+  autotag = {
+    enable = true,
   },
   matchup = {
     enable = true,

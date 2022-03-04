@@ -129,9 +129,11 @@ sudo npm i -g \
   diagnostic-languageserver \
   dockerfile-language-server-nodejs \
   emmet-ls \
+  eslint \
   eslint_d \
   flow-bin \
   graphql-language-service-cli \
+  stylelint \
   prettier \
   typescript-language-server  \
   vscode-langservers-extracted \
@@ -142,7 +144,9 @@ sudo pip3 install jedi-language-server pyright
 
 go install golang.org/x/tools/gopls@latest
 
-gem install --user-install solargraph
+gem install --user-install \
+  solargraph \
+  reek
 
 curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
 unzip elixir-ls.zip -d "$HOME/.local/src/elixir-ls"

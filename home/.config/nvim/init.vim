@@ -32,14 +32,13 @@ Plug 'hrsh7th/cmp-emoji'
 Plug 'hrsh7th/cmp-calc'
 Plug 'f3fora/cmp-spell'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 
 Plug 'onsails/lspkind-nvim'
 Plug 'andymass/vim-matchup'
-
 
 " syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -62,10 +61,6 @@ set termguicolors
 set background=dark
 colorscheme gruvbox
 let g:loaded_matchit = 1
-
-lua <<EOF
-require('plugin')
-EOF
 
 " ================ Autoreload vimrc ================= "
 augroup reload_vimrc

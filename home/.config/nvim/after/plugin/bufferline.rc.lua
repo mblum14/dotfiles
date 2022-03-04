@@ -1,6 +1,8 @@
 local present, bufferline = pcall(require, "bufferline")
 require("utils")
 
+if (not present) then return end
+
 local default = {
    colors = require("colors").get(),
 }

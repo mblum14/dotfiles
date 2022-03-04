@@ -1,7 +1,5 @@
 local present, icons = pcall(require, "nvim-web-devicons")
-if not present then
-   return
-end
+if (not present) then return end
 
 local default = {
    colors = require("colors").get(),

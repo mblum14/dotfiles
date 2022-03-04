@@ -1,7 +1,5 @@
 local present, feline = pcall(require, "feline")
-if not present then
-   return
-end
+if (not present) then return end
 
 local default = {
    colors = require("colors").get(),
