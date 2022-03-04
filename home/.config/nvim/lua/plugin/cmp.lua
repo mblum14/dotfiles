@@ -73,6 +73,7 @@ cmp.setup({
     { name = 'spell' },
     { name = 'calc' },
     { name = 'emoji' },
+    { name = 'nvim_lsp_signature_help' },
   }),
   formatting = {
     format = function(entry, vim_item)
