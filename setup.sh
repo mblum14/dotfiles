@@ -103,6 +103,9 @@ sudo pip3 install jedi \
   vim-vint \
   markdownlint-cli2
 
+# ruby
+sudo gem install neovim
+
 # rust
 rustup +nightly component add rust-analyzer-preview
 cargo install bat
