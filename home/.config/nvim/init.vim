@@ -22,40 +22,43 @@ Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc', 'do': ':UpdateRemotePlugins' }
 
+" snippets
+Plug 'hrsh7th/vim-vsnip'
+
 " lsp
 Plug 'neovim/nvim-lspconfig'
+
+" lsp sources
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-emoji'
 Plug 'hrsh7th/cmp-calc'
-Plug 'f3fora/cmp-spell'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-
-Plug 'folke/trouble.nvim'
-
 Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'f3fora/cmp-spell'
 
-Plug 'onsails/lspkind-nvim'
-Plug 'andymass/vim-matchup'
+" lsp customizations
+Plug 'folke/trouble.nvim'   " pretty diagnostic lists
+Plug 'onsails/lspkind-nvim' " add icons to built-in lsp
 
 " syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " tools
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'godlygeek/tabular'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'chrisbra/NrrwRgn'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
+Plug 'andymass/vim-matchup'                " highlight/navigate/operate on sets of matching text
+Plug 'norcalli/nvim-colorizer.lua'         " show colors
+Plug 'lukas-reineke/indent-blankline.nvim' " show indentation guides
+Plug 'godlygeek/tabular'                   " auto align
+Plug 'christoomey/vim-tmux-navigator'      " tmux navigation bindings
+Plug 'chrisbra/NrrwRgn'                    " narrow region
+Plug 'mattn/emmet-vim'                     " emmet
+Plug 'tpope/vim-repeat'                    " repeat surround commands
+Plug 'tpope/vim-surround'                  " surround text utilities
+Plug 'tpope/vim-unimpaired'                " handy mappings
+Plug 'tpope/vim-vinegar'                   " netrw customizations
 
 call plug#end()
 

@@ -91,6 +91,8 @@ sudo npm i -g \
 # pip
 sudo pip3 install jedi \
   rich \
+  flake8 \
+  pylint \
   commonmark \
   virtualenv \
   poetry \
@@ -147,7 +149,8 @@ go install golang.org/x/tools/gopls@latest
 
 gem install --user-install \
   solargraph \
-  reek
+  reek \
+  rubocop
 
 curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
 unzip elixir-ls.zip -d "$HOME/.local/src/elixir-ls"
