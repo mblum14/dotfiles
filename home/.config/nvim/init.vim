@@ -7,10 +7,11 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-lua/plenary.nvim'
 
 " look and feel
-Plug 'ellisonleao/gruvbox.nvim' " theme
-Plug 'kyazdani42/nvim-web-devicons' "icons
-Plug 'feline-nvim/feline.nvim' "statusbar
-Plug 'akinsho/bufferline.nvim' "bufferline
+Plug 'ellisonleao/gruvbox.nvim'     " theme
+Plug 'kyazdani42/nvim-web-devicons' " icons
+Plug 'feline-nvim/feline.nvim'      " statusbar
+Plug 'akinsho/bufferline.nvim'      " bufferline
+Plug 'folke/lsp-colors.nvim'
 
 " git
 Plug 'lewis6991/gitsigns.nvim'
