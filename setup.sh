@@ -122,8 +122,11 @@ sudo pip3 install jedi \
 sudo gem install neovim
 
 # rust
-rustup +nightly component add rust-analyzer-preview
+rustup +nightly component add rust-analyzer-preview rust-src
 cargo install bat du-dust
+mkdir -p ~/.local/share/bash-completions/completions/
+rustup completions bash cargo >> ~/.local/share/bash-completions/completions/cargo
+rustup completions bash rustup >> ~/.local/share/bash-completions/completions/rustup
 
 # Fonts
 git clone https://github.com/ryanoasis/nerd-fonts ~/.local/src/nerd-fonts --depth 1
