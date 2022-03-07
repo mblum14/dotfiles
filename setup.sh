@@ -23,8 +23,9 @@ sudo apt-get install -y golang
 sudo apt-get install -y npm 
 sudo apt-get install -y elixir 
 sudo apt-get install -y ruby 
-sudo apt-get install -y ruby-dev 
-sudo apt-get install -y gem 
+sudo apt-get install -y ruby-dev
+sudo apt-get install -y gem
+sudo apt-get install -y shellcheck
 sudo apt-get install -y python3-venv 
 sudo apt-get install -y openjdk-11-jre 
 sudo apt-get install -y libglib2.0-dev-bin 
@@ -110,7 +111,7 @@ sudo gem install neovim
 
 # rust
 rustup +nightly component add rust-analyzer-preview
-cargo install bat
+cargo install bat du-dust
 
 # Fonts
 git clone https://github.com/ryanoasis/nerd-fonts ~/.local/src/nerd-fonts --depth 1

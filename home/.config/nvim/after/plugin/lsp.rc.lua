@@ -92,7 +92,7 @@ servers = {
       'python',
       'typescript',
       'typescriptreact',
-      'bash',
+      'sh',
       'json',
       'yaml',
       'css',
@@ -106,6 +106,7 @@ servers = {
           sourceName = 'shellcheck',
           command = 'shellcheck',
           debounce = 100,
+          ignore = { ".git", "dist/" },
           args = { '--format', 'json1', '-' },
           parseJson = {
             errorsRoot = 'comments',
@@ -268,7 +269,7 @@ servers = {
         rootPatterns = { '.flowconfig', '.git' },
       },
       filetypes = {
-        bash = 'shellcheck',
+        sh = 'shellcheck',
         javascript = {'eslint', 'flow'},
         javascriptreact = 'eslint',
         typescript = 'eslint',
