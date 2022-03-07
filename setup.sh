@@ -6,8 +6,16 @@ dconf write /org/gnome/nautilus/preferences/show-image-thumbnails '"always"'
 # remap capslock to control
 dconf write /org/gnome/desktop/input-sources/xkb-options "['ctrl:nocaps']"
 
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg -dearmor -o /usr/share/keyrings/hashicorp-keyring.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
 sudo add-apt-repository ppa:regolith-linux/release -y
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 sudo apt-get update
 
 sudo apt-get install -y git
@@ -25,6 +33,10 @@ sudo apt-get install -y elixir
 sudo apt-get install -y ruby 
 sudo apt-get install -y ruby-dev
 sudo apt-get install -y gem
+sudo apt-get install -y terraform
+sudo apt-get install -y docker-ce
+sudo apt-get install -y docker-ce-cli
+sudo apt-get install -y containerd.io
 sudo apt-get install -y shellcheck
 sudo apt-get install -y python3-venv 
 sudo apt-get install -y openjdk-11-jre 
@@ -161,7 +173,7 @@ rm elixir-ls.zip
 
 curl -fLO https://releases.hashicorp.com/terraform-ls/0.25.2/terraform-ls_0.25.2_linux_amd64.zip
 unzip terraform-ls_0.25.2_linux_amd64.zip -d "$HOME/.local/src/terraform-ls"
-ln -s "$HOME/.local/src/terraform-ls/terraform-ls" "$HOME/.local/bin/"
+ln -s "/home/mblumber/.local/src/terraform-ls/terraform-ls" "/home/mblumber/.local/bin/"
 rm terraform-ls_0.25.2_linux_amd64.zip
 
 # terraform lsp
