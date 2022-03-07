@@ -924,7 +924,10 @@ servers = {
     cmd = { "rustup", "run", "nightly", "rust-analyzer" },
   },
   ['solargraph'] = {},
-  ['terraform_lsp'] = {},
+  ['terraformls'] = {
+    cmd = { "terraform-ls", "serve" },
+    filetypes = { "terraform" },
+  },
   ['tsserver'] = {},
   ['vimls'] = {},
   ['yamlls'] = {},

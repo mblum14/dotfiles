@@ -1,4 +1,5 @@
 local present, lspconfig = pcall(require, "lspconfig")
+local present, lspconfig = pcall(require, "lspconfig")
 local protocol = require'vim.lsp.protocol'
 if (not present) then return end
 
@@ -358,7 +359,10 @@ servers = {
     cmd = { "rustup", "run", "nightly", "rust-analyzer" },
   },
   ['solargraph'] = {},
-  ['terraform_lsp'] = {},
+  ['terraformls'] = {
+    cmd = { "terraform-ls", "serve" },
+    filetypes = { "terraform" },
+  },
   ['tsserver'] = {},
   ['vimls'] = {},
   ['yamlls'] = {},

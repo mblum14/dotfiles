@@ -68,6 +68,8 @@ set background=dark
 colorscheme gruvbox
 let g:loaded_matchit = 1
 
+autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()
+
 " ================ Autoreload vimrc ================= "
 augroup reload_vimrc
   autocmd!
