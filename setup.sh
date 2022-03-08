@@ -122,6 +122,7 @@ sudo pip3 install jedi \
 sudo gem install neovim
 
 # rust
+rustup update
 rustup +nightly component add rust-analyzer-preview rust-src
 cargo install bat du-dust
 mkdir -p ~/.local/share/bash-completions/completions/
