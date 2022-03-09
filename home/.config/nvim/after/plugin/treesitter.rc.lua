@@ -62,5 +62,5 @@ treesitter.setup {
   }
 }
 
-local parser_configs = require "nvim-treesitter.parsers".get_parser_configs()
-parser_configs.tsx.used_by = { "javascript", "typescript.tsx" }
+local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
+ft_to_parser.tsx = { "javascript", "typescript.tsx" }
