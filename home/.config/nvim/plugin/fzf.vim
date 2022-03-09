@@ -26,10 +26,10 @@ let g:fzf_preview_git_files_command = 'rg --files --hidden --follow --no-message
 
 nmap <space>s [fzf-s]
 xmap <space>s [fzf-s]c
-nnoremap <silent> [fzf-s]/ :Rg<CR>
+nnoremap [fzf-s]/ :Rg<CR>
 nnoremap <c-p>/ :Rg<CR>
-nnoremap <silent> [fzf-s]r :Rg<CR>
-nnoremap <silent> [fzf-s]p  :GFiles<CR>
+nnoremap [fzf-s]r :Rg<CR>
+nnoremap [fzf-s]p  :GFiles<CR>
 
 nmap <space>f [fzf-f]
 xmap <space>f [fzf-f]
