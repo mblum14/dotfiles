@@ -1,5 +1,5 @@
 local present, lspconfig = pcall(require, "lspconfig")
-local present, lspconfig = pcall(require, "lspconfig")
+local wk = require'which-key'
 local protocol = require'vim.lsp.protocol'
 if (not present) then return end
 
@@ -11,24 +11,36 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap("n", 'gi', "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  buf_set_keymap("n", 'gk', "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  buf_set_keymap("n", '<leader>wa', "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-  buf_set_keymap("n", '<leader>wr', "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-  buf_set_keymap("n", '<leader>wl', "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-  buf_set_keymap("n", '<leader>D', "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  buf_set_keymap("n", '<leader>ra', "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  buf_set_keymap("n", '<leader>ca', "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  buf_set_keymap("n", 'gr', "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  buf_set_keymap("n", 'ge', "<cmd>TroubleToggle<CR>", opts)
-  buf_set_keymap("n", '[d', "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-  buf_set_keymap("n", ']d', "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-  buf_set_keymap("n", '<leader>q', "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  buf_set_keymap("n", '<leader>fm', "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  local opts = { buffer=bufnr, noremap=true, silent=true }
+  wk.register({
+    g = {
+      name = "lsp goto",
+      d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Goto definition" },
+      D = { "<Cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration" },
+      td = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto type definition" },
+      i = { "<Cmd>lua vim.lsp.buf.implementation()<CR>", "Goto implementation" },
+      k = { "<Cmd>lua vim.lsp.buf.signature_help()<CR>", "open signature help" },
+      r = { "<Cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
+      e = { "<Cmd>TroubleToggle<CR>", "Open quickfix" },
+    },
+    ["<leader>"] = {
+      name = "lsp action",
+      w = {
+        name = "workspace",
+        a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add workspace folder" },
+        r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace folder" },
+        l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List workspace folders" },
+      },
+      rn = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+      ca = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
+      q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Set location list" },
+      fm = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Formatting" },
+    },
+    K = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Show definition" },
+    ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "goto previous" },
+    ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "goto next" },
+  }, opts)
+
 
   -- formatting
   if client.name == 'tsserver' then

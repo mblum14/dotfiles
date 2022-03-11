@@ -93,8 +93,8 @@ mappings = {
   ["<leader>"] = {
     ["wk"] = { ":WhichKey<CR>", "Open Whichkey" }
   },
-  ["<tab>"] = { ":BufferLineCycleNext<CR>", "goto Next buffer" }
-  ["<s-tab>"] = { ":BufferLineCyclePrev<CR>", "goto Previous buffer" }
+  ["<tab>"] = { ":BufferLineCycleNext<CR>", "goto Next buffer" },
+  ["<s-tab>"] = { ":BufferLineCyclePrev<CR>", "goto Previous buffer" },
   g = {
     name = "goto",
     e = { "Open Trouble" }
