@@ -45,7 +45,7 @@ nnoremap J mzJ`z
 nnoremap <C-j> :cnext<CR>zzzv
 
 " Moving text
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
+"inoremap <C-j> <esc>:m .+1<CR>==
+"inoremap <C-k> <esc>:m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==

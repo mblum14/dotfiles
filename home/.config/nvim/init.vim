@@ -49,6 +49,7 @@ Plug 'onsails/lspkind-nvim' " add icons to built-in lsp
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " tools
+Plug 'folke/which-key.nvim'                " Show key bindings
 Plug 'andymass/vim-matchup'                " highlight/navigate/operate on sets of matching text
 Plug 'norcalli/nvim-colorizer.lua'         " show colors
 Plug 'lukas-reineke/indent-blankline.nvim' " show indentation guides

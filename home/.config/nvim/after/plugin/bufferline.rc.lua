@@ -1,5 +1,4 @@
 local present, bufferline = pcall(require, "bufferline")
-require("utils")
 
 if (not present) then return end
 
@@ -137,8 +136,5 @@ default = {
       },
    },
 }
-
-map("n", '<TAB>', ":BufferLineCycleNext<CR>")
-map("n", '<S-TAB>', ":BufferLineCyclePrev<CR>")
 
 bufferline.setup(default)
