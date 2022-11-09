@@ -52,7 +52,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/which-key.nvim'                " Show key bindings
 Plug 'andymass/vim-matchup'                " highlight/navigate/operate on sets of matching text
 Plug 'norcalli/nvim-colorizer.lua'         " show colors
-Plug 'lukas-reineke/indent-blankline.nvim' " show indentation guides
+"Plug 'lukas-reineke/indent-blankline.nvim' " show indentation guides
 Plug 'godlygeek/tabular'                   " auto align
 Plug 'christoomey/vim-tmux-navigator'      " tmux navigation bindings
 Plug 'chrisbra/NrrwRgn'                    " narrow region
@@ -64,9 +64,6 @@ Plug 'tpope/vim-vinegar'                   " netrw customizations
 
 call plug#end()
 
-set termguicolors
-set background=dark
-colorscheme gruvbox
 let g:loaded_matchit = 1
 
 autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()

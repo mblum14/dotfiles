@@ -1,87 +1,61 @@
 #!/usr/bin/env bash
 
-# Show thumbnails
-dconf write /org/gnome/nautilus/preferences/show-image-thumbnails '"always"'
+brew update --auto-update
 
-# remap capslock to control
-dconf write /org/gnome/desktop/input-sources/xkb-options "['ctrl:nocaps']"
+brew install \
+  git \
+  make  \
+  curl  \
+  exa  \
+  gcc  \
+  libpolkit-gobject-1-dev  \
+  node \
+  golang  \
+  python@3.11
+  npm  \
+  elixir  \
+  ruby  \
+  ruby-dev \
+  gem \
+  neovim  \
+  terraform \
+  docker-ce \
+  docker-ce-cli \
+  containerd.io \
+  shellcheck \
+  python3-venv  \
+  openjdk-11-jre  \
+  libglib2.0-dev-bin  \
+  python3-pip  \
+  python3-setuptools  \
+  default-jd \
+  uuid-runtime  \
+  universal-ctags  \
+  curl  \
+  shfmt \
+  rustup \
+  wget  \
+  stow  \
+  tmux \
+  cargo \
+  fonts-powerline  \
+  neofetch  \
+  silversearcher-ag  \
+  ripgrep  \
+  jq  \
+  fzf  \
+  fd-find
 
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg -dearmor -o /usr/share/keyrings/hashicorp-keyring.gpg
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+#exit 0
+#
+#mkdir -p ~/.local/bin/
+#mkdir -p ~/.local/share/
+#mkdir -p ~/.local/src/
+#mv ~/.bashrc ~/.bashrc.orig
 
-sudo add-apt-repository ppa:regolith-linux/release -y
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo apt-get update
-
-sudo apt-get install -y git
-sudo apt-get install -y make 
-sudo apt-get install -y curl 
-sudo apt-get install -y exa 
-sudo apt-get install -y gcc 
-sudo apt-get install -y libgtk-3-dev 
-sudo apt-get install -y libpolkit-gobject-1-dev 
-sudo apt-get install -y vim 
-sudo apt-get install -y nodejs 
-sudo apt-get install -y golang 
-sudo apt-get install -y npm 
-sudo apt-get install -y elixir 
-sudo apt-get install -y ruby 
-sudo apt-get install -y ruby-dev
-sudo apt-get install -y gem
-sudo apt-get install -y terraform
-sudo apt-get install -y docker-ce
-sudo apt-get install -y docker-ce-cli
-sudo apt-get install -y containerd.io
-sudo apt-get install -y shellcheck
-sudo apt-get install -y python3-venv 
-sudo apt-get install -y openjdk-11-jre 
-sudo apt-get install -y libglib2.0-dev-bin 
-sudo apt-get install -y python3-pip 
-sudo apt-get install -y python3-setuptools 
-sudo apt-get install -y default-jd
-sudo apt-get install -y neovim 
-sudo apt-get install -y dconf-cli 
-sudo apt-get install -y uuid-runtime 
-sudo apt-get install -y universal-ctags 
-sudo apt-get install -y curl 
-sudo apt-get install -y wget 
-sudo apt-get install -y stow 
-sudo apt-get install -y tmux
-sudo apt-get install -y cargo
-sudo apt-get install -y fonts-powerline 
-sudo apt-get install -y regolith-desktop 
-sudo apt-get install -y i3xrocks-net-traffic 
-sudo apt-get install -y i3xrocks-cpu-usage 
-sudo apt-get install -y i3xrocks-time 
-sudo apt-get install -y i3xrocks-memory 
-sudo apt-get install -y i3xrocks-weather 
-sudo apt-get install -y neofetch 
-sudo apt-get install -y silversearcher-ag 
-sudo apt-get install -y ripgrep 
-sudo apt-get install -y jq 
-sudo apt-get install -y fzf 
-sudo apt-get install -y fd-find
-
-exit 0
-
-mkdir -p ~/.local/bin/
-mkdir -p ~/.local/share/
-mkdir -p ~/.local/src/
-mv ~/.bashrc ~/.bashrc.orig
-
-# snap
-sudo snap install shfmt
-sudo snap install rustup --classic
-
-# DPK
-wget -q https://github.com/dandavison/delta/releases/download/0.5.1/git-delta_0.5.1_amd64.deb
-sudo dpkg -i git-delta_0.5.1_amd64.deb
-rm git-delta_0.5.1_amd64.deb
+## snap
+#sudo snap install shfmt
+#sudo snap install rustup --classic
 
 # TPM
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -90,19 +64,19 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo npm i -g \
   neovim \
   yarn \
-  markdown-preview \
   eslint \
   catj \
   figlet-cli \
   neovim \
   typescript \
   terminal-image-cli \
-  nb.sh \
+  nb.sh
 
 # TODO - create wrappers around markdown-preview, figlet-cli, and terminal-image-cli, nb.sh
 
 # pip
-sudo pip3 install jedi \
+python3.11 -m pip install --user \
+  jedi \
   rich \
   flake8 \
   pylint \
@@ -122,27 +96,72 @@ sudo pip3 install jedi \
 sudo gem install neovim
 
 # rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup update
 rustup +nightly component add rust-analyzer-preview rust-src
-cargo install bat du-dust
+cargo install \
+  bat \
+  git-delta \
+  du-dust
 mkdir -p ~/.local/share/bash-completions/completions/
 rustup completions bash cargo >> ~/.local/share/bash-completions/completions/cargo
 rustup completions bash rustup >> ~/.local/share/bash-completions/completions/rustup
 
 # Fonts
-git clone https://github.com/ryanoasis/nerd-fonts ~/.local/src/nerd-fonts --depth 1
-~/.local/src/nerd-fonts/install.sh
-
-# login image customizer
-git clone https://github.com/thiggy01/gdm-background ~/.local/src/gdm-background
-pushd ~/.local/src/gdm-background > /dev/null 2>&1
-make
-sudo make install
-popd > /dev/null 2>&1
+brew tap homebrew/cask-fonts
+brew install --cask font-3270-nerd-font
+brew install --cask font-fira-mono-nerd-font
+brew install --cask font-inconsolata-go-nerd-font
+brew install --cask font-inconsolata-lgc-nerd-font
+brew install --cask font-inconsolata-nerd-font
+brew install --cask font-monofur-nerd-font
+brew install --cask font-overpass-nerd-font
+brew install --cask font-ubuntu-mono-nerd-font
+brew install --cask font-agave-nerd-font
+brew install --cask font-arimo-nerd-font
+brew install --cask font-anonymice-nerd-font
+brew install --cask font-aurulent-sans-mono-nerd-font
+brew install --cask font-bigblue-terminal-nerd-font
+brew install --cask font-bitstream-vera-sans-mono-nerd-font
+brew install --cask font-blex-mono-nerd-font
+brew install --cask font-caskaydia-cove-nerd-font
+brew install --cask font-code-new-roman-nerd-font
+brew install --cask font-cousine-nerd-font
+brew install --cask font-daddy-time-mono-nerd-font
+brew install --cask font-dejavu-sans-mono-nerd-font
+brew install --cask font-droid-sans-mono-nerd-font
+brew install --cask font-fantasque-sans-mono-nerd-font
+brew install --cask font-fira-code-nerd-font
+brew install --cask font-go-mono-nerd-font
+brew install --cask font-gohufont-nerd-font
+brew install --cask font-hack-nerd-font
+brew install --cask font-hasklug-nerd-font
+brew install --cask font-heavy-data-nerd-font
+brew install --cask font-hurmit-nerd-font
+brew install --cask font-im-writing-nerd-font
+brew install --cask font-iosevka-nerd-font
+brew install --cask font-jetbrains-mono-nerd-font
+brew install --cask font-lekton-nerd-font
+brew install --cask font-liberation-nerd-font
+brew install --cask font-meslo-lg-nerd-font
+brew install --cask font-monoid-nerd-font
+brew install --cask font-mononoki-nerd-font
+brew install --cask font-mplus-nerd-font
+brew install --cask font-noto-nerd-font
+brew install --cask font-open-dyslexic-nerd-font
+brew install --cask font-profont-nerd-font
+brew install --cask font-proggy-clean-tt-nerd-font
+brew install --cask font-roboto-mono-nerd-font
+brew install --cask font-sauce-code-pro-nerd-font
+brew install --cask font-shure-tech-mono-nerd-font
+brew install --cask font-space-mono-nerd-font
+brew install --cask font-terminess-ttf-nerd-font
+brew install --cask font-tinos-nerd-font
+brew install --cask font-ubuntu-nerd-font
+brew install --cask font-victor-mono-nerd-font
 
 # language servers (LSP)
 sudo npm i -g \
-  awk-language-server \
   bash-language-server \
   cssmodules-language-server \
   diagnostic-languageserver \
@@ -160,7 +179,9 @@ sudo npm i -g \
   vim-language-server \
   yaml-language-server
 
-sudo pip3 install jedi-language-server pyright
+sudo python3.11 -m pip install --user \
+  jedi-language-server \
+  pyright
 
 go install golang.org/x/tools/gopls@latest
 
@@ -184,7 +205,8 @@ rm terraform-ls_0.25.2_linux_amd64.zip
 wget -q https://releases.hashicorp.com/terraform-ls/0.13.0/terraform-ls_0.13.0_linux_amd64.zip -o ~/local/bin/terraform-ls
 chmod +x ~/local/bin/terraform-ls
 
-# use local timezone
-sudo timedatectl set-local-rtc 1 --adjust-system-clock
+# use bash 5
+sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+chsh -s /usr/local/bin/bash
 
 echo "To complete tmux installation, run tmux and hit prefix + I"
