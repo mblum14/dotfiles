@@ -90,7 +90,7 @@ local function config(_config)
   capabilities = vim.lsp.protocol.make_client_capabilities()
   return vim.tbl_deep_extend("force", {
     on_attach = on_attach,
-    capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities),
+    capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
   }, _config or {})
 end
 
