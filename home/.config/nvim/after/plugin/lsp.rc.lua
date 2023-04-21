@@ -3,8 +3,6 @@ local wk = require'which-key'
 local protocol = require'vim.lsp.protocol'
 if (not present) then return end
 
-vim.lsp.set_log_level("debug")
-
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -46,10 +44,10 @@ local on_attach = function(client, bufnr)
 
   -- formatting
   if client.name == 'tsserver' then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
   end
 
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
@@ -358,16 +356,11 @@ servers = {
       }
     }
   },
-  ['dockerls'] = {},
-  ['elixirls'] = {
-    cmd = { "elixir-ls" }
-  },
-  ['emmet_ls'] = {},
   ['flow'] = {},
   ['gopls'] = {},
   ['graphql'] = {},
   ['html'] = {},
-  ['jsonls'] = {},
+  --['jdtls'] = {},
   ['pyright'] = {},
   ['rust_analyzer'] = {
     cmd = { "rustup", "run", "nightly", "rust-analyzer" },
@@ -380,6 +373,56 @@ servers = {
   ['tsserver'] = {},
   ['vimls'] = {},
   ['yamlls'] = {},
+}
+
+require("mason").setup {
+}
+require("mason-lspconfig").setup {
+  automatic_installation = true,
+  ensure_installed = {
+    "awk_ls",
+    "angularls",
+    "ansiblels",
+    "bashls",
+    "clangd",
+    "cmake",
+    "cssls",
+    "diagnosticls",
+    "dockerls",
+    "elixirls",
+    "emmet_ls",
+    --"erlang_ls",
+    "gopls",
+    "graphql",
+    "groovyls",
+    "html",
+    "jsonls",
+    "jdtls",
+    "tsserver",
+    "ltex",
+    --"sumneko_lua",
+    "zk",
+    "pyright",
+    "solargraph",
+    "rust_analyzer",
+    "taplo",
+    "terraformls",
+    "tflint",
+    "tsserver",
+    "yamlls",
+    --"flake8",
+    --"golangci-lint",
+    --"pylama",
+    --"markdownlint",
+    --"pylint",
+    "rome",
+    --"xo",
+    --"yamllint",
+    --"shellharden",
+    --"rubocop",
+    --"shellcheck",
+    "eslint"
+  },
 }
 
 for lsp, _config in pairs(servers) do

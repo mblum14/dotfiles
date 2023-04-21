@@ -3,11 +3,13 @@
 brew update --auto-update
 
 brew install \
+  asdf \
   git \
   make  \
   curl  \
   exa  \
   gcc  \
+  gpg \
   libpolkit-gobject-1-dev  \
   node \
   golang  \
@@ -45,6 +47,11 @@ brew install \
   jq  \
   fzf  \
   fd-find
+
+# install ruby
+asdf plugin add ruby
+asdf install ruby 3.2.2
+asdf global ruby 3.2.2
 
 #exit 0
 #
@@ -159,42 +166,6 @@ brew install --cask font-terminess-ttf-nerd-font
 brew install --cask font-tinos-nerd-font
 brew install --cask font-ubuntu-nerd-font
 brew install --cask font-victor-mono-nerd-font
-
-# language servers (LSP)
-sudo npm i -g \
-  bash-language-server \
-  cssmodules-language-server \
-  diagnostic-languageserver \
-  dockerfile-language-server-nodejs \
-  emmet-ls \
-  eslint \
-  eslint_d \
-  flow-bin \
-  graphql-language-service-cli \
-  stylelint \
-  prettier \
-  prettier_d_slim \
-  typescript-language-server  \
-  vscode-langservers-extracted \
-  vim-language-server \
-  yaml-language-server
-
-sudo python3.11 -m pip install --user \
-  jedi-language-server \
-  pyright
-
-go install golang.org/x/tools/gopls@latest
-
-gem install --user-install \
-  solargraph \
-  reek \
-  rubocop
-
-curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
-unzip elixir-ls.zip -d "$HOME/.local/src/elixir-ls"
-chmod +x "$HOME/.local/src/elixir-ls/language-server.sh"
-ln -s "$HOME/.local/src/elixir-ls/language-server.sh" "$HOME/.local/bin/elixir-ls"
-rm elixir-ls.zip
 
 curl -fLO https://releases.hashicorp.com/terraform-ls/0.25.2/terraform-ls_0.25.2_linux_amd64.zip
 unzip terraform-ls_0.25.2_linux_amd64.zip -d "$HOME/.local/src/terraform-ls"

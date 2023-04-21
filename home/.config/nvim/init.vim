@@ -10,7 +10,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'ellisonleao/gruvbox.nvim'     " theme
 Plug 'kyazdani42/nvim-web-devicons' " icons
 Plug 'feline-nvim/feline.nvim'      " statusbar
-Plug 'akinsho/bufferline.nvim'      " bufferline
 Plug 'folke/lsp-colors.nvim'
 
 " git
@@ -22,12 +21,17 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc', 'do': ':UpdateRemotePlugins' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 " snippets
 Plug 'hrsh7th/vim-vsnip'
 
 " lsp
+Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-jdtls'
 
 " lsp sources
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -40,6 +44,7 @@ Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'f3fora/cmp-spell'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " lsp customizations
 Plug 'folke/trouble.nvim'   " pretty diagnostic lists
@@ -52,7 +57,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/which-key.nvim'                " Show key bindings
 Plug 'andymass/vim-matchup'                " highlight/navigate/operate on sets of matching text
 Plug 'norcalli/nvim-colorizer.lua'         " show colors
-"Plug 'lukas-reineke/indent-blankline.nvim' " show indentation guides
 Plug 'godlygeek/tabular'                   " auto align
 Plug 'christoomey/vim-tmux-navigator'      " tmux navigation bindings
 Plug 'chrisbra/NrrwRgn'                    " narrow region

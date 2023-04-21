@@ -62,5 +62,4 @@ treesitter.setup {
   }
 }
 
-local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
-ft_to_parser.tsx = { "javascript", "typescript.tsx" }
+vim.treesitter.language.register("tsx", { "javascript", "typescript.tsx" })
