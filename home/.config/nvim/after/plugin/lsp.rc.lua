@@ -37,8 +37,10 @@ local on_attach = function(client, bufnr)
       fm = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Formatting" },
     },
     K = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Show definition" },
+    ["<c-k>"] = { "<Cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Documentation" },
     ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "goto previous" },
     ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "goto next" },
+    ["<leader>e"] = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Open diagnostics in float" },
   }, opts)
 
 
