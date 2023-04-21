@@ -63,7 +63,7 @@ whichkey.setup {
     -- list of mode / prefixes that should never be hooked by WhichKey
     -- this is mostly relevant for key maps that start with a native binding
     -- most people should not need to change this
-    i = { "j", "k" },
+    i = { "j", "k", "i", "h", "u", "a" },
     v = { "j", "k" },
   },
 }
@@ -77,16 +77,25 @@ opts = {
 }
 mappings = {
   ["<space>"] = {
+    t = { ":FloatermNew<CR>", "Open terminal in floatin gwindow" },
+    g = {
+      name = "git",
+      s = { ":FzfPreviewGitStatus<CR> ", "Git status", silent=true },
+      S = { ":FzfPreviewGitactions<CR> ", "Git actions", silent=true },
+    },
     f = {
       name = "fzf",
-      p = { "<cmd>GFiles<CR>", "Find file" },
-      ["/"] = { ":Rg ", "Find text" },
-      ["*"] = { ":FzfPreviewLinesRpc --add-fzf-args=--no-sort --add-fzf-arg=--query=\"'\"<CR>", "Find line in buffer" },
-      b = {":FzfPreviewBuffersRpc<CR>", "Find buffer" },
-      g = {
-        name = "git",
-        s = { ":FzfPreviewGitStatusRpc<CR>", "Git status", silent=true},
-        a = { ":FzfPreviewGitActionsRpc<CR>", "Git actions", silent=true}
+      f = { "<CMD>lua require'telescope-config'.git_or_find_files()<CR>", "[F]ind [F]ile" },
+      b = { ":Telescope buffers<CR>", "[F]ind [b]uffer" },
+      h = { ":Telescope help_tags<CR>", "[F]ind [H]elp" },
+      ["/"] = { "<CMD>lua require'telescope-config'.live_grep_from_root()<CR>", "Find text" },
+      d = {
+        name = "diagnostics",
+        t = { ":Trouble<CR>", "Open Trouble", silent=true, noremap=true },
+        d = { ":Trouble document_diagnostics<CR>", "Open document diagnostics", silent=true, noremap=true },
+        w = { ":Trouble workspace_diagnostics<CR>", "Open workspace diagnostics", silent=true, noremap=true },
+        q = { ":Trouble quickfix<CR>", "Open Trouble in quickfix", silent=true, noremap=true },
+        l = { ":Trouble loclist<CR>", "Open Trouble in loclisst", silent=true, noremap=true },
       }
     }
   },
@@ -95,10 +104,8 @@ mappings = {
   },
   ["<tab>"] = { ":BufferLineCycleNext<CR>", "goto Next buffer" },
   ["<s-tab>"] = { ":BufferLineCyclePrev<CR>", "goto Previous buffer" },
-  g = {
-    name = "goto",
-    e = { "Open Trouble" }
-  }
+  -- TODO : vim-abolish coercion cr{s,m,c,u,-,.,t,<space>}
+  -- TODO : vim maximizer <c-w> m
 }
 
 whichkey.register(mappings, opts)
