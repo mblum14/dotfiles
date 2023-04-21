@@ -61,23 +61,23 @@ gitsigns.setup {
       ["]c"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", "Next hunk", expr=true},
       ["[c"] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", "Previus hunk", expr=true},
       ["<leader>"] = {
-        h = {
+        g = {
           name = "gitsigns actions",
-          s = { ":Gitsigns stage_hunk<CR>", "Stage hunk", mode="n", mode="v" },
+          a = { ":Gitsigns stage_hunk<CR>", "Stage hunk", mode="n", mode="v" },
           u = { ":Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
           r = { ":Gitsigns reset_hunk<CR>", "Reset hunk", mode="n", mode="v" },
-          S = { ":Gitsigns stage_buffer<CR>", "Stage Buffer" },
+          A = { ":Gitsigns stage_buffer<CR>", "Stage Buffer" },
           R = { ":Gitsigns reset_buffer<CR>", "Reset Buffer" },
           p = { ":Gitsigns preview_hunk<CR>", "Preview hunk" },
           b = { ":Gitsigns blame_line<CR>", "Blame line" },
           d = { ":Gitsigns diffthis<CR>", "Show diff" },
           D = { ":Gitsigns diffthis '~'<CR>", "Show all diff" },
+          t = {
+            name = "gitsigns toggle",
+            b = { ":Gitsigns toggle_current_line_blame<CR>", "Toggle current line blame" },
+            d = { ":Gitsigns toggle_deleted<CR>", "Toggle deleted" },
+          }
         },
-        t = {
-          name = "gitsigns toggle",
-          b = { ":Gitsigns toggle_current_line_blame<CR>", "Toggle current line blame" },
-          d = { ":Gitsigns toggle_deleted<CR>", "Toggle deleted" },
-        }
       },
       i = {
         name = "gitsigns text object",
