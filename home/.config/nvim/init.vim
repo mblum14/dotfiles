@@ -9,7 +9,8 @@ Plug 'nvim-lua/plenary.nvim'
 " look and feel
 Plug 'ellisonleao/gruvbox.nvim'     " theme
 Plug 'kyazdani42/nvim-web-devicons' " icons
-Plug 'feline-nvim/feline.nvim'      " statusbar
+"Plug 'feline-nvim/feline.nvim'      " statusbar
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'folke/lsp-colors.nvim'
 
 " git
