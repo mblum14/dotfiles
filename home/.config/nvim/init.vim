@@ -3,6 +3,9 @@ set exrc " open project .nvimrc
 let g:polyglot_disabled = ['typescript', 'typescriptreact', 'python']
 call plug#begin('~/.config/nvim/plugged')
 
+" Speed up startup time
+Plug 'lewis6991/impatient.nvim'
+
 " lua utilities
 Plug 'nvim-lua/plenary.nvim'
 
@@ -10,8 +13,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'ellisonleao/gruvbox.nvim'     " theme
 Plug 'kyazdani42/nvim-web-devicons' " icons
 "Plug 'feline-nvim/feline.nvim'      " statusbar
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'folke/lsp-colors.nvim'
+Plug 'nvim-lualine/lualine.nvim'    " statusbar
+Plug 'SmiteshP/nvim-gps'            " code context
+Plug 'akinsho/nvim-bufferline.lua'  " bufferline
 
 " git
 Plug 'lewis6991/gitsigns.nvim'
@@ -29,6 +33,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 Plug 'hrsh7th/vim-vsnip'
 
 " lsp
+Plug 'folke/lsp-colors.nvim'
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
@@ -54,7 +59,11 @@ Plug 'onsails/lspkind-nvim' " add icons to built-in lsp
 " syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" dashboard
+Plug 'goolord/alpha-nvim'
+
 " tools
+Plug 'rcarriga/nvim-notify'                " Notifications
 Plug 'folke/which-key.nvim'                " Show key bindings
 Plug 'andymass/vim-matchup'                " highlight/navigate/operate on sets of matching text
 Plug 'norcalli/nvim-colorizer.lua'         " show colors
@@ -68,6 +77,8 @@ Plug 'tpope/vim-unimpaired'                " handy mappings
 Plug 'tpope/vim-vinegar'                   " netrw customizations
 
 call plug#end()
+
+lua require'impatient'.enable_profile()
 
 let g:loaded_matchit = 1
 
