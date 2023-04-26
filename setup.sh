@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
 brew update --auto-update
+brew tap hashicorp/tap
+
 
 brew install \
+  hashicorp/tap/terraform \
   asdf \
+  luarocks \
   git \
   make  \
   curl  \
@@ -85,6 +89,8 @@ sudo npm i -g \
 python3.11 -m pip install --user \
   jedi \
   rich \
+  cfn-lint \
+  fd \
   flake8 \
   pylint \
   commonmark \

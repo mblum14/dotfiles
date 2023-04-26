@@ -3,8 +3,6 @@ local present_lspkind, lspkind = pcall(require, "lspkind")
 if (not present_cmp) then return end
 if (not present_lspkind) then return end
 
-vim.lsp.set_log_level("debug")
-
 local source_mapping = {
   buffer = "[Buffer]",
   nvim_lsp = "[LSP]",

@@ -6,6 +6,7 @@ end
 
 -- Installation location of jdtls by nvim-lsp-installer
 local JDTLS_LOCATION = vim.fn.stdpath "data" .. "/lsp_servers/jdtls"
+print(JDTLS_LOCATION)
 
 -- Data directory - change it to your liking
 local HOME = os.getenv "HOME"
@@ -125,8 +126,8 @@ local config = {
     workspace_dir,
   },
 
-  on_attach = on_attach,
-  capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  --on_attach = on_attach,
+  --capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   root_dir = root_dir,
 
   -- Here you can configure eclipse.jdt.ls specific settings

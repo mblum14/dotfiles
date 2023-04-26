@@ -9,11 +9,11 @@ case $- in
       *) return;;
 esac
 
-. ~/.local/src/bash/.env
-. ~/.local/src/bash/.config
-. ~/.local/src/bash/.colors
-. ~/.local/src/bash/.prompt
-. ~/.local/src/bash/.aliases
+. "${HOME}/.local/src/bash/.env"
+. "${HOME}/.local/src/bash/.config"
+. "${HOME}/.local/src/bash/.colors"
+. "${HOME}/.local/src/bash/.prompt"
+. "${HOME}/.local/src/bash/.aliases"
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
