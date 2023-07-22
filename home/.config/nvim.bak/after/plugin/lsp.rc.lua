@@ -360,7 +360,9 @@ servers = {
   ['gopls'] = {},
   ['graphql'] = {},
   ['html'] = {},
-  --['jdtls'] = {},
+  ['jdtls'] = {
+    --cmd = {"/Users/mblumber/.local/share/nvim/mason/bin/jdtls"},
+  },
   ['pyright'] = {},
   ['rust_analyzer'] = {
     cmd = { "rustup", "run", "nightly", "rust-analyzer" },

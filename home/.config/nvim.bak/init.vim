@@ -12,7 +12,6 @@ Plug 'nvim-lua/plenary.nvim'
 " look and feel
 Plug 'ellisonleao/gruvbox.nvim'     " theme
 Plug 'kyazdani42/nvim-web-devicons' " icons
-"Plug 'feline-nvim/feline.nvim'      " statusbar
 Plug 'nvim-lualine/lualine.nvim'    " statusbar
 Plug 'SmiteshP/nvim-gps'            " code context
 Plug 'akinsho/nvim-bufferline.lua'  " bufferline
@@ -81,8 +80,6 @@ call plug#end()
 lua require'impatient'.enable_profile()
 
 let g:loaded_matchit = 1
-
-autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()
 
 " ================ Autoreload vimrc ================= "
 augroup reload_vimrc

@@ -6,6 +6,7 @@ brew tap hashicorp/tap
 
 brew install \
   hashicorp/tap/terraform \
+  openjdk@17 \
   asdf \
   luarocks \
   git \
@@ -105,6 +106,9 @@ python3.11 -m pip install --user \
   vim-vint \
   markdownlint-cli2
 
+# java
+sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
 # ruby
 sudo gem install neovim
 
@@ -172,15 +176,6 @@ brew install --cask font-terminess-ttf-nerd-font
 brew install --cask font-tinos-nerd-font
 brew install --cask font-ubuntu-nerd-font
 brew install --cask font-victor-mono-nerd-font
-
-curl -fLO https://releases.hashicorp.com/terraform-ls/0.25.2/terraform-ls_0.25.2_linux_amd64.zip
-unzip terraform-ls_0.25.2_linux_amd64.zip -d "$HOME/.local/src/terraform-ls"
-ln -s "/home/mblumber/.local/src/terraform-ls/terraform-ls" "/home/mblumber/.local/bin/"
-rm terraform-ls_0.25.2_linux_amd64.zip
-
-# terraform lsp
-wget -q https://releases.hashicorp.com/terraform-ls/0.13.0/terraform-ls_0.13.0_linux_amd64.zip -o ~/local/bin/terraform-ls
-chmod +x ~/local/bin/terraform-ls
 
 # use bash 5
 sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
