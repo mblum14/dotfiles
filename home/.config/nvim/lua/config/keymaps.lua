@@ -3,10 +3,10 @@
 -- Add any additional keymaps here
 
 -- Move to window using the <ctrl> hjkl keys
-vim.keymap.set("n", "<C-h>", ":<C-U>TmuxNavigateLeft", { desc = "Go to left window", remap = true })
-vim.keymap.set("n", "<C-j>", ":<C-U>TmuxNavigateDown", { desc = "Go to lower window", remap = true })
-vim.keymap.set("n", "<C-k>", ":<C-U>TmuxNavigateUp", { desc = "Go to upper window", remap = true })
-vim.keymap.set("n", "<C-l>", ":<C-U>TmuxNavigateRight", { desc = "Go to right window", remap = true })
+vim.keymap.set("n", "<C-h>", ":<C-U>TmuxNavigateLeft<CR>", { desc = "Go to left window", remap = true })
+vim.keymap.set("n", "<C-j>", ":<C-U>TmuxNavigateDown<CR>", { desc = "Go to lower window", remap = true })
+vim.keymap.set("n", "<C-k>", ":<C-U>TmuxNavigateUp<CR>", { desc = "Go to upper window", remap = true })
+vim.keymap.set("n", "<C-l>", ":<C-U>TmuxNavigateRight<CR>", { desc = "Go to right window", remap = true })
 
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
 vim.keymap.set("i", "Jj", "<Esc>", { desc = "Esc" })
