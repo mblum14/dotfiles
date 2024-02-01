@@ -14,6 +14,7 @@ esac
 . ~/.local/src/bash/.colors
 . ~/.local/src/bash/.prompt
 . ~/.local/src/bash/.aliases
+. ~/.local/src/bash/.functions
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
