@@ -23,10 +23,14 @@
 [alias]
   # add
   a = add
+  au = add -u
+  aa = add -A .
   chunkeyadd = add --patch
 
   # branch
   br = branch
+  del = branch -D
+  prune-branches = "!git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
 
   # commit
   c = commit -m
@@ -39,6 +43,7 @@
   co = checkout
   oc = checkout
   nb = checkout -b
+  cor = checkout --track
 
   # cherry-pick
   cp = cherry-pick -x
@@ -48,12 +53,26 @@
   dc = diff --cached
   last = diff HEAD^
 
+  # grep
+  grpe = grep
+
   # log
-  hist = log --pretty=format:\"%C(yellow)%h %C(white)%ad %C(red)|%C(yellow)%d%C(white) %s [%C(green)%an%C(white)]\" --graph --date=short
+  ls = log --pretty=format:\"%C(cyan)%h\\ %C(magenta)%ad%C(yellow)%d\\ %C(reset)%s%C(green)\\ <%cn>" --decorate --date=short
+  ll = log --pretty=format:\"%C(cyan)%h\\ %C(magenta)%ad%C(yellow)%d\\ %C(reset)%s%C(green)\\ <%cn>" --decorate --date=short --numstat
+  hist = log --pretty=format:\"%C(cyan)%h %C(magenta)%ad %C(yellow)%d%C(reset) %s %C(green)<%an>%C(reset)\" --graph --date=short
+  hsit = log --pretty=format:\"%C(cyan)%h %C(magenta)%ad %C(yellow)%d%C(reset) %s %C(green)<%an>%C(reset)\" --graph --date=short
+
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
   changelog = log --pretty=format:\" * %s\"
   review = log -p -b
-  
+
+  # pull
+  pl = pull
+  p = pull
+
+  # push
+  fp = push --force-with-lease
+
   # remote
   r = remote -v
   prune = remote update origin --prune
@@ -88,6 +107,8 @@
 [merge]
   summary = true
   verbosity = 1
+[diff "ruby"]
+  funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
 [apply]
   whitespace = fix
 [push]
