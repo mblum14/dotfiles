@@ -57,8 +57,8 @@
   grpe = grep
 
   # log
-  ls = log --pretty=format:\"%C(cyan)%h\\ %C(magenta)%ad%C(yellow)%d\\ %C(reset)%s%C(green)\\ <%cn>" --decorate --date=short
-  ll = log --pretty=format:\"%C(cyan)%h\\ %C(magenta)%ad%C(yellow)%d\\ %C(reset)%s%C(green)\\ <%cn>" --decorate --date=short --numstat
+  #ls = log --pretty=format:\"%C(cyan)%h\\ %C(magenta)%ad%C(yellow)%d\\ %C(reset)%s%C(green)\\ <%cn>" --decorate --date=short
+  #ll = log --pretty=format:\"%C(cyan)%h\\ %C(magenta)%ad%C(yellow)%d\\ %C(reset)%s%C(green)\\ <%cn>" --decorate --date=short --numstat
   hist = log --pretty=format:\"%C(cyan)%h %C(magenta)%ad %C(yellow)%d%C(reset) %s %C(green)<%an>%C(reset)\" --graph --date=short
   hsit = log --pretty=format:\"%C(cyan)%h %C(magenta)%ad %C(yellow)%d%C(reset) %s %C(green)<%an>%C(reset)\" --graph --date=short
 
@@ -118,6 +118,7 @@
   email = mblum14@gmail.com
 [core]
   pager = delta
+  autocrlf = false
   audotcrlf = input
   all = auto[core "auto"]
   editor = nvim
@@ -133,4 +134,6 @@
 [interactive]
   diffFilter = delta --color-only
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[hub]
+  host = git.opensource.gov

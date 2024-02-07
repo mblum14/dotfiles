@@ -9,7 +9,7 @@ alias .....='cd ../../../..'
  
 # listings
 alias ls='ls --color=auto'
-alias ll='exa --all --classify --icons --group-directories-first --sort=extension --long --group'
+alias ll='eza --all --classify --icons --group-directories-first --sort=extension --long --group'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

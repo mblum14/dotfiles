@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "/home/blumbmc/.dotfiles/home/.local/bin/lib/log/sh"
+source "/alt/projects/mblum14/dotfiles/home/.local/bin/lib/log.sh"
 
 function aws.login() {
   log::info "settin aws profile to $1"
