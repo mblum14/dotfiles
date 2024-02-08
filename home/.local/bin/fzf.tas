@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# [T]mux [A]ttach [S]ession
+
+session=$(tmux list-sessions -F "#{session_name}" |
+	fzf-tmux -p -- --query="$1" --select-1 --exit-0)
+
+if [[ ! -z $session ]]; then
+	tmux switch-client -t "$session"
+fi

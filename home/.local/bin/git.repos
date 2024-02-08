@@ -1,69 +1,70 @@
 #!/usr/bin/env bash
 
-GITHUB_BASE_URL="https://github.com/api/v3"
+GITHUB_BASE_URL="https://git.opensource.gov/api/v3"
 CACHE="/tmp/fzf.tn"
 ONE_DAY=86400
 FORCE_REFRESH='no'
 
 while :; do
-  case "$1" in
-    -r|--refresh|--reload)
-      shift
-      FORCE_REFRESH='yes'
-      ;;
-    *)
-      break
-  esac
-  shift
+	case "$1" in
+	-r | --refresh | --reload)
+		shift
+		FORCE_REFRESH='yes'
+		;;
+	*)
+		break
+		;;
+	esac
+	shift
 done
 
 if [[ $FORCE_REFRESH == 'yes' || ! -f "${CACHE}" ]]; then
-  time_since_last_access=$((ONE_DAY+1))
+	TIME_SINCE_LAST_ACCESS=$((ONE_DAY + 1))
 else
-  last_access="$(stat "${CACHE}" | grep 'Modify' | awk -F ': ' '{print $2}' | xargs -i date -d "{}" +%s)"
-  now="$(date +%s)"
-  time_since_last_access="$((now-last_access))"
+	last_access="$(stat "${CACHE}" | grep 'Modify' | awk -F ': ' '{print $2}' | xargs -i date -d "{}" +%s)"
+	now="$(date +%s)"
+	TIME_SINCE_LAST_ACCESS="$((now - last_access))"
 fi
 
 function __hub_curl() {
-  local url=$1
-  curl -s \
-    -H 'Accept:application/vnd.github+json" \
-    -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-    "${url}"
+	local url=$1
+	curl -s \
+		-H 'Accept:application/vnd.github+json' \
+		-H "Authorization: Bearer ${GITHUB_TOKEN}" \
+		"${url}"
 }
 
 function __stitch_repositories() {
-  local url=$1
-  local page=${2:-1}
-  local query="per_page=100&sort=full_name&direction=asc"
+	local url=$1
+	local page=${2:-1}
+	local query="per_page=100&sort=full_name&direction=asc"
 
-  this_page="$(__hub_curl "${url}?${query}&page=${page}" | jq -r ".[].full_name")"
-  if [[ -n ${this_page} ]]; then
-    next_page="$(__stitch_repositories "${url}" "$(( page+1 ))")"
-    echo -e "${this_page}\n${next_page}"
-  else
-    echo "${this_page}"
-  fi
+	this_page="$(__hub_curl "${url}?${query}&page=${page}" | jq -r ".[].full_name")"
+	if [[ -n ${this_page} ]]; then
+		next_page="$(__stitch_repositories "${url}" "$((page + 1))")"
+		echo -e "${this_page}\n${next_page}"
+	else
+		echo "${this_page}"
+	fi
 }
 
 export -f __hub_curl
-export -f __stich_repositories
+export -f __stitch_repositories
 
 repo_urls=$(__hub_curl "${GITHUB_BASE_URL}/user/orgs" | jq -r '.[].repos_url')
 personal_repo_url="${GITHUB_BASE_URL}/user/repos"
 
 repos=""
 if [[ $TIME_SINCE_LAST_ACCESS -gt $ONE_DAY ]]; then
-  for repo in $(echo -e "${repo_urls\n${personal_repo_url}" | xargs -P 10 -n 1 -I {} bash -c '__stitch_repositories "$@"' _ {}); do
-    org="$(echo "${repo}" | awk -F '/' '{print $1}')"
-    repo="$(echo "${repo}" | awk -F '/' '{print $2}')"
-    project_path="/data/workspace/projects/${org}/${repop}"
-    repos="${repos}\n${org}: ${repo} - ${project_path}"
-  done
-  echo -e "${repos}" | sort | uniq | column -t > "${CACHE}"
+	for repo in $(echo -e "${repo_urls}\n${personal_repo_url}" | xargs -P 10 -n 1 -I {} bash -c '__stitch_repositories "$@"' _ {}); do
+		org="$(echo "${repo}" | awk -F '/' '{print $1}')"
+		repo="$(echo "${repo}" | awk -F '/' '{print $2}')"
+		project_path="/alt/code/${org}/${repo}"
+		repos="${repos}\n${org}: ${repo} - ${project_path}"
+	done
+	echo -e "${repos}" | sort | uniq | column -t >"${CACHE}"
 else
-  repos="$(CAT "${CACHE}")"
+	repos="$(cat "${CACHE}")"
 fi
 
 cat "${CACHE}"
