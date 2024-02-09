@@ -29,7 +29,9 @@ function install_langs() {
 	nvm use --delete-prefix v20.11.0
 
 	# ruby
-	sudo snap install ruby --classic
+	sudo dnf module reset ruby -y
+	sudo dnf install @ruby:3.1 -y
+	sudo dnf install ruby-devel -y
 
 	# python
 	python -m pip install --upgrade pip
@@ -50,6 +52,7 @@ function install_libraries() {
 		cmake \
 		curl \
 		gcc \
+		gcc-c++ \
 		vim \
 		docker-ce \
 		docker-ce-cli \
@@ -61,9 +64,11 @@ function install_libraries() {
 		libevent-devel \
 		libxcb-devel \
 		libxkbcommon-devel \
+		libyaml-devel \
+		openssl-devel \
+		readline-devel \
+		zlib-devel \
 		ncurses-devel \
-		gcc \
-		make \
 		bison \
 		pkg-config
 	ShellCheck \
@@ -93,6 +98,7 @@ function install_libraries() {
 		rust-src
 
 	cargo install \
+		bat \
 		du-dust \
 		git-delta \
 		eza
