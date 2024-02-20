@@ -9,27 +9,10 @@ case $- in
 *) return ;;
 esac
 
-. ~/.local/src/bash/.env
-. ~/.local/src/bash/.config
-. ~/.local/src/bash/.colors
-. ~/.local/src/bash/.prompt
-. ~/.local/src/bash/.aliases
-. ~/.local/src/bash/.functions
-if [[ -f /alt/GIT_TOKEN ]]; then
-	. /alt/GIT_TOKEN
-else
-	echo 'GITHUB_TOKEN unset. Could not find /alt/GIT_TOKEN'
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
 fi
 
-if ! shopt -oq posix; then
-	if [ -f /usr/share/bash-completion/bash_completion ]; then
-		. /usr/share/bash-completion/bash_completion
-	elif [ -f /etc/bash_completion ]; then
-		. /etc/bash_completion
-	fi
-fi
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # this loads nvm
-
-complete -C /usr/bin/terraform terraform
+for bashrc in $(find ${HOME}/etc/bashrc.d/ -name "*.bashrc" | sort); do
+	source ${bashrc}
+done

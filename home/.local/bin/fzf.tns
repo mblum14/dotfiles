@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # [T]mux [N]ew [S]ession
 
+source ~/etc/bashrc.d/900-fzf.bashrc
+
 function _fzf_tmux_windows() {
 	git.repos |
 		fzf-tmux -p -- \
@@ -11,9 +13,9 @@ function _fzf_tmux_windows() {
 project_windows="$(_fzf_tmux_windows)"
 
 if [ "x$project_windows" != "x" ]; then
-	session="$(echo "${project_windows}" | awk '{print $1}' | sed 's/://')"
-	window="$(echo "${project_windows}" | awk '{print $2}')"
-	path="$(echo "${project_windows}" | awk '{print $4}')"
+	session="$(echo "${project_windows}" | awk -F/ '{print $1}')"
+	window="$(echo "${project_windows}" | awk -F/ '{print $2}' | tr -d ' ')"
+	path="$(echo "${project_windows}" | awk '{print $2}' | tr -d ' ')"
 
 	if [[ ! -d "${path}" ]]; then
 		mkdir -p "$(dirname "${path}")" >/dev/null 2>&1

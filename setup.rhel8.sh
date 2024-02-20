@@ -23,6 +23,7 @@ function install_langs() {
 
 	# nodejs
 	# removing version installed by forge script
+  ln -fs /alt/.nvm ~
 	nvm uninstall 12
 	nvm install v20.11.0
 	nvm alias default v20.11.0
@@ -71,7 +72,7 @@ function install_libraries() {
 		ncurses-devel \
 		bison \
 		pkg-config
-	ShellCheck \
+	  ShellCheck \
 		python3-pip \
 		python3-setuptools \
 		powerline-fonts \
@@ -81,7 +82,8 @@ function install_libraries() {
 		neofetch \
 		ripgrep \
 		jq \
-		fd-find
+		fd-find \
+    xclip
 	#regolith-desktop  \
 	#i3xrocks-net-traffic  \
 	#i3xrocks-cpu-usage  \
@@ -110,6 +112,7 @@ function install_libraries() {
 	# snap
 	sudo snap install --edge nvim --classic
 	sudo snap install shfmt
+	sudo snap install marksman
 
 	# neovim
 	sudo curl -o /usr/local/bin/nvim -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
@@ -134,6 +137,7 @@ function install_libraries() {
 	npm i -g \
 		yarn \
 		markdown-preview \
+		markdownlint-cli \
 		eslint \
 		catj \
 		figlet-cli \
@@ -176,7 +180,8 @@ function install_libraries() {
 		vim-vint \
 		markdownlint-cli2 \
 		jedi-language-server \
-		pyright
+		pyright \
+    pls-cli
 
 	# ruby
 	# TODO - resolve issue with glibc 2.29
@@ -186,6 +191,17 @@ function install_libraries() {
 		reek \
 		rubocop
 
+  # lua-language-server
+  local lls_version="3.7.4"
+  local lls_src_dir="/alt/.local/src/lua-language-server/${lls_version}"
+  mkdir -p "${lls_src_dir}"
+  pushd "${lls_src_dir}"
+  wget "https://github.com/LuaLS/lua-language-server/releases/download/${lls_version}/lua-language-server-${lls_version}-linux-x64.tar.gz"
+  tar xvzf "lua-language-server-${lls_version}-linux-x64.tar.gz"
+  rm "lua-language-server-${lls_version}-linux-x64.tar.gz"
+  ln -fs "${lls_src_dir}/bin/lua-language-server" ~/.local/bin/
+  popd
+
 	# go
 	go install golang.org/x/tools/gopls@latest
 
@@ -193,34 +209,31 @@ function install_libraries() {
 	git clone https://github.com/ryanoasis/nerd-fonts ~/.local/src/nerd-fonts --depth 1
 	~/.local/src/nerd-fonts/install.sh
 
-	# wezterm
-	sudo dnf install -y https://github.com/wez/wezterm/releases/download/20240203-110809-5046fc22/wezterm-20240203_110809_5046fc22-1.centos8.x86_64.rpm
+	# terraform-docs
+	curl -Lo ./terraform-docs.tar.gz https://github.com/terraform-docs/terraform-docs/releases/download/v0.17.0/terraform-docs-v0.17.0-$(uname)-amd64.tar.gz
+	tar -xzf terraform-docs.tar.gz
+	chmod +x terraform-docs
+	sudo mv terraform-docs /usr/local/bin/terraform-docs
+	rm terraform-docs.tar.gz
 
-	# alacritty
-	pushd /alt/.local/src/
-	git clone https://github.com/alacritty/alacritty.git
-	cd alacritty
-	cargo build --release
-	sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
-	sudo ln -fs target/release/alacritty /usr/local/bin
-	sudo ln -fs extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-	sudo desktop-file-install extra/linux/Alacritty.desktop
-	sudo update-desktop-database
-	cp extra/completions/alacritty.bash ~/.bash_completion.d/alacritty
-	popd
+  # tfsec
+  go install github.com/aquasecurity/tfsec/cmd/tfsec@latest
+
+  # trivy
+  RELEASE_VERSION=$(grep -Po '(?<=VERSION_ID=")[0-9]' /etc/os-release)
+  cat << EOF | sudo tee -a /etc/yum.repos.d/trivy.repo
+[trivy]
+name=Trivy repository
+baseurl=https://aquasecurity.github.io/trivy-repo/rpm/releases/$RELEASE_VERSION/\$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://aquasecurity.github.io/trivy-repo/rpm/public.key
+EOF
+  sudo yum -y update
+  sudo yum -y install trivy
 }
-
 ## TODO - create wrappers around markdown-preview, figlet-cli, and terminal-image-cli, nb.sh
 
-# TODO - install the following:
-# nodejs golang npm ruby gem terraform python3-venv
-#: elixir
-#: default-jd
-#: dconf-cli
-#: uuid-runtime
-#: universal-ctags
-#: fzf
-
-#add_repositories
-#install_langs
-#install_libraries
+add_repositories
+install_langs
+install_libraries

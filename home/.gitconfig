@@ -114,8 +114,8 @@
 [push]
   default = tracking
 [user]
-  name = Michael Blumberg
-  email = mblum14@gmail.com
+  name = michael50
+  email = michael50@opensource.gov
 [core]
   pager = delta
   autocrlf = false
@@ -129,7 +129,7 @@
 [delta]
   plus-color = "#98971a"
   minus-color = "cc241d"
-  syntax-theme = gruvbox
+  syntax-theme = gruvbox-dark
   line-numbers = true
 [interactive]
   diffFilter = delta --color-only

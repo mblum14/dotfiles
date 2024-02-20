@@ -1,0 +1,34 @@
+# Description
+
+<!-- Enter description of the changes and reasons for change -->
+
+## Types of Changes
+
+[ ] Fix
+[ ] Feature
+[ ] Refactor
+[ ] Style
+[ ] Tests
+[ ] Configuration
+[ ] Documentation
+[ ] CI
+[ ] Build
+[ ] Breaking Change
+
+## :white_check_mark: PR Checklist
+
+[ ] Pre-commit hooks pass
+[ ] All sofrtware versioned (no latest tags, default branch checkouts)
+[ ] Product approval received and [recorded](https://opensourcegov.sharepoint.com/:x:/s/BTICollaboration/Eac8YQ8pFQ5KnwnzfOoFKEIBvhDAofNGtjqO65cbveJw4w?e=0dK2DT)
+[ ] [CHANGELOG](/CHANGELOG.md) updated
+[ ] [README](/README.md) updated
+[ ] Major architectural decisions documented under [/docs/architecture/decisions](/docs/architecture/decisions)
+[ ] Scripts for any manual procedures added under [/bin](/bin)
+
+## :bomb: Customer Impact
+
+<!-- Include any ways in which customers might be impacted by this change -->
+
+## :microscope: Verification Method
+
+<!-- How were the changes verified and tested -->

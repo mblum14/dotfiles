@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
+set -e
+source "${BASH_SOURCE%/*}/lib/github.sh"
 
-GITHUB_BASE_URL="https://git.opensource.gov/api/v3"
-CACHE="/tmp/fzf.tn"
+CACHE="/tmp/git.repos"
 ONE_DAY=86400
 FORCE_REFRESH='no'
 
-while :; do
-	case "$1" in
+while [[ $# -gt 0 ]]; do
+	case $1 in
 	-r | --refresh | --reload)
-		shift
 		FORCE_REFRESH='yes'
 		;;
 	*)
@@ -18,21 +18,9 @@ while :; do
 	shift
 done
 
-if [[ $FORCE_REFRESH == 'yes' || ! -f "${CACHE}" ]]; then
-	TIME_SINCE_LAST_ACCESS=$((ONE_DAY + 1))
-else
-	last_access="$(stat "${CACHE}" | grep 'Modify' | awk -F ': ' '{print $2}' | xargs -i date -d "{}" +%s)"
-	now="$(date +%s)"
-	TIME_SINCE_LAST_ACCESS="$((now - last_access))"
-fi
-
-function __hub_curl() {
-	local url=$1
-	curl -s \
-		-H 'Accept:application/vnd.github+json' \
-		-H "Authorization: Bearer ${GITHUB_TOKEN}" \
-		"${url}"
-}
+last_access="$(stat "${CACHE}" | grep 'Modify' | awk -F ': ' '{print $2}' | xargs -i date -d "{}" +%s)"
+now="$(date +%s)"
+TIME_SINCE_LAST_ACCESS="$((now - last_access))"
 
 function __stitch_repositories() {
 	local url=$1
@@ -51,20 +39,15 @@ function __stitch_repositories() {
 export -f __hub_curl
 export -f __stitch_repositories
 
-repo_urls=$(__hub_curl "${GITHUB_BASE_URL}/user/orgs" | jq -r '.[].repos_url')
-personal_repo_url="${GITHUB_BASE_URL}/user/repos"
-
 repos=""
-if [[ $TIME_SINCE_LAST_ACCESS -gt $ONE_DAY ]]; then
-	for repo in $(echo -e "${repo_urls}\n${personal_repo_url}" | xargs -P 10 -n 1 -I {} bash -c '__stitch_repositories "$@"' _ {}); do
+if [[ $TIME_SINCE_LAST_ACCESS -gt $ONE_DAY || $FORCE_REFRESH == 'yes' || ! -f "${CACHE}" || ! -s "${CACHE}" ]]; then
+	for repo in $(git.orgs | xargs -P 10 -n 1 -I {} bash -c '__stitch_repositories "$@"' _ {}); do
 		org="$(echo "${repo}" | awk -F '/' '{print $1}')"
 		repo="$(echo "${repo}" | awk -F '/' '{print $2}')"
 		project_path="/alt/code/${org}/${repo}"
-		repos="${repos}\n${org}: ${repo} - ${project_path}"
+		repos="${repos}\n${org}/${repo} ${project_path}"
 	done
 	echo -e "${repos}" | sort | uniq | column -t >"${CACHE}"
-else
-	repos="$(cat "${CACHE}")"
 fi
 
 cat "${CACHE}"

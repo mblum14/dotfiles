@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+complete -w '-h --help -r --remove -a --add -q --quiet' todo

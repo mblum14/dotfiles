@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+source "${BASH_SOURCE%/*}/lib/log.sh"
+
+
+xclip -sel c < ~/.PULL_REQUEST_TEMPLATE
+cat ~/.PULL_REQUEST_TEMPLATE
+
+echo -e "\n"
+log::success "Template text copied to clipboard!"

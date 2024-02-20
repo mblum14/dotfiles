@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source "${BASH_SOURCE%/*}/lib/github.sh"
+
+repo_urls=$(__hub_curl "${GITHUB_BASE_URL}/user/orgs" | jq -r '.[].repos_url')
+personal_repo_url="${GITHUB_BASE_URL}/user/repos"
+
+echo -e "${repo_urls}\n${personal_repo_url}"

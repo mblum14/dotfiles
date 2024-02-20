@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl -sSL 'https://git.io/JXXO7' | fzf

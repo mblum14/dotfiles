@@ -22,9 +22,9 @@ alias k=kubectl
 # configuration shortcuts
 alias bash_profile='nvim ~/.dotfiles/home/.bash_profile && source ~/.dotfiles/home/.bash_profile'
 alias bashrc='nvim ~/.dotfiles/home/.bashrc && source ~/.dotfiles/home/.bashrc'
-alias aliases='nvim ~/.dotfiles/bash/.aliases && source ~/.dotfiles/home/.bashrc'
-alias config='nvim ~/.dotfiles/bash/.config && source ~/.dotfiles/home/.bashrc'
-alias env='nvim ~/.dotfiles/bash/.env && source ~/.dotfiles/home/.bashrc'
-alias nvimrc='nvim ~/.dotfiles/home/.config/nvim/init.vim'
+alias nvimrc='nvim ~/.dotfiles/home/.config/nvim/init.lua'
 
 alias serve='npx http-static -p 8000'
+
+# Todo
+alias todo='pls'

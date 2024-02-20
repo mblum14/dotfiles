@@ -14,6 +14,6 @@ function override_managed_files() {
 
 override_managed_files
 stow home -t $HOME --ignore .bash_profile
-pushd /alt/.local
-stow bin -t $HOME/.local/bin
-popd
+for f in /alt/.local/bin/*; do
+	ln -fs "${f}" "${HOME}/.local/bin/"
+done

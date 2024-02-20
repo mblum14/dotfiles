@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # [T]mux [A]ttach [S]ession
 
+source ~/etc/bashrc.d/900-fzf.bashrc
+
 session=$(tmux list-sessions -F "#{session_name}" |
 	fzf-tmux -p -- --query="$1" --select-1 --exit-0)
 
