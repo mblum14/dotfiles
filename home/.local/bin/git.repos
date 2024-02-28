@@ -2,9 +2,12 @@
 set -e
 source "${BASH_SOURCE%/*}/lib/github.sh"
 
-CACHE="/tmp/git.repos"
+CACHE_DIR="${HOME}/.local/state/git.repos/"
+CACHE="${CACHE_DIR}/repos.txt"
 ONE_DAY=86400
 FORCE_REFRESH='no'
+
+mkdir -p "${CACHE_DIR}"
 
 while [[ $# -gt 0 ]]; do
 	case $1 in
@@ -18,7 +21,7 @@ while [[ $# -gt 0 ]]; do
 	shift
 done
 
-last_access="$(stat "${CACHE}" | grep 'Modify' | awk -F ': ' '{print $2}' | xargs -i date -d "{}" +%s)"
+last_access="$(stat "${CACHE}" 2> /dev/null | grep 'Modify' | awk -F ': ' '{print $2}' | xargs -i date -d "{}" +%s)"
 now="$(date +%s)"
 TIME_SINCE_LAST_ACCESS="$((now - last_access))"
 
