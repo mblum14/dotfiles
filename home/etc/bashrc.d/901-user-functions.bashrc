@@ -3,7 +3,7 @@
 source "$HOME/.local/bin/lib/log.sh"
 
 function aws.login() {
-	log::info "settin aws profile to $1"
+	log::info "setting aws profile to $1"
 	export AWS_PROFILE=$1
 }
 

@@ -22,3 +22,9 @@ vim.keymap.set('n', 'n', 'nzzzv', { remap = false })
 vim.keymap.set('n', 'N', 'Nzzzv', { remap = false })
 vim.keymap.set('n', 'J', 'mzJ`z', { remap = false })
 vim.keymap.set('n', '<C-j>', ':cnext<CR>zzzv', { remap = false })
+
+-- tmux
+vim.keymap.set('n', '<c-h>', ':NvimTmuxNavigateLeft<CR>', { remap = false })
+vim.keymap.set('n', '<c-j>', ':NvimTmuxNavigateDown<CR>', { remap = false })
+vim.keymap.set('n', '<c-k>', ':NvimTmuxNavigateUp<CR>', { remap = false })
+vim.keymap.set('n', '<c-l>', ':NvimTmuxNavigateRight<CR>', { remap = false })

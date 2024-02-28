@@ -180,6 +180,7 @@ function install_libraries() {
 		vim-vint \
 		markdownlint-cli2 \
 		jedi-language-server \
+    ruff-lsp \
 		pyright \
     pls-cli
 
