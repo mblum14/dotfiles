@@ -103,7 +103,8 @@ function install_libraries() {
 		bat \
 		du-dust \
 		git-delta \
-		eza
+		eza \
+    stylua
 
 	mkdir -p ~/.local/share/bash-completions/completions/
 	rustup completions bash cargo >>~/.local/share/bash-completions/completions/cargo
