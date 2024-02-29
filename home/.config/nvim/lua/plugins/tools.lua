@@ -5,4 +5,7 @@ return {
   {
     "chrisbra/NrrwRgn",
   },
+  {
+    "junegunn/vim-easy-align",
+  },
 }

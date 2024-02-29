@@ -28,3 +28,7 @@ vim.keymap.set("n", "<c-h>", ":NvimTmuxNavigateLeft<CR>", { remap = false })
 vim.keymap.set("n", "<c-j>", ":NvimTmuxNavigateDown<CR>", { remap = false })
 vim.keymap.set("n", "<c-k>", ":NvimTmuxNavigateUp<CR>", { remap = false })
 vim.keymap.set("n", "<c-l>", ":NvimTmuxNavigateRight<CR>", { remap = false })
+
+-- vim-easy-align
+vim.keymap.set("x", "ga", "<Plug>(EasyAlign)")
+vim.keymap.set("n", "ga", "<Plug>(EasyAlign)")

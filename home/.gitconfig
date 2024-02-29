@@ -36,6 +36,7 @@
   c = commit -m
   ca = commit -am
   ci = commit
+  ic = commit # because I don't type so goodly
   amend = commit --amend
   ammend = commit --amend
 
