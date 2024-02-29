@@ -84,12 +84,7 @@ function install_libraries() {
 		jq \
 		fd-find \
     xclip
-	#regolith-desktop  \
-	#i3xrocks-net-traffic  \
-	#i3xrocks-cpu-usage  \
-	#i3xrocks-time  \
-	#i3xrocks-memory  \
-	#i3xrocks-weather
+
 	sudo dnf group install "Development Tools"
 
 	# cargo
@@ -105,7 +100,11 @@ function install_libraries() {
 		git-delta \
 		eza \
     stylua \
-    tealdeer
+    tealdeer \
+    starship \
+    zoxide
+
+  cargo install starship --locked
 
 	mkdir -p ~/.local/share/bash-completions/completions/
 	rustup completions bash cargo >>~/.local/share/bash-completions/completions/cargo
