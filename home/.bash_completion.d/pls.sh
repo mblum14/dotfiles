@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 _pls_completion() {
     local IFS=$'
 '

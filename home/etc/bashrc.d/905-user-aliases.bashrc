@@ -11,6 +11,10 @@ alias .....='cd ../../../..'
 alias ls='ls --color=auto'
 alias ll='eza --all --classify --icons --group-directories-first --sort=extension --long --group'
 
+# man alternative
+alias man='tldr'
+alias mann='/bin/man'
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'

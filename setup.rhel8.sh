@@ -104,7 +104,8 @@ function install_libraries() {
 		du-dust \
 		git-delta \
 		eza \
-    stylua
+    stylua \
+    tealdeer
 
 	mkdir -p ~/.local/share/bash-completions/completions/
 	rustup completions bash cargo >>~/.local/share/bash-completions/completions/cargo
