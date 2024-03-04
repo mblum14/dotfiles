@@ -233,6 +233,8 @@ gpgkey=https://aquasecurity.github.io/trivy-repo/rpm/public.key
 EOF
   sudo yum -y update
   sudo yum -y install trivy
+
+  git clone --depth 1 https://github.com/junegunn/fzf.git /alt/.fzf
 }
 ## TODO - create wrappers around markdown-preview, figlet-cli, and terminal-image-cli, nb.sh
 
