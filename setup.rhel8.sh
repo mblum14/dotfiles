@@ -234,7 +234,12 @@ EOF
   sudo yum -y update
   sudo yum -y install trivy
 
+  # fzf
   git clone --depth 1 https://github.com/junegunn/fzf.git /alt/.fzf
+
+  # fpp
+  git clone https://github.com/facebook/PathPicker.git /alt/.pathpicker
+  ln -s /alt/.pathpicker/fpp ~/.local/bin/
 }
 ## TODO - create wrappers around markdown-preview, figlet-cli, and terminal-image-cli, nb.sh
 

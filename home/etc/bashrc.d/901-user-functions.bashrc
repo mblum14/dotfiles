@@ -2,11 +2,6 @@
 
 source "$HOME/.local/bin/lib/log.sh"
 
-function aws.login() {
-	log::info "setting aws profile to $1"
-	export AWS_PROFILE=$1
-}
-
 # kubectl [S]et [C]ontext
 function kube.sc() {
 	if [[ -z $AWS_PROFILE ]]; then
