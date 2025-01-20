@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# [T]mux [N]ew [S]ession
+
+function _fzf_tmux_windows() {
+  git.repos |
+    fzf-tmux -p -- \
+      --header=$'\nPress CTRL-R to reload' \
+      --bind="ctrl-r:reload(git.repos --refresh)"
+}
+
+project_windows="$(_fzf_tmux_windows)"
+
+if [ "x$project_windows" != "x" ]; then
+  session="$(echo "${project_windows}" | awk -F/ '{print $1}')"
+  window="$(echo "${project_windows}" | awk -F/ '{print $2}' | tr -d ' ')"
+  path="$(echo "${project_windows}" | awk '{print $2}' | tr -d ' ')"
+
+  if [[ ! -d "${path}" ]]; then
+    mkdir -p "$(dirname "${path}")" >/dev/null 2>&1
+    git clone "git@github.com:${session}/${window}.git" "${path}" >/dev/null 2>&1
+  fi
+
+  if tmux has-session -t="${session}" >/dev/null 2>&1; then
+    tmux switch-client -t "${session}"
+    if tmux list-panes -F "#{window_name}" | grep -qE "${window}\$"; then
+      window_id="$(tmux list-panes -a -F "#{window_id} #{window_name}" | grep -P "${window}\$" | awk '{print $1}')"
+      tmux select-window -t "${window_id}"
+    else
+      tmux new-window -a -n "${window}" -c "${path}" -t "${session}"
+    fi
+  else
+    tmux new-session -d -s "${session}" -n "${window}" -c "${path}"
+    if ! tmux attach -t "${session}" >/dev/null 2>&1; then
+      tmux switch -t "${session}"
+    fi
+  fi
+fi

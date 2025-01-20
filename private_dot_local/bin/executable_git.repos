@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -e
+source "${BASH_SOURCE%/*}/lib/github.sh"
+source "${BASH_SOURCE%/*}/lib/log.sh"
+source "${BASH_SOURCE%/*}/lib/time.sh"
+
+CACHE_DIR="${HOME}/.local/state/git.repos/"
+CACHE="${CACHE_DIR}/repos.txt"
+FORCE_REFRESH='no'
+
+mkdir -p "${CACHE_DIR}"
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  -r | --refresh | --reload)
+    FORCE_REFRESH='yes'
+    ;;
+  -a | --age)
+    last_modification="$(stat "${CACHE}" 2>/dev/null | grep 'Modify' | awk -F ': ' '{print $2}' | xargs -i date -d "{}" +%s)"
+    now="$(date +%s)"
+    time_since_last_modification="$((now - last_modification))"
+    log::info "Time since last modification: $(displaytime "${time_since_last_modification}")"
+    exit 0
+    ;;
+  *)
+    break
+    ;;
+  esac
+  shift
+done
+
+export -f "github_api::curl"
+export -f "github_api::page"
+
+repos=""
+if [[ $FORCE_REFRESH == 'yes' || ! -f "${CACHE}" || ! -s "${CACHE}" ]]; then
+  for repo in $(git.orgs | xargs -n 1 -I {} bash -c 'github_api::page "$@"' _ {}); do
+    org="$(echo "${repo}" | awk -F '/' '{print $1}')"
+    repo="$(echo "${repo}" | awk -F '/' '{print $2}')"
+    project_path="/alt/code/${org}/${repo}"
+    repos="${repos}\n${org}/${repo} ${project_path}"
+  done
+  echo -e "${repos}" | sort | uniq | column -t >"${CACHE}"
+fi
+
+cat "${CACHE}"

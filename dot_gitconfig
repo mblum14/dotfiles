@@ -1,0 +1,107 @@
+[color]
+  ui=auto
+  pager=true
+  interactive=auto
+  branch=auto
+  diff=auto
+  status=auto
+[color "branch"]
+  current = green
+  local = green
+  remote = red
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = magenta
+  deleted = red
+  branch = yellow
+[alias]
+  # add
+  a = added
+  au = add -u
+  aa = add -A .
+
+  # branch
+  br = branch
+  del = branch -D
+  prune-branches = "!git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
+
+  # commit
+  c = commit -m
+  ca = commit -am
+  ci = commit
+  ic = commit
+  amend = commit --amend
+
+  # checkout
+  co = checkout
+  oc = checkout
+  cor = checkout --track
+
+  # cherry-pick
+  cp = cherry-pick -x
+
+  # diff
+  d = diff
+  dc = diff --cached
+  last = diff HEAD^
+
+  # log
+  hist = log --pretty=format:\"%C(cyan)%h %C(magenta)%ad %C(yellow)%d%C(reset) %s %C(green)<%an>%C(reset)\" --graph --date=short
+  hsit = log --pretty=format:\"%C(cyan)%h %C(magenta)%ad %C(yellow)%d%C(reset) %s %C(green)<%an>%C(reset)\" --graph --date=short
+
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  changelog = log --pretty=format:\" * %s\"
+  review = log -p -b
+
+  # pull
+  pl = pull
+  p = pull
+
+  # push
+  fp = push --force-with-lease
+
+  # remote
+  r = remote -v
+  prune = remote update origin --prune
+
+  # rebase
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+
+  # stash
+  ss = stash
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+
+  # status
+  st = status
+
+  update-cache = remote update origin --prune
+
+[merge]
+  summary = true
+  verbosity = 1
+[apply]
+  whitespace = fix
+[push]
+  default = tracking
+  autoSetupRemote = true
+[user]
+  name = mblum14
+  email = mblum14@gmail.com
+[core]
+  autocrlf = false
+  audotcrlf = input
+  all = auto[core "auto"]
+  editor = nvim
+  whitespace=fix,-index-with-non-tab,trailing-space,cr-at-eol
+  safecrlf = true
+[init]
+  defaultBranch = main

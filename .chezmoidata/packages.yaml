@@ -1,0 +1,48 @@
+packages:
+  brew:
+    - awscli
+    - bat
+    - eza
+    - fzf
+    - gh
+    - git-delta
+    - helm
+    - jq
+    - k9s
+    - krew
+    - lazygit
+    - neovim
+    - ripgrep
+    - starship
+    - terraform-docs
+    - tfenv
+    - tgenv
+    - tmux
+    - tpm
+    - trivy
+    - yq
+  cask:
+    - font-jetbrains-mono-nerd-font
+  npm:
+    - yarn
+    - flow-bin
+    - markdown-preview
+    - catj
+    - figlet-cli
+    - typescript
+    - terminal-image-cli
+    - nb.sh
+    - neovim
+  pip:
+    - neovim
+    - pynvim
+    - poetry
+    - awsume
+    - cookiecutter
+  krew:
+    - access-matrix
+    - cert-manager
+    - deprecations
+    - get-all
+    - outdated
+    - score
