@@ -2,6 +2,7 @@ packages:
   brew:
     - awscli
     - bat
+    - bash
     - eza
     - fzf
     - gh
