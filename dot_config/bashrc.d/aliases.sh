@@ -29,7 +29,7 @@ alias todo='pls'
 alias lg='lazygit'
 
 # awsume
-alias awsume="source $(pyenv which awsume)"
+#alias awsume="source $(pyenv which awsume)"
 
 # chezmoi
 alias cm="chezmoi"
