@@ -22,5 +22,10 @@ for bashrc in $(find "$HOME/.config/bashrc.d" -name "*.sh" | sort); do
   source "${bashrc}"
 done
 
+for completion in $(find "$HOME/.config/bashrc.d/completion.d" -name "*.sh" | sort); do
+  # shellcheck source=/dev/null
+  source "${completion}"
+done
+
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
