@@ -8,6 +8,7 @@ packages:
     - fzf
     - gh
     - git-delta
+    - gpg
     - helm
     - jq
     - k9s
@@ -41,11 +42,13 @@ packages:
     - nb.sh
     - neovim
   pip:
-    - neovim
-    - pynvim
-    - poetry
+    - aws-sso-util
     - awsume
     - cookiecutter
+    - ensurepath
+    - neovim
+    - poetry
+    - pynvim
   krew:
     - access-matrix
     - cert-manager
