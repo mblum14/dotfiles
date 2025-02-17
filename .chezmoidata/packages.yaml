@@ -3,6 +3,7 @@ packages:
     - awscli
     - bat
     - bash
+    - coreutils
     - eza
     - fzf
     - gh
@@ -11,12 +12,17 @@ packages:
     - jq
     - k9s
     - krew
+    - kubectx
     - lazygit
     - neovim
+    - norwoodj/tap/helm-docs
+    - pre-commit
     - ripgrep
+    - sops
     - starship
     - terraform-docs
     - tfenv
+    - tflint
     - tgenv
     - tmux
     - tpm
