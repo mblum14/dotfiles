@@ -33,3 +33,12 @@ alias lg='lazygit'
 
 # chezmoi
 alias cm="chezmoi"
+
+# terragrunt
+alias unlock="terragrunt force-unlock -force"
+alias plan="terragrunt plan --source-update --download-dir ~/.terragrunt-cache"
+alias apply="terragrunt apply --source-update --download-dir ~/.terragrunt-cache"
+alias init="terragrunt init --source-update --download-dir ~/.terragrunt-cache"
+alias import="terragrunt import --source-update --download-dir ~/.terragrunt-cache"
+alias state="terragrunt state --source-update --download-dir ~/.terragrunt-cache"
+alias destroy="terragrunt destroy --source-update --download-dir ~/.terragrunt-cache"
