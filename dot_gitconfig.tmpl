@@ -94,8 +94,8 @@
   default = tracking
   autoSetupRemote = true
 [user]
-  name = mblum14
-  email = mblum14@gmail.com
+  name = {{ .gitUsername | quote }}
+  email = {{ .email | quote }}
 [core]
   autocrlf = false
   audotcrlf = input
