@@ -2,22 +2,22 @@
 # [T]mux [N]ew [S]ession
 
 function _fzf_tmux_windows() {
-  git.repos |
+  gitlab.repos |
     fzf-tmux -p -- \
       --header=$'\nPress CTRL-R to reload' \
-      --bind="ctrl-r:reload(git.repos --refresh)"
+      --bind="ctrl-r:reload(gitlab.repos --refresh)"
 }
 
 project_windows="$(_fzf_tmux_windows)"
 
 if [ "x$project_windows" != "x" ]; then
   session="$(echo "${project_windows}" | awk -F/ '{print $1}')"
-  window="$(echo "${project_windows}" | awk -F/ '{print $2}' | tr -d ' ')"
+  window="$(echo "${project_windows}" | awk -F/ '{print $NF}' | tr -d ' ')"
   path="$(echo "${project_windows}" | awk '{print $2}' | tr -d ' ')"
 
   if [[ ! -d "${path}" ]]; then
     mkdir -p "$(dirname "${path}")" >/dev/null 2>&1
-    git clone "git@github.com:${session}/${window}.git" "${path}" >/dev/null 2>&1
+    git clone "git@gitlab.com:${session}/${window}.git" "${path}" >/dev/null 2>&1
   fi
 
   if tmux has-session -t="${session}" >/dev/null 2>&1; then

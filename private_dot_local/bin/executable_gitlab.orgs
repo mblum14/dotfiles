@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source "${BASH_SOURCE%/*}/lib/gitlab.sh"
+
+export -f "gitlab_api::curl"
+export -f "gitlab_api::page"
+
+gitlab_api::page "${GITLAB_URL}/api/v4/groups" "id" | jq -r '.'
