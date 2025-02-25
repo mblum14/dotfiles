@@ -8,6 +8,7 @@ packages:
     - fzf
     - gh
     - git-delta
+    - glab
     - gpg
     - helm
     - jq
