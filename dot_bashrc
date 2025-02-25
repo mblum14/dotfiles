@@ -6,8 +6,6 @@ HISTFILESIZE=2000
 
 export EDITOR=/opt/homebrew/bin/nvim
 
-alias ll='eza --all --classify --icons --group-directories-first --sort=extension --long --group'
-
 export PATH="$HOME/.cargo/bin":"/opt/homebrew/opt/ruby/bin":"/opt/homebrew/lib/ruby/gems/3.3.0/bin":"/opt/homebrew/bin":"/usr/local/opt/python/libexec/bin:"/opt/homebrew/opt/python@3.12/libexec/bin":$HOME/.local/bin:$PATH"
 
 # For compilers to find ruby you may need to set:
@@ -20,11 +18,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 for bashrc in $(find "$HOME/.config/bashrc.d" -name "*.sh" | sort); do
   # shellcheck source=/dev/null
   source "${bashrc}"
-done
-
-for completion in $(find "$HOME/.config/bashrc.d/completion.d" -name "*.sh" | sort); do
-  # shellcheck source=/dev/null
-  source "${completion}"
 done
 
 export GITLAB_URL="https://gitlab.com"
