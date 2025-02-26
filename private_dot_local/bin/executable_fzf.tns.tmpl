@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source "${BASH_SOURCE%/*}/lib/log.sh"
 # [T]mux [N]ew [S]ession
 
 function _fzf_tmux_windows() {
@@ -8,16 +9,18 @@ function _fzf_tmux_windows() {
       --bind="ctrl-r:reload(gitlab.repos --refresh)"
 }
 
-project_windows="$(_fzf_tmux_windows)"
+project_paths="$(_fzf_tmux_windows)"
 
-if [ "x$project_windows" != "x" ]; then
-  session="$(echo "${project_windows}" | awk -F/ '{print $1}')"
-  window="$(echo "${project_windows}" | awk -F/ '{print $NF}' | tr -d ' ')"
-  path="$(echo "${project_windows}" | awk '{print $2}' | tr -d ' ')"
+if [ "x$project_paths" != "x" ]; then
+  project="$(echo "${project_paths}" | awk '{print $1}' | tr -d ' ')"
+  path="$(echo "${project_paths}" | awk '{print $2}' | tr -d ' ')"
+
+  session="$(echo "${project}" | awk -F/ '{print $1}')"
+  window="$(echo "${project}" | awk -F/ '{print $NF}' | tr -d ' ')"
 
   if [[ ! -d "${path}" ]]; then
     mkdir -p "$(dirname "${path}")" >/dev/null 2>&1
-    git clone "git@gitlab.com:${session}/${window}.git" "${path}" >/dev/null 2>&1
+    git clone "git@gitlab.com:${project}.git" "${path}" >/dev/null 2>&1
   fi
 
   if tmux has-session -t="${session}" >/dev/null 2>&1; then
