@@ -16,7 +16,7 @@ if [ "x$project_paths" != "x" ]; then
   path="$(echo "${project_paths}" | awk '{print $2}' | tr -d ' ')"
 
   session="$(echo "${project}" | awk -F/ '{print $1}')"
-  window="$(echo "${project}" | awk -F/ '{print $NF}' | tr -d ' ')"
+  window="$(echo "${project}" | awk -F/ '{for (i=2; i<NF; i++) printf $i "/"; print $NF}' | tr -d ' ')"
 
   if [[ ! -d "${path}" ]]; then
     mkdir -p "$(dirname "${path}")" >/dev/null 2>&1
