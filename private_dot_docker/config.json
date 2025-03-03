@@ -1,0 +1,7 @@
+{
+  "cliPluginsExtraDirs": ["/opt/homebrew/lib/docker/cli-plugins"],
+  "credHelpers": {
+    "638883502376.dkr.ecr.us-east-1.amazonaws.com": "ecr-login",
+    "public.ecr.aws": "ecr-login"
+  }
+}

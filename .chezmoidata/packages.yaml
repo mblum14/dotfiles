@@ -4,6 +4,8 @@ packages:
     - bat
     - bash
     - coreutils
+    - docker-compose
+    - docker-credential-helper-ecr
     - eza
     - fzf
     - gh
@@ -32,6 +34,7 @@ packages:
     - yq
   cask:
     - font-jetbrains-mono-nerd-font
+    - docker
   npm:
     - yarn
     - flow-bin
