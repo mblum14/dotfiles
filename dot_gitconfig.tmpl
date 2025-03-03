@@ -94,7 +94,7 @@
   default = tracking
   autoSetupRemote = true
 [user]
-  name = {{ .gitUsername | quote }}
+  name = {{ .gitCommitUsername | quote }}
   email = {{ .email | quote }}
 [core]
   autocrlf = false

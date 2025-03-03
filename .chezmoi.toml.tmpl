@@ -1,5 +1,6 @@
 {{ $email := promptStringOnce . "email" "Email Address" -}}
 {{ $gitUsername := promptStringOnce . "gitUsername" "Github/Gitlab Username" -}}
+{{ $gitCommitUsername := promptStringOnce . "gitCommitUsername" "Username used for commits" -}}
 {{ $passphrase := promptStringOnce . "passphrase" "passphrase" -}}
 
 encryption = "gpg"
@@ -8,6 +9,7 @@ progress = true
 [data]
   email = {{ $email | quote }}
   gitUsername = {{ $gitUsername | quote }}
+  gitCommitUsername = {{ $gitCommitUsername | quote }}
   passphase = {{ $passphrase | quote }}
 
 [gpg]
