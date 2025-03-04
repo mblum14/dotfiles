@@ -12,9 +12,6 @@ export PATH="$HOME/.cargo/bin":"/opt/homebrew/opt/ruby/bin":"/opt/homebrew/lib/r
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 for bashrc in $(find "$HOME/.config/bashrc.d" -name "*.sh" | sort); do
   # shellcheck source=/dev/null
   source "${bashrc}"
