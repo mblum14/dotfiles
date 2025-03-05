@@ -1,9 +1,14 @@
 export VOLTA_HOME="$HOME/.volta"
 
 HOMEBREW_PREFIX="/opt/homebrew"
+export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d" # read by bash-completion to load custom completion files
 
 eval "$("${HOMEBREW_PREFIX}/bin/brew" shellenv)"
 eval "$("${HOMEBREW_PREFIX}/bin/pyenv" init -)"
+
+if [[ -s "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+  source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+fi
 
 PATH="${VOLTA_HOME}/bin:$PATH"                          # nodejs
 PATH="${HOME}/.cargo/bin":$PATH                         # rust
@@ -13,4 +18,4 @@ PATH="${HOMEBREW_PREFIX}/bin":$PATH                     # homebrew
 PATH=${HOME}/.local/bin:$PATH                           # local scripts
 export PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
-source $HOME/.bashrc
+source "${HOME}/.bashrc"

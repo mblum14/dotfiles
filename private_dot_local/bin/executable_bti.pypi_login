@@ -1,74 +1,53 @@
 #!/usr/bin/env bash
+source "${BASH_SOURCE%/*}/lib/log.sh"
 
 set -eu -o pipefail
 
 function abort() {
-    echo >&2 "$@"
-    exit 1
+  log::err "$@"
+  exit 1
 }
 
-function is_ci() {
-    [[ -n "${CI:-}" ]]
-}
-
-OUTPUT_FILE="${1:-${OUTPUT_FILE:-/dev/null}}"
 EA_CODEARTIFACT_DOMAIN_OWNER="${EA_CODEARTIFACT_DOMAIN_OWNER:-638883502376}"
 EA_CODEARTIFACT_DOMAIN="${EA_CODEARTIFACT_DOMAIN:-orangegrove}"
 EA_CODEARTIFACT_REPOSITORY="${EA_CODEARTIFACT_REPOSITORY:-eventaware}"
 POETRY_REPO="${POETRY_REPO:-eventaware}"
 
-function writing_output() {
-    [[ "${OUTPUT_FILE}" != "/dev/null" ]]
-}
-
 if ! which aws >/dev/null; then
-    abort "aws cli is required"
+  abort "aws cli is required"
 fi
 
 if ! aws sts get-caller-identity &>/dev/null; then
-    abort "AWS credentials are required"
+  abort "AWS credentials are required"
 fi
 
 if [[ -z "${EA_PYPI_PUBLISH_URL:-}" ]]; then
-    EA_PYPI_PUBLISH_URL="$(
-        aws codeartifact get-repository-endpoint \
-            --domain "${EA_CODEARTIFACT_DOMAIN}" \
-            --domain-owner "${EA_CODEARTIFACT_DOMAIN_OWNER}" \
-            --repository "${EA_CODEARTIFACT_REPOSITORY}" \
-            --format pypi \
-            --query repositoryEndpoint \
-            --output text
-    )"
+  EA_PYPI_PUBLISH_URL="$(
+    aws codeartifact get-repository-endpoint \
+      --domain "${EA_CODEARTIFACT_DOMAIN}" \
+      --domain-owner "${EA_CODEARTIFACT_DOMAIN_OWNER}" \
+      --repository "${EA_CODEARTIFACT_REPOSITORY}" \
+      --format pypi \
+      --query repositoryEndpoint \
+      --output text
+  )"
 fi
 
-if is_ci || writing_output; then
-    # 30 minutes
-    duration=1800
-else
-    # 12 hours
-    duration=43200
-fi
+# 12 hours
+duration=43200
 
 CODEARTIFACT_USER=aws
 CODEARTIFACT_TOKEN="$(
-    aws codeartifact get-authorization-token \
-        --domain "${EA_CODEARTIFACT_DOMAIN}" \
-        --domain-owner "${EA_CODEARTIFACT_DOMAIN_OWNER}" \
-        --query authorizationToken \
-        --output text \
-        --duration-seconds ${duration}
+  aws codeartifact get-authorization-token \
+    --domain "${EA_CODEARTIFACT_DOMAIN}" \
+    --domain-owner "${EA_CODEARTIFACT_DOMAIN_OWNER}" \
+    --query authorizationToken \
+    --output text \
+    --duration-seconds ${duration}
 )"
 
-cat >"${OUTPUT_FILE}" <<EOF
-POETRY_REPO="${POETRY_REPO}"
-POETRY_REPO_URL="${EA_PYPI_PUBLISH_URL}"
-POETRY_REPO_USER="${CODEARTIFACT_USER}"
-POETRY_REPO_PASSWORD="${CODEARTIFACT_TOKEN}"
-EOF
-
 if [[ -z "${SKIP_POETRY_LOGIN:-}" ]]; then
-    poetry config "repositories.${POETRY_REPO}" "${EA_PYPI_PUBLISH_URL}"
-    poetry config "http-basic.${POETRY_REPO}" "${CODEARTIFACT_USER}" "${CODEARTIFACT_TOKEN}"
-    echo "Logged into ${POETRY_REPO} PyPi repository"
-    if is_ci; then echo "Publish artifacts with: poetry publish -r ${POETRY_REPO}"; fi
+  poetry config "repositories.${POETRY_REPO}" "${EA_PYPI_PUBLISH_URL}"
+  poetry config "http-basic.${POETRY_REPO}" "${CODEARTIFACT_USER}" "${CODEARTIFACT_TOKEN}"
+  log::info "Logged into ${POETRY_REPO} PyPi repository"
 fi

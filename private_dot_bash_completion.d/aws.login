@@ -1,13 +1,13 @@
 # Define command completion function
-_with_aws_profile_completion() {
+aws.login_completion() {
   local cmd cur_word profile_list sub_cmd_start sub_cmd
   cmd="${COMP_WORDS[0]}"
   cur_word="${COMP_WORDS[COMP_CWORD]}"
 
-  if [[ "${cmd}" == "_with_aws_profile" ]]; then
+  if [[ "${cmd}" == "aws.login" ]]; then
     sub_cmd_start=2
 
-    # If the command is _with_aws_profile and we are completing the profile, use the list of profiles
+    # If the command is aws.login and we are completing the profile, use the list of profiles
     if [[ ${COMP_CWORD} -eq 1 ]]; then
       # Get AWS profile list from the ~/.aws/config file
       profile_list=$(awk -F'[][]' '/\[profile/ {gsub(/^profile /, "", $2); print $2}' ~/.aws/config)
@@ -33,4 +33,4 @@ _with_aws_profile_completion() {
   # shellcheck disable=SC2207
   COMPREPLY=($(compgen -W "${completions}" -- "${cur_word}"))
 }
-complete -F _with_aws_profile_completion _with_aws_profile ea-infra ea-infra-admin ea-dev ea-dev-admin ea-prod ea-prod-admin hz-dev hz-dev-admin hz-prod hz-prod-admin
+complete -F aws.login_completion aws.login ea-infra ea-infra-admin ea-dev ea-dev-admin ea-prod ea-prod-admin hz-dev hz-dev-admin hz-prod hz-prod-admin

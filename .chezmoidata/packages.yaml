@@ -3,6 +3,7 @@ packages:
     - awscli
     - bat
     - bash
+    - bash-completion
     - coreutils
     - docker-compose
     - docker-credential-helper-ecr
