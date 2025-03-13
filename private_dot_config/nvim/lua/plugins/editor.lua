@@ -14,4 +14,8 @@ return {
       vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     end,
   },
+  {
+    "sbulav/validate-gitlab-ci.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 }
