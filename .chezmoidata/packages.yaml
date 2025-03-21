@@ -1,5 +1,6 @@
 packages:
   brew:
+    - ansible
     - awscli
     - bat
     - bash
