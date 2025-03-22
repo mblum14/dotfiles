@@ -48,6 +48,7 @@
   "neotest-haskell": { "branch": "master", "commit": "ef8cdce17319ea90669066fa7e0f13729e39303c" },
   "neotest-python": { "branch": "master", "commit": "a2861ab3c9a0bf75a56b11835c2bfc8270f5be7e" },
   "neotest-rspec": { "branch": "main", "commit": "281c0ed0e55d623e8028796e1c4dc27b7e421fd0" },
+  "neotest-vitest": { "branch": "main", "commit": "9f8f05bee6e5b980a4d1e84adab119a8f9756a77" },
   "neotest-zig": { "branch": "main", "commit": "de63f3b9a182d374d2e71cf44385326682ec90e7" },
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
   "nui.nvim": { "branch": "main", "commit": "8d3bce9764e627b62b07424e0df77f680d47ffdb" },
