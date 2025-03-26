@@ -6,8 +6,6 @@ HISTFILESIZE=2000
 
 export EDITOR=/opt/homebrew/bin/nvim
 
-export PATH="$HOME/.cargo/bin":"/opt/homebrew/opt/ruby/bin":"/opt/homebrew/lib/ruby/gems/3.3.0/bin":"/opt/homebrew/bin":"/usr/local/opt/python/libexec/bin:"/opt/homebrew/opt/python@3.12/libexec/bin":$HOME/.local/bin:$PATH"
-
 # For compilers to find ruby you may need to set:
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"

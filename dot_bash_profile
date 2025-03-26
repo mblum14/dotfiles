@@ -10,12 +10,13 @@ if [[ -s "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
   source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 fi
 
-PATH="${VOLTA_HOME}/bin:$PATH"                          # nodejs
 PATH="${HOME}/.cargo/bin":$PATH                         # rust
 PATH="${HOMEBREW_PREFIX}/opt/ruby/bin":$PATH            # ruby
 PATH="${HOMEBREW_PREFIX}/lib/ruby/gems/3.3.0/bin":$PATH # ruby
 PATH="${HOMEBREW_PREFIX}/bin":$PATH                     # homebrew
 PATH=${HOME}/.local/bin:$PATH                           # local scripts
+PATH="${VOLTA_HOME}/bin:$PATH"                          # nodejs
+
 export PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 source "${HOME}/.bashrc"
