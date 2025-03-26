@@ -9,6 +9,7 @@ packages:
     - docker-compose
     - docker-credential-helper-ecr
     - eza
+    - fd
     - fzf
     - gh
     - git-delta
@@ -20,6 +21,7 @@ packages:
     - krew
     - kubectx
     - lazygit
+    - luarocks
     - neovim
     - norwoodj/tap/helm-docs
     - pre-commit
@@ -33,6 +35,7 @@ packages:
     - tmux
     - tpm
     - trivy
+    - viu
     - yq
   cask:
     - font-jetbrains-mono-nerd-font
