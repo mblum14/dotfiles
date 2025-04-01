@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 function install_python() {
-  brew install python@{{ .languages.python }}
+  brew install pyenv
+  pyenv install {{ .languages.python }}
 }
 
 install_python
