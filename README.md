@@ -7,7 +7,13 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install minimal necessary binaries
-/opt/homebrew/bin/brew install git chezmoi gpg
+/opt/homebrew/bin/brew bash install git chezmoi gpg
+
+# set bash as default shell
+echo "insert '/opt/homebrew/bin/bash' on top of list of shells listed in /etc/shells"
+read -p 'Press `enter` when you are ready'
+sudo nano /etc/shells
+chsh -s /opt/homebrew/bin/bash
 
 # set up SSH key
 mkdir -p ~/.ssh
