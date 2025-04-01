@@ -38,6 +38,7 @@ packages:
     - viu
     - yq
   cask:
+    - ghostty
     - font-jetbrains-mono-nerd-font
     - docker
   npm:
