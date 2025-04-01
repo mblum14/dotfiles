@@ -2,7 +2,7 @@
 
 function install_python() {
   brew install pyenv
-  pyenv install {{ .languages.python }}
+  pyenv global {{ .languages.python }}
 }
 
 install_python
