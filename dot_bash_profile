@@ -1,10 +1,13 @@
 export VOLTA_HOME="$HOME/.volta"
+export PYENV_ROOT="$HOME/.pyenv"
 
 HOMEBREW_PREFIX="/opt/homebrew"
 export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d" # read by bash-completion to load custom completion files
 
 eval "$("${HOMEBREW_PREFIX}/bin/brew" shellenv)"
 eval "$("${HOMEBREW_PREFIX}/bin/pyenv" init -)"
+
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
 if [[ -s "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
   source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
