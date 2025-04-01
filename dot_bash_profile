@@ -4,8 +4,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 HOMEBREW_PREFIX="/opt/homebrew"
 export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d" # read by bash-completion to load custom completion files
 
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-[[ -d $PYENV_ROOT/shims ]] && export PATH="$PYENV_ROOT/shims:$PATH"
+[[ -d $PYENV_ROOT/bin ]] && PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT/shims ]] && PATH="$PYENV_ROOT/shims:$PATH"
 
 eval "$("${HOMEBREW_PREFIX}/bin/brew" shellenv)"
 eval "$("${HOMEBREW_PREFIX}/bin/pyenv" init -)"
