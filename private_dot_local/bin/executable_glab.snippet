@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+set -e
+source "${BASH_SOURCE%/*}/lib/gitlab.sh"
+source "${BASH_SOURCE%/*}/lib/log.sh"
+
+# TODO: Support looking up project id by human readable name
+# TODO: Support updating specific filepath
+# TODO: Only update if file changed
+HORIZON_PROJECT_ID=59814190
+
+function help() {
+  cat <<EOF
+Usage:
+  glab.snippet [command] [snippet-id]
+
+Available Commands:
+  edit    Edit an existing snippet
+EOF
+}
+
+CMD=$1
+
+if [[ -z $CMD ]]; then
+  log::err "Missing command"
+  help
+  exit 1
+fi
+
+shift
+
+case $CMD in
+edit)
+  SNIPPET_ID=$1
+  ;;
+*)
+  log::err "${CMD} is not a valid command."
+  help
+  exit 1
+  ;;
+esac
+
+if [[ -z $SNIPPET_ID ]]; then
+  log::err "Missing snippet-id"
+  help
+  exit 1
+fi
+shift
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  -p | --project | --project-id)
+    shift 1
+    PROJECT_ID=$1
+    if [[ ${PROJECT_ID,,} = horizon ]]; then
+      PROJECT_ID="${HORIZON_PROJECT_ID}"
+    fi
+    PROJECT_PATH="projects/${PROJECT_ID}/"
+    ;;
+  *)
+    log::err "Unrecognized flag, ${1}"
+    help
+    exit 1
+    ;;
+  esac
+  shift
+done
+
+f=$(mktemp -t snippet)
+trap 'rm $f' EXIT
+contents="$(gitlab_api::curl "${GITLAB_URL}/api/v4/${PROJECT_PATH}snippets/${SNIPPET_ID}/raw")"
+echo "${contents}" >"${f}"
+$EDITOR "${f}"
+contents=$(cat "${f}")
+data=$(jq -n \
+  --arg content "${contents}" \
+  '{"files":[{"action": "update", "file_path": "proposal.md", "content": $content}]}')
+if gitlab_api::put "${GITLAB_URL}/api/v4/${PROJECT_PATH}snippets/${SNIPPET_ID}" "${data}" >/dev/null; then
+  log::success "Updated ${SNIPPET_ID}"
+fi

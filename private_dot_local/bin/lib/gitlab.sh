@@ -1,10 +1,32 @@
 #!/usr/bin/env bash
+source "${BASH_SOURCE%/*}/log.sh"
 
 function gitlab_api::curl() {
   local url=$1
-  curl -s \
+  shift
+  curl \
+    -s \
     -H "Authorization: Bearer ${GITLAB_TOKEN}" \
     "${url}"
+}
+
+function gitlab_api::put() {
+  local url=$1
+  local data=$2
+  response="$(curl \
+    -s \
+    -w ",,,%{http_code}" \
+    -H "Authorization: Bearer ${GITLAB_TOKEN}" \
+    -H "Content-Type: application/json" \
+    --request PUT "${url}" \
+    --data "${data}")"
+  code="$(echo "${response}" | awk -F',,,' '{print $2}')"
+  err="$(echo "${response}" | awk -F',,,' '{print $1}')"
+
+  if [[ $code -ne 200 ]]; then
+    log::err "${err}"
+    return 1
+  fi
 }
 
 function gitlab_api::page() {
