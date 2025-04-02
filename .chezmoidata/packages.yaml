@@ -14,6 +14,7 @@ packages:
     - gh
     - git-delta
     - glab
+    - glow
     - gpg
     - helm
     - jq

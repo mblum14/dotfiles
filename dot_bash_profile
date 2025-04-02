@@ -1,5 +1,7 @@
 export VOLTA_HOME="$HOME/.volta"
 export PYENV_ROOT="$HOME/.pyenv"
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
 
 HOMEBREW_PREFIX="/opt/homebrew"
 export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d" # read by bash-completion to load custom completion files
@@ -19,12 +21,12 @@ if [[ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]]; then
   PATH="$(gem environment gemdir)/bin:$PATH"
 fi
 
-PATH="${HOME}/.cargo/bin":$PATH                         # rust
-PATH="${HOMEBREW_PREFIX}/opt/ruby/bin":$PATH            # ruby
-PATH="${HOMEBREW_PREFIX}/lib/ruby/gems/3.3.0/bin":$PATH # ruby
-PATH="${HOMEBREW_PREFIX}/bin":$PATH                     # homebrew
-PATH=${HOME}/.local/bin:$PATH                           # local scripts
-PATH="${VOLTA_HOME}/bin:$PATH"                          # nodejs
+PATH="${HOMEBREW_PREFIX}/bin":$PATH # homebrew
+PATH="${HOME}/.cargo/bin":$PATH     # rust
+PATH="${VOLTA_HOME}/bin:$PATH"      # nodejs
+PATH="${GOPATH}/bin:$PATH"          # golang
+PATH="${GOROOT}/bin:$PATH"          # golang
+PATH=${HOME}/.local/bin:$PATH       # local scripts
 
 export PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
