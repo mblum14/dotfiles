@@ -14,6 +14,11 @@ if [[ -s "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
   source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 fi
 
+if [[ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]]; then
+  PATH=/"${HOMEBREW_PREFIX}/opt/ruby/bin:$PATH"
+  PATH="$(gem environment gemdir)/bin:$PATH"
+fi
+
 PATH="${HOME}/.cargo/bin":$PATH                         # rust
 PATH="${HOMEBREW_PREFIX}/opt/ruby/bin":$PATH            # ruby
 PATH="${HOMEBREW_PREFIX}/lib/ruby/gems/3.3.0/bin":$PATH # ruby
