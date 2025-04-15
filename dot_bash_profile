@@ -21,6 +21,10 @@ if [[ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]]; then
   PATH="$(gem environment gemdir)/bin:$PATH"
 fi
 
+if [[ -d "${HOME}/.cargo" ]]; then
+  source "${HOME}/.cargo/env"
+fi
+
 PATH="${HOMEBREW_PREFIX}/bin":$PATH # homebrew
 PATH="${HOME}/.cargo/bin":$PATH     # rust
 PATH="${VOLTA_HOME}/bin:$PATH"      # nodejs
