@@ -1,4 +1,6 @@
 packages:
+  tap:
+    - hashcorp/tap
   brew:
     - ansible
     - awscli
@@ -16,6 +18,7 @@ packages:
     - glab
     - glow
     - gpg
+    - hashicorp/tap/packer
     - helm
     - jq
     - k9s
@@ -43,15 +46,16 @@ packages:
     - font-jetbrains-mono-nerd-font
     - docker
   npm:
-    - yarn
-    - flow-bin
-    - markdown-preview
     - catj
+    - flow-bin
     - figlet-cli
-    - typescript
-    - terminal-image-cli
+    - markdown-preview
+    - mermaid-cli
     - nb.sh
     - neovim
+    - typescript
+    - terminal-image-cli
+    - yarn
   pip:
     - aws-sso-util
     - awsume
