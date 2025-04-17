@@ -34,6 +34,10 @@ alias awsume="source awsume"
 # chezmoi
 alias cm="chezmoi"
 
+# podman
+alias docker="podman"
+alias docker-compose="podman-compose"
+
 # terragrunt
 alias unlock="terragrunt force-unlock -force"
 alias plan="terragrunt plan --source-update --download-dir ~/.terragrunt-cache"
