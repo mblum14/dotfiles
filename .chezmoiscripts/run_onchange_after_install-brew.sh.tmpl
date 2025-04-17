@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
-{{ range .packages.brew -}}
-brew install {{ . }} -q
+{{ range .packages.tap -}}
+brew tap {{ . }}
 {{ end -}}
 
 {{ range .packages.cask -}}
 brew install --cask {{ . }}
 {{ end -}}
 
-{{ range .packages.tap -}}
-tap="$(dirname {{ . }})"
-brew tap "${tap}"
-brew install {{ . }}
+{{ range .packages.brew -}}
+brew install {{ . }} -q
 {{ end -}}

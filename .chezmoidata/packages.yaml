@@ -1,6 +1,6 @@
 packages:
   tap:
-    - hashcorp/tap
+    - hashicorp/tap
   brew:
     - ansible
     - awscli
@@ -8,8 +8,6 @@ packages:
     - bash
     - bash-completion
     - coreutils
-    - docker-compose
-    - docker-credential-helper-ecr
     - eza
     - fd
     - fzf
@@ -28,6 +26,9 @@ packages:
     - luarocks
     - neovim
     - norwoodj/tap/helm-docs
+    - podman
+    - podman-compose
+    - podman-desktop
     - pre-commit
     - ripgrep
     - sops
@@ -44,7 +45,6 @@ packages:
   cask:
     - ghostty
     - font-jetbrains-mono-nerd-font
-    - docker
   npm:
     - catj
     - flow-bin
