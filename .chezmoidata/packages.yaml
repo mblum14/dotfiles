@@ -41,6 +41,7 @@ packages:
     - tpm
     - trivy
     - viu
+    - wget
     - yq
   cask:
     - ghostty
