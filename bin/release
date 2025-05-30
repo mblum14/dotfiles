@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+TAG="${1?Missing <tag>}"
+
+if ! git ls-remote origin "${TAG}" | grep "${TAG}" > /dev/null 2>&1; then
+  echo "${TAG} does not exist on remote, origin"
+  exit 1
+fi
+
+exit 0
+
+gh release create "${TAG:-$1}" ./dist/*.tgz

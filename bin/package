@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+mkdir -p dist
+
+tar --auto-compress --verbose --dereference --create --directory "$HOME" --file dist/tmux_state.tgz \
+  .config/tmux
+
+tar --auto-compress --verbose --dereference --create --directory "$HOME" --file dist/nvim_state.tgz \
+  .config/nvim/lua \
+  .config/nvim/init.lua \
+  .config/nvim/lazy-lock.json \
+  .config/nvim/lazyvim.json \
+  .local/share/nvim \
+  .local/state/nvim/lazy/state.json
