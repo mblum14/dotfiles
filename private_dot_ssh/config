@@ -16,3 +16,8 @@ Host 192.168.1.77
   IdentityFile ~/.ssh/id_local
 Host homebridge.lab
   IdentityFile ~/.ssh/id_local
+
+Host combine
+  HostName 52.73.192.135
+  IdentityFile ~/.ssh/combine.pem
+  User ec2-user
