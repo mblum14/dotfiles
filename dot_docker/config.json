@@ -1,0 +1,7 @@
+{
+	"auths": {
+		"638883502376.dkr.ecr.us-east-1.amazonaws.com": {}
+	},
+	"credsStore": "osxkeychain",
+	"currentContext": "desktop-linux"
+}

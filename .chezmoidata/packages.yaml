@@ -8,6 +8,9 @@ packages:
     - bash
     - bash-completion
     - coreutils
+    - docker
+    - docker-compose
+    - docker-compose-helpers
     - eza
     - fd
     - fzf
@@ -26,9 +29,6 @@ packages:
     - luarocks
     - neovim
     - norwoodj/tap/helm-docs
-    - podman
-    - podman-compose
-    - podman-desktop
     - pre-commit
     - ripgrep
     - sops
