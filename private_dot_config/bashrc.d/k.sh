@@ -19,7 +19,7 @@ function k.sc() {
     return 1
   fi
 
-  aws eks update-kubeconfig --name "${cluster_name}"
+  aws eks update-kubeconfig --name "${cluster_name}" --alias "${cluster_name}"
 }
 
 # [k]ubectl [S]et [N]amespace
