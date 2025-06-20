@@ -33,4 +33,4 @@ aws.login_completion() {
   # shellcheck disable=SC2207
   COMPREPLY=($(compgen -W "${completions}" -- "${cur_word}"))
 }
-complete -F aws.login_completion aws.login ea-infra ea-infra-admin ea-dev ea-dev-admin ea-prod ea-prod-admin hz-dev hz-dev-admin hz-prod hz-prod-admin
+complete -F aws.login_completion aws.login ea-infra ea-infra-admin ea-dev ea-dev-admin ea-prod ea-prod-admin sq-combine hz-dev hz-dev-admin hz-prod hz-prod-admin
