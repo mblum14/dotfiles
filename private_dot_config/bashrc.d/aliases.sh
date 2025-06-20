@@ -34,10 +34,6 @@ alias awsume="source awsume"
 # chezmoi
 alias cm="chezmoi"
 
-# podman
-alias docker="podman"
-alias docker-compose="podman-compose"
-
 # terragrunt
 alias unlock="terragrunt force-unlock -force"
 alias plan="terragrunt plan --source-update --download-dir ~/.terragrunt-cache"
@@ -55,6 +51,7 @@ alias ea-dev='aws.login ea-dev'
 alias ea-dev-admin='aws.login ea-dev-adm'
 alias ea-prod='aws.login ea-prod'
 alias ea-prod-admin='aws.login ea-prod-adm'
+alias sq-combine='aws.login sequoia-combine'
 alias hz-dev='aws.login hz-dev'
 alias hz-dev-admin='aws.login hz-dev-admin'
 alias hz-prod='aws.login hz-prod'
