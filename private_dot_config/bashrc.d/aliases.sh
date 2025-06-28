@@ -34,7 +34,11 @@ alias awsume="source awsume"
 # chezmoi
 alias cm="chezmoi"
 
+# terraform
+alias tf="terraform"
+
 # terragrunt
+alias tg="terragrunt"
 alias unlock="terragrunt force-unlock -force"
 alias plan="terragrunt plan --source-update --download-dir ~/.terragrunt-cache"
 alias apply="terragrunt apply --source-update --download-dir ~/.terragrunt-cache"
