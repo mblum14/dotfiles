@@ -11,6 +11,7 @@ packages:
     - docker
     - docker-compose
     - docker-compose-helpers
+    - dust
     - eza
     - fd
     - fzf
