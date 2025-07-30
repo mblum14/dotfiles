@@ -15,11 +15,14 @@ packages:
     - eza
     - fd
     - fzf
+    - gawk
     - gh
     - git-delta
     - glab
     - glow
+    - gnu-sed
     - gpg
+    - grep
     - hashicorp/tap/packer
     - helm
     - jq

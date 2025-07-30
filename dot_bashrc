@@ -23,5 +23,12 @@ fi
 
 export TG_DOWNLOAD_DIR="${HOME}/.terragrunt-cache"
 
+export FZF_COMPLETION_TRIGGER="**"
+export FZF_COMPLETION_OPTS='--border --info=inline'
+export FZF_COMPLETION_PATH_OPTS='--walker file,dir,follow,hidden'
+export FZF_COMPLETION_DIR_OPTS='--walker dir,follow'
+export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
+export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
+
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
