@@ -5,6 +5,7 @@ source "${BASH_SOURCE%/*}/lib/log.sh"
 function _fzf_tmux_windows() {
   gitlab.repos |
     fzf-tmux -p -- \
+      --with-nth=1 \
       --header=$'\nPress CTRL-R to reload' \
       --bind="ctrl-r:reload(gitlab.repos --refresh)"
 }
