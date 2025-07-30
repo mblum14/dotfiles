@@ -14,7 +14,6 @@ eval "$("${HOMEBREW_PREFIX}/bin/pyenv" init -)"
 
 if [[ -s "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
   source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-  bind -x '"\t": fzf_bash_completion'
 fi
 
 if [[ -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]]; then
