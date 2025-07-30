@@ -8,6 +8,7 @@ packages:
     - bash
     - bash-completion
     - coreutils
+    - cosign
     - docker
     - docker-compose
     - docker-compose-helpers
@@ -38,9 +39,8 @@ packages:
     - sops
     - starship
     - terraform-docs
-    - tfenv
+    - tenv
     - tflint
-    - tgenv
     - tmux
     - tpm
     - trivy
