@@ -69,6 +69,7 @@ packages:
     - neovim
     - poetry
     - pynvim
+    - uv
   krew:
     - access-matrix
     - cert-manager

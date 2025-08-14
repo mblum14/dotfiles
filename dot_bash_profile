@@ -25,12 +25,13 @@ if [[ -d "${HOME}/.cargo" ]]; then
   source "${HOME}/.cargo/env"
 fi
 
-PATH="${HOMEBREW_PREFIX}/bin":$PATH # homebrew
-PATH="${HOME}/.cargo/bin":$PATH     # rust
-PATH="${VOLTA_HOME}/bin:$PATH"      # nodejs
-PATH="${GOPATH}/bin:$PATH"          # golang
-PATH="${GOROOT}/bin:$PATH"          # golang
-PATH=${HOME}/.local/bin:$PATH       # local scripts
+PATH="${HOMEBREW_PREFIX}/bin":$PATH                # homebrew
+PATH="${HOME}/.cargo/bin":$PATH                    # rust
+PATH="${VOLTA_HOME}/bin:$PATH"                     # nodejs
+PATH="${GOPATH}/bin:$PATH"                         # golang
+PATH="${GOROOT}/bin:$PATH"                         # golang
+PATH=${HOME}/.local/bin:$PATH                      # local scripts
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
 
 export PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
