@@ -34,15 +34,19 @@ packages:
     - luarocks
     - neovim
     - norwoodj/tap/helm-docs
+    - poppler
     - pre-commit
     - ripgrep
     - sops
     - starship
     - terraform-docs
+    - tesseract
     - tenv
     - tflint
     - tmux
     - tpm
+    - tree-sitter
+    - tree-sitter-cli
     - trivy
     - viu
     - wget
