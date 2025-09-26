@@ -52,8 +52,9 @@ packages:
     - wget
     - yq
   cask:
-    - ghostty
+    - amazon-q
     - font-jetbrains-mono-nerd-font
+    - ghostty
   npm:
     - catj
     - flow-bin
