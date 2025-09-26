@@ -1,5 +1,6 @@
 packages:
   tap:
+    - FelixKratz/formulae
     - hashicorp/tap
   brew:
     - ansible
@@ -7,6 +8,7 @@ packages:
     - bat
     - bash
     - bash-completion
+    - borders
     - coreutils
     - cosign
     - docker
@@ -55,6 +57,7 @@ packages:
     - amazon-q
     - font-jetbrains-mono-nerd-font
     - ghostty
+    - nikitabobko/tap/aerospace
   npm:
     - catj
     - flow-bin
