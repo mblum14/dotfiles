@@ -13,10 +13,8 @@ packages:
     - cosign
     - docker
     - docker-compose
-    - docker-compose-helpers
     - dust
     - eza
-    - fd
     - fzf
     - gawk
     - gh
@@ -57,8 +55,8 @@ packages:
     - amazon-q
     - font-jetbrains-mono-nerd-font
     - ghostty
-    #- nikitabobko/tap/aerospace
   npm:
+    - "@github/copilot"
     - catj
     - flow-bin
     - figlet-cli
