@@ -1,7 +1,6 @@
-set -o vi
-
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/bashrc.pre.bash" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/bashrc.pre.bash"
+set -o vi
 
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
@@ -28,6 +27,8 @@ export TG_DOWNLOAD_DIR="${HOME}/.terragrunt-cache"
 
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
-#
+eval "$(pyenv init -)"
+eval "$(zoxide init bash)"
+
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/bashrc.post.bash" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/bashrc.post.bash"

@@ -51,6 +51,7 @@ packages:
     - viu
     - wget
     - yq
+    - zoxide
   cask:
     - amazon-q
     - font-jetbrains-mono-nerd-font
