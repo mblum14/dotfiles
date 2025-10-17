@@ -53,7 +53,6 @@ packages:
     - yq
     - zoxide
   cask:
-    - amazon-q
     - font-jetbrains-mono-nerd-font
     - ghostty
   npm:
