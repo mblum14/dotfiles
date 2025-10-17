@@ -1,6 +1,14 @@
+# Font
 font-family = "JetBrainsMono Nerd Font Mono"
+font-style = Regular
+font-size = 11
 
 shell-integration = bash
+
+# cursor styling
+cursor-style = "block"
+cursor-style-blink = false
+shell-integration-features = no-cursor
 
 # gruvbox theme
 background = #282828
