@@ -9,6 +9,7 @@ packages:
     - bash
     - bash-completion
     - borders
+    - btop
     - coreutils
     - cosign
     - docker
@@ -51,7 +52,6 @@ packages:
     - viu
     - wget
     - yq
-    - zoxide
   cask:
     - font-jetbrains-mono-nerd-font
     - ghostty
