@@ -10,6 +10,7 @@ packages:
     - bash-completion
     - borders
     - btop
+    - chafa
     - coreutils
     - cosign
     - docker
@@ -24,10 +25,13 @@ packages:
     - glow
     - gnu-sed
     - gpg
+    - graphicsmagick
     - grep
+    - gs
     - hashicorp/tap/packer
     - helm
     - jq
+    - jstkdng/programs/ueberzugpp
     - k9s
     - krew
     - kubectx
@@ -40,6 +44,7 @@ packages:
     - ripgrep
     - sops
     - starship
+    - tectonic
     - terraform-docs
     - tesseract
     - tenv
@@ -57,6 +62,7 @@ packages:
     - ghostty
   npm:
     - "@openai/codex"
+    - "@mermaid-js/mermaid-cli"
     - catj
     - flow-bin
     - figlet-cli
