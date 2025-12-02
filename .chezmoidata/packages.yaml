@@ -36,6 +36,7 @@ packages:
     - krew
     - kubectx
     - lazygit
+    - loop
     - luarocks
     - neovim
     - norwoodj/tap/helm-docs
