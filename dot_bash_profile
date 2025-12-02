@@ -1,9 +1,9 @@
+HOMEBREW_PREFIX="/opt/homebrew"
 export VOLTA_HOME="$HOME/.volta"
 export PYENV_ROOT="$HOME/.pyenv"
 export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
+export GOROOT="$("${HOMEBREW_PREFIX}/bin/brew" --prefix golang)/libexec"
 
-HOMEBREW_PREFIX="/opt/homebrew"
 export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d" # read by bash-completion to load custom completion files
 
 [[ -d $PYENV_ROOT/bin ]] && PATH="$PYENV_ROOT/bin:$PATH"
@@ -33,7 +33,7 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
 export PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-eval "$("${HOMEBREW_PREFIX}/bin/brew" shellenv)"
+eval "$("${HOMEBREW_PREFIX}/bin/brew" shellenv bash)"
 eval "$("${HOMEBREW_PREFIX}/bin/pyenv" init -)"
 
 source "${HOME}/.bashrc"
