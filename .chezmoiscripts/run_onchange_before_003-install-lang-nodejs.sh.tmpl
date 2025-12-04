@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function install_nodejs() {
-  brew install volta
+  curl https://get.volta.sh | bash
   volta install node
   volta setup
 }

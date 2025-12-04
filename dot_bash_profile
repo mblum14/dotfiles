@@ -24,9 +24,9 @@ fi
 
 PATH="${HOMEBREW_PREFIX}/bin":$PATH                # homebrew
 PATH="${HOME}/.cargo/bin":$PATH                    # rust
-PATH="${VOLTA_HOME}/bin:$PATH"                     # nodejs
 PATH="${GOPATH}/bin:$PATH"                         # golang
 PATH="${GOROOT}/bin:$PATH"                         # golang
+PATH="${VOLTA_HOME}/bin:$PATH"                     # nodejs
 PATH=${HOME}/.local/bin:$PATH                      # local scripts
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
 
