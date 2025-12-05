@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
+# MacOS build version: {{ output "sw_vers" "--buildVersion" }}
 
-{{ range .packages.tap -}}
-brew tap {{ . }}
+{{ if eq .chezmoi.os "darwin" -}}
+
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.brews -}}
+brew {{ . | quote }}
 {{ end -}}
-
-{{ range .packages.cask -}}
-brew install --cask {{ . }}
+{{ range .packages.casks -}}
+cask {{ . | quote }}
 {{ end -}}
-
-{{ range .packages.brew -}}
-brew install {{ . }} -q
+{{ range .packages.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+EOF
 {{ end -}}

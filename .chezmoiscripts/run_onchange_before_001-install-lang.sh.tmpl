@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# MacOS build version: {{ output "sw_vers" "--buildVersion" }}
+
+{{ range $lang, $version := .languages -}}
+asdf plugin add {{ $lang }} 2>/dev/null
+echo "installing {{ $lang }}@{{ $version }}"
+asdf install {{ $lang }} {{ $version }}
+asdf set {{ $lang }} {{ $version }} --home
+{{ end -}}

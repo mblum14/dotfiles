@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# MacOS build version: {{ output "sw_vers" "--buildVersion" }}
+
+{{ range .packages.asdf -}}
+asdf plugin add {{ . }} 2>/dev/null
+asdf install {{ . }} latest
+{{ end -}}
