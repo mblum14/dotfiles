@@ -1,10 +1,20 @@
 packages:
-  tap:
-    - FelixKratz/formulae
-    - hashicorp/tap
-  brew:
-    - ansible
+  asdf:
     - awscli
+    - helm
+    - jq
+    - k9s
+    - krew
+    - kubectx
+    - poetry
+    - terraform-docs
+    - tflint
+    - trivy
+    - uv
+    - yq
+  brews:
+    - ansible
+    - asdf
     - bat
     - bash
     - bash-completion
@@ -29,14 +39,8 @@ packages:
     - grep
     - gs
     - hashicorp/tap/packer
-    - helm
-    - jq
     - jstkdng/programs/ueberzugpp
-    - k9s
-    - krew
-    - kubectx
     - lazygit
-    - loop
     - luarocks
     - neovim
     - norwoodj/tap/helm-docs
@@ -46,21 +50,20 @@ packages:
     - sops
     - starship
     - tectonic
-    - terraform-docs
     - tesseract
     - tenv
-    - tflint
     - tmux
     - tpm
     - tree-sitter
     - tree-sitter-cli
-    - trivy
     - viu
     - wget
-    - yq
-  cask:
+  casks:
     - font-jetbrains-mono-nerd-font
     - ghostty
+  taps:
+    - FelixKratz/formulae
+    - hashicorp/tap
   npm:
     - "@openai/codex"
     - "@mermaid-js/mermaid-cli"
@@ -80,9 +83,7 @@ packages:
     - cookiecutter
     - ensurepath
     - neovim
-    - poetry
     - pynvim
-    - uv
   krew:
     - access-matrix
     - cert-manager

@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-function install_python() {
-  brew install pyenv
-  pyenv global {{ .languages.python }}
-}
-
-install_python

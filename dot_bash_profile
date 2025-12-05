@@ -1,13 +1,8 @@
 HOMEBREW_PREFIX="/opt/homebrew"
-export VOLTA_HOME="$HOME/.volta"
-export PYENV_ROOT="$HOME/.pyenv"
 export GOPATH="${HOME}/.go"
 export GOROOT="$("${HOMEBREW_PREFIX}/bin/brew" --prefix golang)/libexec"
 
 export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d" # read by bash-completion to load custom completion files
-
-[[ -d $PYENV_ROOT/bin ]] && PATH="$PYENV_ROOT/bin:$PATH"
-[[ -d $PYENV_ROOT/shims ]] && PATH="$PYENV_ROOT/shims:$PATH"
 
 if [[ -s "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
   source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
@@ -26,14 +21,13 @@ PATH="${HOMEBREW_PREFIX}/bin":$PATH                # homebrew
 PATH="${HOME}/.cargo/bin":$PATH                    # rust
 PATH="${GOPATH}/bin:$PATH"                         # golang
 PATH="${GOROOT}/bin:$PATH"                         # golang
-PATH="${VOLTA_HOME}/bin:$PATH"                     # nodejs
+PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"   # asdf
 PATH=${HOME}/.local/bin:$PATH                      # local scripts
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
+PATH="/opt/local/bin:/opt/local/sbin:$PATH"        # macports
 
 export PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 eval "$("${HOMEBREW_PREFIX}/bin/brew" shellenv bash)"
-eval "$("${HOMEBREW_PREFIX}/bin/pyenv" init -)"
 
 source "${HOME}/.bashrc"
