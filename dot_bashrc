@@ -24,5 +24,7 @@ fi
 
 export TG_DOWNLOAD_DIR="${HOME}/.terragrunt-cache"
 
+export ASDF_LEGACY_VERSION_FILE=1
+
 eval "$(starship init bash)"
 eval "$(fzf --bash)"

@@ -2,15 +2,12 @@
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-PATH="/opt/homebrew/bin":$PATH                   # homebrew
-PATH="${HOME}/.cargo/bin":$PATH                  # rust
-PATH="${GOPATH}/bin:$PATH"                       # golang
-PATH="${GOROOT}/bin:$PATH"                       # golang
-PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH" # asdf
-PATH=${HOME}/.local/bin:$PATH                    # local scripts
-PATH="/opt/local/bin:/opt/local/sbin:$PATH"      # macports
-
-export PATH
+PATH="/opt/homebrew/bin":$PATH              # homebrew
+PATH="${HOME}/.cargo/bin":$PATH             # rust
+PATH="${GOPATH}/bin:$PATH"                  # golang
+PATH="${GOROOT}/bin:$PATH"                  # golang
+PATH=${HOME}/.local/bin:$PATH               # local scripts
+PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
 
 export GOPATH="${HOME}/.go"
 GOROOT="$("$(brew --prefix)/bin/brew" --prefix golang)/libexec"
@@ -38,5 +35,10 @@ if [[ -d "${HOME}/.cargo" ]]; then
 fi
 
 eval "$("$(brew --prefix)/bin/brew" shellenv bash)"
+
+# ensure asdf is higher in the APTH than brew
+PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH" # asdf
+
+export PATH
 
 source "${HOME}/.bashrc"
