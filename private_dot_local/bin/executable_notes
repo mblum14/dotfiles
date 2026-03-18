@@ -1,0 +1,145 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+notes_dir="${HOME}/.local/state/notes"
+
+die() {
+  printf '%s\n' "$*" >&2
+  exit 1
+}
+
+usage() {
+  cat <<'EOF'
+Usage: notes
+
+Open an existing note or create a new note under ~/.local/state/notes.
+EOF
+}
+
+require_editor() {
+  [[ -n "${EDITOR:-}" ]] || die 'EDITOR is not set'
+}
+
+has_existing_notes() {
+  local first_note
+
+  first_note="$(find "$notes_dir" -type f -print -quit 2>/dev/null || true)"
+  [[ -n "$first_note" ]]
+}
+
+choose_with_fzf() {
+  if [[ -n "${TMUX_PANE:-}" ]] && command -v fzf-tmux >/dev/null 2>&1; then
+    fzf-tmux -p 80%,60% -- "$@"
+  else
+    command -v fzf >/dev/null 2>&1 || die 'fzf is required to browse existing notes'
+    fzf "$@"
+  fi
+}
+
+validate_note_name() {
+  local note_name="$1"
+  local part
+  local IFS='/'
+  local -a parts=()
+
+  [[ -n "$note_name" ]] || die 'Note name cannot be empty'
+  [[ "$note_name" != /* ]] || die 'Note name must be relative to ~/.local/state/notes'
+
+  read -r -a parts <<< "$note_name"
+
+  for part in "${parts[@]}"; do
+    [[ -n "$part" ]] || die 'Note name cannot contain empty path components'
+    [[ "$part" != "." ]] || die 'Note name cannot contain "." path components'
+    [[ "$part" != ".." ]] || die 'Note name cannot contain ".." path components'
+  done
+}
+
+open_in_editor() {
+  local note_path="$1"
+  local quoted_note_path
+
+  require_editor
+
+  mkdir -p -- "$(dirname "$note_path")"
+  touch -- "$note_path"
+
+  printf -v quoted_note_path '%q' "$note_path"
+  # Allow EDITOR to include flags, e.g. "nvim -c 'set ft=markdown'".
+  eval "$EDITOR $quoted_note_path"
+}
+
+open_existing_note() {
+  local selected_note
+
+  has_existing_notes || return 1
+
+  if ! selected_note="$(
+    cd "$notes_dir"
+    find . -type f -print | sed 's|^\./||' | LC_ALL=C sort | choose_with_fzf --prompt='Notes> ' --select-1 --exit-0
+  )"; then
+    return 1
+  fi
+
+  [[ -n "$selected_note" ]] || return 1
+  open_in_editor "$notes_dir/$selected_note"
+}
+
+create_note() {
+  local note_name
+
+  read -r -p 'New note name: ' note_name || exit 0
+  validate_note_name "$note_name"
+  open_in_editor "$notes_dir/$note_name"
+}
+
+prompt_for_action() {
+  local choice
+
+  while true; do
+    printf '1) Open existing note\n'
+    printf '2) Create new note\n'
+    printf 'q) Quit\n'
+    read -r -p 'Choose an option: ' choice || exit 0
+
+    case "$choice" in
+      1 | o | open)
+        open_existing_note && return 0
+        ;;
+      2 | c | create)
+        create_note
+        return 0
+        ;;
+      q | quit)
+        return 0
+        ;;
+      *)
+        printf 'Invalid option: %s\n\n' "$choice" >&2
+        ;;
+    esac
+  done
+}
+
+main() {
+  case "${1:-}" in
+    '')
+      ;;
+    -h | --help)
+      usage
+      exit 0
+      ;;
+    *)
+      usage >&2
+      exit 1
+      ;;
+  esac
+
+  mkdir -p -- "$notes_dir"
+
+  if has_existing_notes; then
+    prompt_for_action
+  else
+    create_note
+  fi
+}
+
+main "$@"
