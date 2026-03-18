@@ -22,6 +22,10 @@ if [[ -f ~/.gitlab_access_token ]]; then
   export GITLAB_TOKEN
 fi
 
+if [[ -f ~/.figma ]]; then
+  source ~/.figma
+fi
+
 export TG_DOWNLOAD_DIR="${HOME}/.terragrunt-cache"
 
 export ASDF_LEGACY_VERSION_FILE=1
