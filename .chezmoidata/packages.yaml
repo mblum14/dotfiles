@@ -28,6 +28,7 @@ packages:
     - cosign
     - docker
     - docker-compose
+    - docker-credential-helper-ecr
     - dust
     - eza
     - fzf

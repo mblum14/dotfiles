@@ -1,11 +1,30 @@
 #!/usr/bin/env bash
 source "${BASH_SOURCE%/*}/log.sh"
 
+function gitlab_api::setup() {
+  export GITLAB_URL="${GITLAB_URL:-https://gitlab.com}"
+
+  if [[ -z ${GITLAB_TOKEN:-} && -f ${HOME}/.gitlab_access_token ]]; then
+    GITLAB_TOKEN="$(<"${HOME}/.gitlab_access_token")"
+    export GITLAB_TOKEN
+  fi
+
+  if [[ -z ${GITLAB_TOKEN:-} ]]; then
+    log::err "GITLAB_TOKEN is not set and ~/.gitlab_access_token was not found"
+    return 1
+  fi
+}
+
+function gitlab_api::urlencode() {
+  jq -nr --arg value "${1}" '$value|@uri'
+}
+
 function gitlab_api::curl() {
   local url=$1
   shift
+  gitlab_api::setup || return 1
   curl \
-    -s \
+    -fsSL \
     -H "Authorization: Bearer ${GITLAB_TOKEN}" \
     "${url}"
 }
@@ -13,6 +32,7 @@ function gitlab_api::curl() {
 function gitlab_api::put() {
   local url=$1
   local data=$2
+  gitlab_api::setup || return 1
   response="$(curl \
     -s \
     -w ",,,%{http_code}" \
