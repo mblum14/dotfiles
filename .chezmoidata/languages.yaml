@@ -1,7 +1,0 @@
-languages:
-  python: 3.12.12
-  golang: 1.25.5
-  java: openjdk-25
-  nodejs: latest
-  ruby: latest
-  rust: latest

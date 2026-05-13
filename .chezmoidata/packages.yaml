@@ -1,20 +1,4 @@
 packages:
-  asdf:
-    - awscli
-    - helm
-    - jq
-    - k9s
-    - krew
-    - kubectl
-    - kubectx
-    - nodejs
-    - poetry
-    - python
-    - terraform-docs
-    - tflint
-    - trivy
-    - uv
-    - yq
   brews:
     - ansible
     - asdf
@@ -46,10 +30,12 @@ packages:
     - jstkdng/programs/ueberzugpp
     - lazygit
     - luarocks
+    - mise
     - neovim
     - norwoodj/tap/helm-docs
     - poppler
     - pre-commit
+    - prek
     - ripgrep
     - sops
     - starship

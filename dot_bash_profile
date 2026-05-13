@@ -2,12 +2,13 @@
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-PATH="/opt/homebrew/bin":$PATH              # homebrew
-PATH="${HOME}/.cargo/bin":$PATH             # rust
-PATH="${GOPATH}/bin:$PATH"                  # golang
-PATH="${GOROOT}/bin:$PATH"                  # golang
-PATH=${HOME}/.local/bin:$PATH               # local scripts
-PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
+PATH="/opt/homebrew/bin":$PATH                    # homebrew
+PATH="${HOME}/.cargo/bin":$PATH                   # rust
+PATH="${GOPATH}/bin:$PATH"                        # golang
+PATH="${GOROOT}/bin:$PATH"                        # golang
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" # krew
+PATH=${HOME}/.local/bin:$PATH                     # local scripts
+PATH="/opt/local/bin:/opt/local/sbin:$PATH"       # macports
 
 export GOPATH="${HOME}/.go"
 GOROOT="$("$(brew --prefix)/bin/brew" --prefix golang)/libexec"
@@ -16,13 +17,10 @@ export GOROOT
 export HOMEBREW_PREFIX="/opt/homebrew"
 export BASH_COMPLETION_DIR="${HOME}/.bash_completion.d" # read by bash-completion to load custom completion files
 
+eval "$("$(brew --prefix)/bin/brew" shellenv bash)"
+
 if [[ -s "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]]; then
   source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-fi
-
-if [[ -s "${HOME}/.asdf/completions/asdf.bash" ]]; then
-  source "$(brew --prefix asdf)/libexec/asdf.sh"
-  source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 fi
 
 if [[ -d "$(brew --prefix)/opt/ruby/bin" ]]; then
@@ -34,11 +32,7 @@ if [[ -d "${HOME}/.cargo" ]]; then
   source "${HOME}/.cargo/env"
 fi
 
-eval "$("$(brew --prefix)/bin/brew" shellenv bash)"
-
-# ensure asdf is higher in the APTH than brew
-PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH" # asdf
-
+eval "$(mise activate bash)"
 export PATH
 
 source "${HOME}/.bashrc"
