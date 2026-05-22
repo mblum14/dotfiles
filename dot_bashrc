@@ -22,6 +22,10 @@ if [[ -f ~/.gitlab_access_token ]]; then
   export GITLAB_TOKEN
 fi
 
+if [[ -f ~/.jira_access_token ]]; then
+  source ~/.jira_access_token
+fi
+
 if [[ -f ~/.figma ]]; then
   source ~/.figma
 fi
