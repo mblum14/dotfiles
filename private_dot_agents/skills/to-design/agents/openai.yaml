@@ -1,0 +1,4 @@
+interface:
+  display_name: "To Design"
+  short_description: "Draft Kiro-style technical designs"
+  default_prompt: "Use $to-design to turn confirmed requirements.md into a Kiro-style design.md spec."

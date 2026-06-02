@@ -1,0 +1,4 @@
+interface:
+  display_name: "To Tasks"
+  short_description: "Draft Kiro-style implementation tasks"
+  default_prompt: "Use $to-tasks to turn confirmed requirements.md and design.md into a Kiro-style tasks.md plan."

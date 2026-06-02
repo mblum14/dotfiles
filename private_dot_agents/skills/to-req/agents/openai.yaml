@@ -1,0 +1,4 @@
+interface:
+  display_name: "To Requirements"
+  short_description: "Draft Kiro-style requirements specs"
+  default_prompt: "Use $to-req to turn this resolved plan into a Kiro-style requirements.md spec."
