@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if command -v pi >/dev/null 2>&1; then
+  echo "pi is already installed"
+else
+  curl -fsSL https://pi.dev/install.sh | sh
+fi

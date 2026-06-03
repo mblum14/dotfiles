@@ -1,0 +1,6 @@
+{
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "medium",
+  "packages": ["@ogulcancelik/pi-ghostty-theme-sync"]
+}
