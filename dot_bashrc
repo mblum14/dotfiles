@@ -31,6 +31,7 @@ if [[ -f ~/.figma ]]; then
 fi
 
 export TG_DOWNLOAD_DIR="${HOME}/.terragrunt-cache"
+export TENV_AUTO_INSTALL=true
 
 export ASDF_LEGACY_VERSION_FILE=1
 

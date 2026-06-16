@@ -14,6 +14,7 @@ Host pico.sh pgs.sh prose.sh tuns.sh pipe.pico.sh
 
 Host 192.168.1.77
   IdentityFile ~/.ssh/id_local
+
 Host homebridge.lab
   IdentityFile ~/.ssh/id_local
 

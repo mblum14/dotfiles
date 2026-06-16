@@ -22,7 +22,6 @@ function gitlab_api::urlencode() {
 function gitlab_api::curl() {
   local url=$1
   shift
-  gitlab_api::setup || return 1
   curl \
     -fsSL \
     -H "Authorization: Bearer ${GITLAB_TOKEN}" \
