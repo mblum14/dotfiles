@@ -2,5 +2,10 @@
   "defaultProvider": "openai",
   "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "medium",
-  "packages": ["@ogulcancelik/pi-ghostty-theme-sync"]
+  "packages": [
+    "@ogulcancelik/pi-ghostty-theme-sync",
+    "git:github.com/obra/superpowers",
+    "git:github.com/DietrichGebert/ponytail"
+  ],
+  "theme": "dark"
 }
