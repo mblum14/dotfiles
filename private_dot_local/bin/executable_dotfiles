@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source "${BASH_SOURCE%/*}/lib/log.sh"
+
+DOTFILES_DIR="${HOME}/.local/share/chezmoi"
+
+cd "${DOTFILES_DIR}" || (log::err "Unable to find ${DOTFILES_DIR}" && exit 1)
+tmux rename-window "dotfiles"
+tmux rename-session "home"
