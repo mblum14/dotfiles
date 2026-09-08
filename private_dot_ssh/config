@@ -2,11 +2,14 @@ Host github.com
   AddKeysToAgent yes
   IgnoreUnknown UseKeychain
   IdentityFile ~/.ssh/id_github
+
 Host gitlab.com
   AddKeysToAgent yes
   PreferredAuthentications publickey
   IgnoreUnknown UseKeychain
-  IdentityFile ~/.ssh/id_gitlab
+  User git
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_gitlab_michael.blumberg
 
 Host pico.sh pgs.sh prose.sh tuns.sh pipe.pico.sh
   IdentitiesOnly yes
@@ -16,6 +19,9 @@ Host 192.168.1.77
   IdentityFile ~/.ssh/id_local
 
 Host homebridge.lab
+  IdentityFile ~/.ssh/id_local
+
+Host home.lab
   IdentityFile ~/.ssh/id_local
 
 Host combine
