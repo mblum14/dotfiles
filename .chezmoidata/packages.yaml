@@ -10,6 +10,7 @@ packages:
     - chafa
     - coreutils
     - cosign
+    - crane
     - docker
     - docker-compose
     - docker-credential-helper-ecr
@@ -33,10 +34,12 @@ packages:
     - mise
     - neovim
     - norwoodj/tap/helm-docs
+    - podman
     - poppler
     - pre-commit
     - prek
     - ripgrep
+    - shellcheck
     - sops
     - starship
     - tectonic
