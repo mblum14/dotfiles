@@ -21,7 +21,12 @@ Host 192.168.1.77
 Host homebridge.lab
   IdentityFile ~/.ssh/id_local
 
-Host home.lab
+Host pihole.lab
+  HostName 192.168.1.234
+  User michaelblumberg
+  IdentityFile ~/.ssh/id_local
+
+Host *.lab
   IdentityFile ~/.ssh/id_local
 
 Host combine
