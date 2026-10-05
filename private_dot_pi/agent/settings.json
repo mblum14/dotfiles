@@ -5,9 +5,10 @@
   "packages": [
     "@ogulcancelik/pi-ghostty-theme-sync",
     "git:github.com/obra/superpowers",
-    "git:github.com/DietrichGebert/ponytail"
+    "git:github.com/DietrichGebert/ponytail",
+    "git:github.com/theclaymethod/unslop"
   ],
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "1.0.3",
   "theme": "dark",
   "hideThinkingBlock": true
 }
