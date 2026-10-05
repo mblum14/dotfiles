@@ -26,8 +26,8 @@ if [ "x$project_paths" != "x" ]; then
 
   if tmux has-session -t="${session}" >/dev/null 2>&1; then
     tmux switch-client -t "${session}"
-    if tmux list-panes -F "#{window_name}" | grep -qE "${window}\$"; then
-      window_id="$(tmux list-panes -a -F "#{window_id} #{window_name}" | grep -P "${window}\$" | awk '{print $1}')"
+    if tmux list-windows -F "#{window_name}" -t "${session}" | grep -qE "${window}\$"; then
+      window_id="$(tmux list-windows -a -F "#{window_id} #{window_name}" | grep "${window}\$" | awk '{print $1}')"
       tmux select-window -t "${window_id}"
     else
       tmux new-window -a -n "${window}" -c "${path}" -t "${session}"
