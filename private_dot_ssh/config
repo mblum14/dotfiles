@@ -4,6 +4,9 @@ Host github.com
   IdentityFile ~/.ssh/id_github
 
 Host gitlab.com
+  HostName altssh.gitlab.com
+  Port 443
+  HostKeyAlias gitlab.com
   AddKeysToAgent yes
   PreferredAuthentications publickey
   IgnoreUnknown UseKeychain
@@ -18,7 +21,10 @@ Host pico.sh pgs.sh prose.sh tuns.sh pipe.pico.sh
 Host 192.168.1.77
   IdentityFile ~/.ssh/id_local
 
+# alias to pihole.lab for now
 Host homebridge.lab
+  HostName 192.168.1.234
+  User michaelblumberg
   IdentityFile ~/.ssh/id_local
 
 Host pihole.lab
