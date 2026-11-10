@@ -34,6 +34,12 @@ export TG_DOWNLOAD_DIR="${HOME}/.terragrunt-cache"
 export TENV_AUTO_INSTALL=true
 
 export ASDF_LEGACY_VERSION_FILE=1
+export FZF_DEFAULT_OPTS=" \
+--color=fg:#ebdbb2,bg:#282828,hl:#fabd2f \
+--color=fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f \
+--color=info:#83a598,prompt:#b8bb26,pointer:#8ec07c \
+--color=marker:#fe8019,spinner:#d3869b,header:#fb4934"
+export BAT_THEME="gruvbox-dark"
 
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
