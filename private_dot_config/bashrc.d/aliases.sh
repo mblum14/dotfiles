@@ -50,12 +50,6 @@ alias tg.state="terragrunt state --source-update --download-dir ~/.terragrunt-ca
 alias tg.destroy="terragrunt destroy --source-update --download-dir ~/.terragrunt-cache"
 
 # aws profiles
-alias ea-infra='aws.login ea-infra'
-alias ea-infra-admin='aws.login ea-infra-adm'
-alias ea-dev='aws.login ea-dev'
-alias ea-dev-admin='aws.login ea-dev-adm'
-alias ea-prod='aws.login ea-prod'
-alias ea-prod-admin='aws.login ea-prod-adm'
 alias sq-combine='aws.login sequoia-combine'
 alias hz-dev='aws.login hz-dev'
 alias hz-dev-legacy='aws.login hz-dev-legacy'
@@ -65,4 +59,8 @@ alias hz-prod='aws.login hz-prod'
 alias hz-prod-legacy='aws.login hz-prod-legacy'
 alias hz-prod-admin='aws.login hz-prod-adm'
 alias hz-prod-ro='aws.login hz-prod-ro'
+alias labs-infra='aws.login labs-infra'
+alias labs-infra-admin='aws.login labs-infra-adm'
+alias labs-playground='aws.login labs-playground'
+alias labs-playground-admin='aws.login labs-playground-adm'
 alias localstack='export AWS_PROFILE=localstack'
